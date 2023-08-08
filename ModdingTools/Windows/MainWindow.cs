@@ -44,7 +44,17 @@ namespace ModdingTools.Windows
             "DO NOT RESEARCH",
             "CHAT, SAY POGGERS",
             "ALWAYSLOADED",
-            "FATAL ERROR 0x0"
+            "FATAL ERROR 0x0",
+
+            //JLINT-ADD: Additional text!! For fun!!!
+            "MODDING POWER COMES WITH MODDING IRRESPONSIBILITY",
+            "NO CRUNCH EDITION",
+            "STOLEN BY JLINTGOD EDITION",
+            "BROUGHT TO YOU BY CAW VPN",
+            "HI! WOULD YOU LIKE TWO BWUY A POOL TWOY?",
+            "REGANAM DOM NEPO",
+            "I HATE NO HATS ONLY MUSTARD!!",
+            "HEEH"
         };
 
         public enum CardControllerTabs
@@ -137,32 +147,13 @@ namespace ModdingTools.Windows
 
         private void mButton4_Click(object sender, EventArgs e)
         {
-            string modsRoot = Path.Combine(Program.ProcFactory.GetGamePath(), @"HatinTimeGame\Mods");
             var modName = CUInputWindow.Ask(this, "New mod", "Please enter a mod folder name", new ModNameValidator());
 
             if (modName == null)
                 return;
 
-            string modPath = Path.Combine(modsRoot, modName);
-            string modInfoPath = Path.Combine(modPath, "modinfo.ini");
-
-            Directory.CreateDirectory(modPath);
-            Directory.CreateDirectory(Path.Combine(modPath, "Classes"));
-            Directory.CreateDirectory(Path.Combine(modPath, "Content"));
-            Directory.CreateDirectory(Path.Combine(modPath, "Maps"));
-            Directory.CreateDirectory(Path.Combine(modPath, "Localization"));
-            Directory.CreateDirectory(Path.Combine(modPath, "Localization", "INT"));
-
-            using (StreamWriter sW = File.CreateText(modInfoPath))
-            {
-                sW.WriteLine("[Info]");
-                sW.WriteLine("name=" + modName);
-                sW.WriteLine("author=\"" + SteamFriends.GetPersonaName().Replace("\"", "\\\"") + "\"");
-                sW.WriteLine("description=\"Hello this is my all new mod!\"");
-                sW.WriteLine("version=\"1.0.0\"");
-                sW.WriteLine("is_cheat=false");
-                sW.WriteLine("icon=icon.jpg");
-            }
+            // JLINT-ADD: Moved from MainWindow to ModObject to have a common function to create a new mod.
+            ModObject.CreateNewMod(modName);
 
             modListControl1.ReloadList(() => {
                 var mod = modListControl1.GetMod(modName);

@@ -20,6 +20,11 @@ using ModdingTools.Windows.Tools;
 using System.Web;
 using ModdingTools.Settings;
 using System.Net;
+// JLINT-ADD: No idea why these were added.
+using ModdingTools.Windows;
+using Steamworks;
+using CUFramework.Dialogs;
+// JLINT-END
 
 namespace ModdingTools.Modding
 {
@@ -62,6 +67,10 @@ namespace ModdingTools.Modding
         public List<ModConfigItem> Config  { get; set; }
 
         public Dictionary<string, string> AssetReplacements;
+
+        //JLINT-ADD: Used for the always loaded workaround
+        public ModClass[] AlwaysLoadedClasses { get; set; }
+        public ModObject AlwaysLoadedReference { get; set; }
 
         public string[] AllowedMapTypes = new[] {
             "TimeRift", 
@@ -373,18 +382,66 @@ namespace ModdingTools.Modding
         {
             if (OMMSettings.Instance.AlwaysloadedWorkaround && OMMSettings.Instance.FastCook)
             {
-                throw new Exception("Idk how do you enabled FastCooking and AlwaysLoadedWorkaround at the same time, but please, choose only one lol");
+                //JLINT-ADD: Throwing an exception causes a crash, so show an error message instead(no one will see this though)
+                CUMessageBox.Show("Idk how do you enabled FastCooking and AlwaysLoadedWorkaround at the same time, but please, choose only one lol", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
             if (OMMSettings.Instance.AlwaysloadedWorkaround)
             {
                 runner.Log("[Experimental] Alwaysloaded workaround is enabled! Please report any issues!", CUFramework.Shared.LogLevel.Warn);
+
+                //JLINT-ADD: Ask the user about which classes they want AlwaysLoaded.
+                if (AlwaysLoadedReference == null || !GetDirectoryName().Contains(AlwaysLoadedReference.GetDirectoryName()))
+                {
+                    AlwaysLoadedClasses = ArrayCheckboxWindow.Ask("AlwaysLoaded Classes", "Which classes should be AlwaysLoaded?\n(NOTE: Any classes that are directly or INDIRECTLY referenced by an AlwaysLoaded class will become AlwaysLoaded too!)", GetModClasses()).Cast<ModClass>().ToArray();
+
+                    //JLINT-ADD: This creates a new mod that references our AlwaysLoaded classes, then compiles it
+                    //We need this if we want some of our other classes to be non-AlwaysLoaded.
+                    //More information in this guide from UnDrew: https://steamcommunity.com/sharedfiles/filedetails/?id=2888211200
+                    if (AlwaysLoadedClasses.Length > 0 && AlwaysLoadedClasses.Length < GetModClasses().Length)
+                    {
+                        runner.Log("Creating and compiling AlwaysLoaded reference mod...", CUFramework.Shared.LogLevel.Verbose);
+                        var NewModName = this.GetDirectoryName() + "_AlwaysLoaded";
+                        CreateNewMod(NewModName);
+                        AlwaysLoadedReference = RootSource.GetMods(NewModName)[0];
+                        AlwaysLoadedReference.AlwaysLoadedReference = this;
+
+                        var ClassContents = new StringBuilder();
+                        ClassContents.AppendLine("class " + this.GetDirectoryName() + "_ALRef extends Object;");
+                        ClassContents.AppendLine("var Array< class<Object> > RefClasses;");
+                        ClassContents.AppendLine("defaultproperties");
+                        ClassContents.AppendLine("{");
+                        foreach (var item in AlwaysLoadedClasses)
+                        {
+                            ClassContents.AppendLine("  RefClasses.Add( class'" + this.GetDirectoryName() + "." + item.ClassName + "' )");
+                        }
+                        ClassContents.AppendLine("}");
+                        File.WriteAllText(Path.Combine(AlwaysLoadedReference.GetClassesDir(), this.GetDirectoryName() + "_ALRef.uc"), ClassContents.ToString());
+
+                        AlwaysLoadedReference.CompileScripts(runner, false, false, false);
+                    }
+                }
+                else
+                {
+                    AlwaysLoadedClasses = GetModClasses();
+                }
+                //JLINT-END
+
                 if (!Directory.Exists(this.GetMapsDir()))
                     Directory.CreateDirectory(this.GetMapsDir());
                 var csc = Path.Combine(this.GetCompiledScriptsDir(), this.GetDirectoryName() + ".u");
+
                 if (File.Exists(csc))
                 {
-                    var target = Path.Combine(this.GetMapsDir(), this.GetDirectoryName() + ".umap");
+                    //JLINT-ADD: Support for non-AlwaysLoaded mod classes
+                    var target = "";
+                    if (AlwaysLoadedClasses.Length >= GetModClasses().Length)
+                        target = Path.Combine(this.GetMapsDir(), this.GetDirectoryName() + ".umap");
+                    else
+                        target = Path.Combine(this.GetCompiledScriptsDir(), this.GetDirectoryName() + ".upk");
+                    //JLINT-END
+
                     if (File.Exists(target))
                         File.Delete(target);
                     File.Move(csc, target);
@@ -407,22 +464,67 @@ namespace ModdingTools.Modding
             if (OMMSettings.Instance.AlwaysloadedWorkaround)
             {
                 Debug.WriteLine("OnCookingFinish called");
-                var scr = Path.Combine(this.GetMapsDir(), this.GetDirectoryName() + ".umap");
-                if (File.Exists(scr))
+
+                //JLINT-ADD: Uhh... There's alot to unpack here, but basically, organization of class files and stuff, more cooking, destroying.
+                var scr = "";
+                var target = "";
+                if (AlwaysLoadedReference == null)
                 {
-                    var target = Path.Combine(this.GetCompiledScriptsDir(), this.GetDirectoryName() + ".u");
-                    if (File.Exists(target))
-                        File.Delete(target);
-                    File.Move(scr, target);
+                    if (AlwaysLoadedClasses.Length >= GetModClasses().Length)
+                        scr = Path.Combine(this.GetMapsDir(), this.GetDirectoryName() + ".umap");
+                    else
+                        scr = Path.Combine(this.GetCompiledScriptsDir(), this.GetDirectoryName() + ".upk");
+
+                    if (File.Exists(scr))
+                    {
+                        target = Path.Combine(this.GetCompiledScriptsDir(), this.GetDirectoryName() + ".u");
+                        if (File.Exists(target))
+                            File.Delete(target);
+                        File.Move(scr, target);
+                    }
                 }
+
                 var cooked = Path.Combine(this.GetCookedDir(), this.GetDirectoryName() + ".umap");
+                target = Path.Combine(this.GetCookedDir(), this.GetDirectoryName() + ".u");
+
+                if (File.Exists(target))
+                    File.Delete(target);
+
                 if (File.Exists(cooked))
-                {
-                    var target = Path.Combine(this.GetCookedDir(), this.GetDirectoryName() + ".u");
-                    if (File.Exists(target))
-                        File.Delete(target);
                     File.Move(cooked, target);
+
+                if (AlwaysLoadedReference != null)
+                {
+                    if (GetDirectoryName().Contains(AlwaysLoadedReference.GetDirectoryName()))
+                    {
+                        cooked = Path.Combine(this.GetCookedDir(), this.GetDirectoryName() + ".u");
+                        target = Path.Combine(AlwaysLoadedReference.GetCookedDir(), AlwaysLoadedReference.GetDirectoryName() + ".u");
+                        if (File.Exists(target))
+                            File.Delete(target);
+
+                        if (File.Exists(cooked))
+                            File.Move(cooked, target);
+
+                        scr = Path.Combine(AlwaysLoadedReference.GetCompiledScriptsDir(), AlwaysLoadedReference.GetDirectoryName() + ".upk");
+                        if (File.Exists(scr))
+                        {
+                            target = Path.Combine(AlwaysLoadedReference.GetCompiledScriptsDir(), AlwaysLoadedReference.GetDirectoryName() + ".u");
+                            if (File.Exists(target))
+                                File.Delete(target);
+                            File.Move(scr, target);
+                        }
+
+                        //We no longer need our AlwaysLoaded reference mod, destroy it!
+                        AlwaysLoadedReference.AlwaysLoadedReference = null;
+                        AlwaysLoadedReference = null;
+                        this.Delete();
+                    }
+                    else
+                    {
+                        AlwaysLoadedReference.CookMod(MainWindow.Instance.Runner, false, false, false);
+                    }
                 }
+                //JLINT-END
             }
         }
 
@@ -887,6 +989,33 @@ namespace ModdingTools.Modding
             catch (Exception)
             {
                 return noIconImage;
+            }
+        }
+
+        // JLINT-ADD: Moved from MainWindow to ModObject to have a common function to create a new mod.
+        // I should probably give this a return value like a bool to verify a sucessful action, but oh well.
+        public static void CreateNewMod(string modName)
+        {
+            string modsRoot = Path.Combine(Program.ProcFactory.GetGamePath(), @"HatinTimeGame\Mods");
+            string modPath = Path.Combine(modsRoot, modName);
+            string modInfoPath = Path.Combine(modPath, "modinfo.ini");
+
+            Directory.CreateDirectory(modPath);
+            Directory.CreateDirectory(Path.Combine(modPath, "Classes"));
+            Directory.CreateDirectory(Path.Combine(modPath, "Content"));
+            Directory.CreateDirectory(Path.Combine(modPath, "Maps"));
+            Directory.CreateDirectory(Path.Combine(modPath, "Localization"));
+            Directory.CreateDirectory(Path.Combine(modPath, "Localization", "INT"));
+
+            using (StreamWriter sW = File.CreateText(modInfoPath))
+            {
+                sW.WriteLine("[Info]");
+                sW.WriteLine("name=" + modName);
+                sW.WriteLine("author=\"" + SteamFriends.GetPersonaName().Replace("\"", "\\\"") + "\"");
+                sW.WriteLine("description=\"Hello this is my all new mod!\"");
+                sW.WriteLine("version=\"1.0.0\"");
+                sW.WriteLine("is_cheat=false");
+                sW.WriteLine("icon=icon.jpg");
             }
         }
 
