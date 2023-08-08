@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ModdingTools</RootNamespace>
     <AssemblyName>ModdingTools</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile>
@@ -64,6 +64,19 @@
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>ModdingTools_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommandLine, Version=2.8.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
@@ -174,12 +187,22 @@
     <Compile Include="Logging\Handlers\DebuggerLogger.cs" />
     <Compile Include="Logging\ILogger.cs" />
     <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Settings\OMMSettings.cs" />
     <Compile Include="Windows\ArgEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Windows\ArgEditor.Designer.cs">
       <DependentUpon>ArgEditor.cs</DependentUpon>
+    <Compile Include="Windows\ArrayCheckboxWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\ArrayCheckboxWindow.Designer.cs">
+      <DependentUpon>ArrayCheckboxWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\ArrayInputWindow.cs">
       <SubType>Form</SubType>
@@ -316,6 +339,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\ArgEditor.resx">
       <DependentUpon>ArgEditor.cs</DependentUpon>
+    <EmbeddedResource Include="Windows\ArrayCheckboxWindow.resx">
+      <DependentUpon>ArrayCheckboxWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\ArrayInputWindow.resx">
       <DependentUpon>ArrayInputWindow.cs</DependentUpon>
@@ -364,14 +389,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Windows\WorkshopLocker.resx">
       <DependentUpon>WorkshopLocker.cs</DependentUpon>
     </EmbeddedResource>
@@ -389,6 +409,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hueh.ico" />
+    <Content Include="Resources\weapon.png" />
+    <None Include="Resources\jlintgod_mugshot.png" />
     <None Include="Resources\noimage_wide.png" />
     <None Include="Resources\about.png" />
     <None Include="Resources\heeh_3.png" />

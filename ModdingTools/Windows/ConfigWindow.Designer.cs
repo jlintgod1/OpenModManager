@@ -61,11 +61,11 @@ namespace ModdingTools.Windows
             this.mButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton3.ForeColor = System.Drawing.Color.Black;
             this.mButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton3.Location = new System.Drawing.Point(456, 4);
-            this.mButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton3.Location = new System.Drawing.Point(458, 4);
+            this.mButton3.Margin = new System.Windows.Forms.Padding(4);
             this.mButton3.Name = "mButton3";
             this.mButton3.NoFocus = false;
-            this.mButton3.Size = new System.Drawing.Size(445, 39);
+            this.mButton3.Size = new System.Drawing.Size(447, 39);
             this.mButton3.TabIndex = 8;
             this.mButton3.Text = "CANCEL";
             this.mButton3.UseVisualStyleBackColor = false;
@@ -81,10 +81,10 @@ namespace ModdingTools.Windows
             this.mButton2.ForeColor = System.Drawing.Color.White;
             this.mButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mButton2.Location = new System.Drawing.Point(4, 4);
-            this.mButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton2.Margin = new System.Windows.Forms.Padding(4);
             this.mButton2.Name = "mButton2";
             this.mButton2.NoFocus = false;
-            this.mButton2.Size = new System.Drawing.Size(444, 39);
+            this.mButton2.Size = new System.Drawing.Size(446, 39);
             this.mButton2.TabIndex = 7;
             this.mButton2.Text = "SAVE";
             this.mButton2.UseVisualStyleBackColor = false;
@@ -110,7 +110,7 @@ namespace ModdingTools.Windows
             // checkBox2
             // 
             this.checkBox2.Location = new System.Drawing.Point(13, 117);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(400, 54);
             this.checkBox2.TabIndex = 4;
@@ -121,7 +121,7 @@ namespace ModdingTools.Windows
             // checkBox1
             // 
             this.checkBox1.Location = new System.Drawing.Point(13, 63);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(400, 48);
             this.checkBox1.TabIndex = 1;
@@ -165,8 +165,8 @@ namespace ModdingTools.Windows
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(433, 48);
             this.checkBox6.TabIndex = 13;
-            this.checkBox6.Text = "Enabling fast script cooking [experimental].\r\n(do not re-cook maps when only scri" +
-    "pts have been changed)";
+            this.checkBox6.Text = "[experimental] Fast script cooking\r\n(do not re-cook maps when only scripts have b" +
+    "een changed)";
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
             // checkBox7
@@ -236,8 +236,6 @@ namespace ModdingTools.Windows
             // 
             // cuButton1
             // 
-            this.cuButton1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.cuButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.cuButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.cuButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -260,7 +258,8 @@ namespace ModdingTools.Windows
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Size = new System.Drawing.Size(433, 42);
             this.checkBox11.TabIndex = 21;
-            this.checkBox11.Text = "[experimental] AlwaysLoaded workaround";
+            this.checkBox11.Text = "[experimental] AlwaysLoaded workaround\r\n(allow non-AlwaysLoaded classes to be ref" +
+    "erenced along with making your own classes non-AlwaysLoaded)";
             this.checkBox11.UseVisualStyleBackColor = true;
             // 
             // cuButton2

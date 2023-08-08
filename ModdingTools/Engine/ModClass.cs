@@ -53,7 +53,7 @@ namespace ModdingTools.Engine
             { ModClassType.Hat,         Properties.Resources.hat        },
             { ModClassType.Remix,       Properties.Resources.remix      },
             { ModClassType.Sticker,     Properties.Resources.sticker    },
-            { ModClassType.Weapon,      Properties.Resources.weapon     },
+            { ModClassType.Weapon,      Properties.Resources.weapon     }, // JLINT-ADD: Added weapon icon
             { ModClassType.Generic,     Properties.Resources.generic    },
             { ModClassType.Skin,        Properties.Resources.dye        },
             { ModClassType.GameMod,     Properties.Resources.generic    },

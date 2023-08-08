@@ -68,8 +68,9 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(695, 70);
             this.label1.TabIndex = 2;
-            this.label1.Text = "OpenModManager";
+            this.label1.Text = "OpenModManager (Jlintgod Edition)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -126,6 +127,7 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "-";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cuButton4
             // 
@@ -133,6 +135,7 @@
             this.cuButton4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cuButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.cuButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cuButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuButton4.ForeColor = System.Drawing.Color.White;
             this.cuButton4.Location = new System.Drawing.Point(420, 0);
             this.cuButton4.Margin = new System.Windows.Forms.Padding(0);
@@ -152,8 +155,9 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(695, 28);
             this.label4.TabIndex = 9;
-            this.label4.Text = "by m_cube/m_cu8";
+            this.label4.Text = "Forked from m_cube/m_cu8";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -213,7 +217,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::ModdingTools.Properties.Resources.heeh_1b;
+            this.panel1.BackgroundImage = global::ModdingTools.Properties.Resources.jlintgod_mugshot;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Location = new System.Drawing.Point(3, 43);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);

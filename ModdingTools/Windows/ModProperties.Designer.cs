@@ -217,7 +217,7 @@ namespace ModdingTools.Windows
             this.modName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.modName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.modName.Font = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.modName.Location = new System.Drawing.Point(158, 33);
+            this.modName.Location = new System.Drawing.Point(184, 33);
             this.modName.Name = "modName";
             this.modName.Size = new System.Drawing.Size(225, 24);
             this.modName.TabIndex = 13;
@@ -230,7 +230,7 @@ namespace ModdingTools.Windows
             this.modFolderName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.modFolderName.Cursor = System.Windows.Forms.Cursors.Hand;
             this.modFolderName.Font = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.modFolderName.Location = new System.Drawing.Point(158, 66);
+            this.modFolderName.Location = new System.Drawing.Point(184, 66);
             this.modFolderName.Name = "modFolderName";
             this.modFolderName.Size = new System.Drawing.Size(225, 24);
             this.modFolderName.TabIndex = 14;
@@ -331,6 +331,7 @@ namespace ModdingTools.Windows
             this.tabControl2.Controls.Add(this.tab8);
             this.tabControl2.Controls.Add(this.tab2);
             this.tabControl2.Controls.Add(this.tab1);
+            this.tabControl2.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
             this.tabControl2.ImageList = this.imageList1;
             this.tabControl2.Location = new System.Drawing.Point(109, 93);
             this.tabControl2.Multiline = true;
@@ -394,7 +395,7 @@ namespace ModdingTools.Windows
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 211);
+            this.label1.Location = new System.Drawing.Point(2, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 14;
@@ -436,7 +437,7 @@ namespace ModdingTools.Windows
             this.levelType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.levelType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.levelType.FormattingEnabled = true;
-            this.levelType.Location = new System.Drawing.Point(80, 208);
+            this.levelType.Location = new System.Drawing.Point(85, 208);
             this.levelType.Name = "levelType";
             this.levelType.Size = new System.Drawing.Size(180, 28);
             this.levelType.TabIndex = 13;
@@ -594,7 +595,7 @@ namespace ModdingTools.Windows
             // 
             this.label13.Location = new System.Drawing.Point(18, 99);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(134, 24);
+            this.label13.Size = new System.Drawing.Size(156, 24);
             this.label13.TabIndex = 23;
             this.label13.Text = "AUTHOR OR CREDITS:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -604,7 +605,7 @@ namespace ModdingTools.Windows
             this.label20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label20.Location = new System.Drawing.Point(158, 167);
+            this.label20.Location = new System.Drawing.Point(184, 167);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(225, 24);
             this.label20.TabIndex = 33;
@@ -626,7 +627,7 @@ namespace ModdingTools.Windows
             this.lblAuthor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.lblAuthor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAuthor.Font = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblAuthor.Location = new System.Drawing.Point(158, 99);
+            this.lblAuthor.Location = new System.Drawing.Point(184, 99);
             this.lblAuthor.Name = "lblAuthor";
             this.lblAuthor.Size = new System.Drawing.Size(225, 24);
             this.lblAuthor.TabIndex = 22;
@@ -648,7 +649,7 @@ namespace ModdingTools.Windows
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.label5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 11.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label5.Location = new System.Drawing.Point(158, 132);
+            this.label5.Location = new System.Drawing.Point(184, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(225, 24);
             this.label5.TabIndex = 17;
@@ -693,7 +694,7 @@ namespace ModdingTools.Windows
             this.cuGroupBox6.HeaderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
             this.cuGroupBox6.HeaderFontColor = System.Drawing.Color.Black;
             this.cuGroupBox6.HeaderHeight = 25;
-            this.cuGroupBox6.HeaderText = "CREATORS DLC STUFF (BETA)";
+            this.cuGroupBox6.HeaderText = "CREATOR DLC ASSETS (BETA)";
             this.cuGroupBox6.Location = new System.Drawing.Point(0, 49);
             this.cuGroupBox6.Margin = new System.Windows.Forms.Padding(0);
             this.cuGroupBox6.Name = "cuGroupBox6";
@@ -704,6 +705,7 @@ namespace ModdingTools.Windows
             // label26
             // 
             this.label26.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label26.Font = new System.Drawing.Font("Segoe UI Semilight", 7F);
             this.label26.Location = new System.Drawing.Point(6, 163);
             this.label26.Name = "label26";
             this.label26.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -716,6 +718,7 @@ namespace ModdingTools.Windows
             // label25
             // 
             this.label25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label25.Font = new System.Drawing.Font("Segoe UI Semilight", 7F);
             this.label25.Location = new System.Drawing.Point(115, 163);
             this.label25.Name = "label25";
             this.label25.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -728,6 +731,7 @@ namespace ModdingTools.Windows
             // label24
             // 
             this.label24.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Semilight", 7F);
             this.label24.Location = new System.Drawing.Point(225, 163);
             this.label24.Name = "label24";
             this.label24.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -740,6 +744,7 @@ namespace ModdingTools.Windows
             // label23
             // 
             this.label23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Semilight", 7F);
             this.label23.Location = new System.Drawing.Point(331, 163);
             this.label23.Name = "label23";
             this.label23.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -774,7 +779,7 @@ namespace ModdingTools.Windows
             // 
             // label19
             // 
-            this.label19.Location = new System.Drawing.Point(222, 37);
+            this.label19.Location = new System.Drawing.Point(229, 37);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(96, 44);
             this.label19.TabIndex = 31;
@@ -806,9 +811,10 @@ namespace ModdingTools.Windows
             // 
             // label18
             // 
-            this.label18.Location = new System.Drawing.Point(113, 38);
+            this.label18.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.label18.Location = new System.Drawing.Point(113, 37);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(96, 43);
+            this.label18.Size = new System.Drawing.Size(107, 43);
             this.label18.TabIndex = 29;
             this.label18.Text = "BACKGROUND:";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -838,7 +844,7 @@ namespace ModdingTools.Windows
             // 
             // label16
             // 
-            this.label16.Location = new System.Drawing.Point(2, 37);
+            this.label16.Location = new System.Drawing.Point(11, 38);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(95, 43);
             this.label16.TabIndex = 27;
@@ -870,7 +876,7 @@ namespace ModdingTools.Windows
             // 
             // label15
             // 
-            this.label15.Location = new System.Drawing.Point(333, 37);
+            this.label15.Location = new System.Drawing.Point(336, 37);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(95, 43);
             this.label15.TabIndex = 25;
@@ -902,7 +908,7 @@ namespace ModdingTools.Windows
             this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(159, 3);
+            this.comboBox2.Location = new System.Drawing.Point(185, 3);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(224, 28);
             this.comboBox2.TabIndex = 28;
@@ -1379,7 +1385,7 @@ namespace ModdingTools.Windows
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(0, 3);
+            this.label6.Location = new System.Drawing.Point(3, -2);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 20);
             this.label6.TabIndex = 21;
@@ -1392,7 +1398,7 @@ namespace ModdingTools.Windows
             this.mButton9.BackColor = System.Drawing.Color.Green;
             this.mButton9.FlatAppearance.BorderColor = System.Drawing.Color.Green;
             this.mButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.mButton9.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.mButton9.Font = new System.Drawing.Font("Segoe UI", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.mButton9.ForeColor = System.Drawing.Color.White;
             this.mButton9.Image = global::ModdingTools.Properties.Resources.play;
             this.mButton9.Location = new System.Drawing.Point(299, 3);
@@ -1436,16 +1442,17 @@ namespace ModdingTools.Windows
             this.mButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(64)))));
             this.mButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(64)))));
             this.mButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mButton1.Font = new System.Drawing.Font("Segoe UI Semilight", 7.5F);
             this.mButton1.ForeColor = System.Drawing.Color.White;
             this.mButton1.Image = global::ModdingTools.Properties.Resources.steam1;
-            this.mButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.mButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mButton1.Location = new System.Drawing.Point(649, 43);
             this.mButton1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.mButton1.Name = "mButton1";
             this.mButton1.NoFocus = false;
-            this.mButton1.Size = new System.Drawing.Size(166, 46);
+            this.mButton1.Size = new System.Drawing.Size(166, 49);
             this.mButton1.TabIndex = 11;
-            this.mButton1.Text = "VIEW IN\r\nSTEAM WORKSHOP";
+            this.mButton1.Text = "VIEW IN STEAM \r\nWORKSHOP";
             this.mButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.mButton1.UseVisualStyleBackColor = false;
@@ -1456,6 +1463,7 @@ namespace ModdingTools.Windows
             this.mButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(64)))));
             this.mButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(64)))));
             this.mButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.mButton3.Font = new System.Drawing.Font("Segoe UI Semilight", 7.5F);
             this.mButton3.ForeColor = System.Drawing.Color.White;
             this.mButton3.Image = global::ModdingTools.Properties.Resources.folder;
             this.mButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1496,11 +1504,11 @@ namespace ModdingTools.Windows
             this.mButton2.ForeColor = System.Drawing.Color.White;
             this.mButton2.Image = global::ModdingTools.Properties.Resources.refresh;
             this.mButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.mButton2.Location = new System.Drawing.Point(485, 5);
+            this.mButton2.Location = new System.Drawing.Point(473, 5);
             this.mButton2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.mButton2.Name = "mButton2";
             this.mButton2.NoFocus = false;
-            this.mButton2.Size = new System.Drawing.Size(96, 27);
+            this.mButton2.Size = new System.Drawing.Size(108, 27);
             this.mButton2.TabIndex = 10;
             this.mButton2.Text = "REFRESH";
             this.mButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
