@@ -33,6 +33,7 @@ namespace ModdingTools.Settings
         public bool KillEditorBeforeCooking { get; set; } = false;
         public bool MafiaPunchGameToo { get; set; } = false;
         public bool AlwaysloadedWorkaround { get; set; } = false;
+        public bool AutoWorkshopLocker { get; set; } = false; //JLINT-ADD: Introduced auto workshop locker setting
 
         public enum ArgsDefaultsKeys
         {
