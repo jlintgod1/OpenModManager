@@ -48,6 +48,7 @@ namespace ModdingTools.Windows
             this.cardController1 = new CUFramework.Controls.Tabs.CUCardController();
             this.panel1 = new System.Windows.Forms.Panel();
             this.cuButton1 = new CUFramework.Controls.CUButton();
+            this.cuButton2 = new CUFramework.Controls.CUButton();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@ namespace ModdingTools.Windows
             this.mButton3.ForeColor = System.Drawing.Color.Black;
             this.mButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mButton3.Location = new System.Drawing.Point(261, 1);
-            this.mButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton3.Margin = new System.Windows.Forms.Padding(4);
             this.mButton3.Name = "mButton3";
             this.mButton3.NoFocus = false;
             this.mButton3.Size = new System.Drawing.Size(324, 41);
@@ -77,7 +78,7 @@ namespace ModdingTools.Windows
             this.mButton4.ForeColor = System.Drawing.Color.White;
             this.mButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mButton4.Location = new System.Drawing.Point(3, 2);
-            this.mButton4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton4.Margin = new System.Windows.Forms.Padding(4);
             this.mButton4.Name = "mButton4";
             this.mButton4.NoFocus = false;
             this.mButton4.Size = new System.Drawing.Size(256, 39);
@@ -93,7 +94,7 @@ namespace ModdingTools.Windows
             this.mTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
             this.mTextBox1.ForeColor = System.Drawing.Color.White;
             this.mTextBox1.Location = new System.Drawing.Point(850, 10);
-            this.mTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mTextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.mTextBox1.Name = "mTextBox1";
             this.mTextBox1.Size = new System.Drawing.Size(412, 22);
             this.mTextBox1.TabIndex = 8;
@@ -120,8 +121,8 @@ namespace ModdingTools.Windows
             this.mButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton1.ForeColor = System.Drawing.Color.White;
             this.mButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton1.Location = new System.Drawing.Point(888, 4);
-            this.mButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton1.Location = new System.Drawing.Point(891, 2);
+            this.mButton1.Margin = new System.Windows.Forms.Padding(4);
             this.mButton1.Name = "mButton1";
             this.mButton1.NoFocus = false;
             this.mButton1.Size = new System.Drawing.Size(193, 37);
@@ -182,7 +183,7 @@ namespace ModdingTools.Windows
             this.mButton6.Image = global::ModdingTools.Properties.Resources.tools;
             this.mButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.mButton6.Location = new System.Drawing.Point(631, 2);
-            this.mButton6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton6.Margin = new System.Windows.Forms.Padding(4);
             this.mButton6.Name = "mButton6";
             this.mButton6.NoFocus = false;
             this.mButton6.Size = new System.Drawing.Size(109, 37);
@@ -200,9 +201,8 @@ namespace ModdingTools.Windows
             this.mButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton5.ForeColor = System.Drawing.Color.White;
             this.mButton5.Image = global::ModdingTools.Properties.Resources.console1;
-            this.mButton5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton5.Location = new System.Drawing.Point(741, 4);
-            this.mButton5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton5.Location = new System.Drawing.Point(741, 2);
+            this.mButton5.Margin = new System.Windows.Forms.Padding(4);
             this.mButton5.Name = "mButton5";
             this.mButton5.NoFocus = false;
             this.mButton5.Size = new System.Drawing.Size(47, 36);
@@ -219,8 +219,8 @@ namespace ModdingTools.Windows
             this.mButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton2.ForeColor = System.Drawing.Color.White;
             this.mButton2.Image = global::ModdingTools.Properties.Resources.settings_icon;
-            this.mButton2.Location = new System.Drawing.Point(789, 5);
-            this.mButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton2.Location = new System.Drawing.Point(789, 2);
+            this.mButton2.Margin = new System.Windows.Forms.Padding(4);
             this.mButton2.Name = "mButton2";
             this.mButton2.NoFocus = false;
             this.mButton2.Size = new System.Drawing.Size(49, 34);
@@ -248,8 +248,8 @@ namespace ModdingTools.Windows
             this.panel1.Controls.Add(this.mTextBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 41);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(3, 34);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1271, 43);
             this.panel1.TabIndex = 37;
@@ -262,21 +262,40 @@ namespace ModdingTools.Windows
             this.cuButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton1.ForeColor = System.Drawing.Color.White;
             this.cuButton1.Image = global::ModdingTools.Properties.Resources.about;
-            this.cuButton1.Location = new System.Drawing.Point(841, 5);
-            this.cuButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cuButton1.Location = new System.Drawing.Point(841, 4);
+            this.cuButton1.Margin = new System.Windows.Forms.Padding(4);
             this.cuButton1.Name = "cuButton1";
             this.cuButton1.NoFocus = false;
-            this.cuButton1.Size = new System.Drawing.Size(43, 34);
+            this.cuButton1.Size = new System.Drawing.Size(49, 34);
             this.cuButton1.TabIndex = 38;
             this.cuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cuButton1.UseVisualStyleBackColor = false;
             this.cuButton1.Click += new System.EventHandler(this.cuButton1_Click);
+            // 
+            // cuButton2
+            // 
+            this.cuButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cuButton2.BackColor = System.Drawing.Color.Black;
+            this.cuButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.cuButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cuButton2.ForeColor = System.Drawing.Color.White;
+            this.cuButton2.Image = global::ModdingTools.Properties.Resources.about;
+            this.cuButton2.Location = new System.Drawing.Point(839, 2);
+            this.cuButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.cuButton2.Name = "cuButton2";
+            this.cuButton2.NoFocus = false;
+            this.cuButton2.Size = new System.Drawing.Size(49, 34);
+            this.cuButton2.TabIndex = 5;
+            this.cuButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cuButton2.UseVisualStyleBackColor = false;
+            this.cuButton2.Click += new System.EventHandler(this.cuButton1_Click);
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1277, 634);
+            this.Controls.Add(this.cuButton2);
             this.Controls.Add(this.cuButton1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cardController1);
@@ -287,11 +306,12 @@ namespace ModdingTools.Windows
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(2560, 1268);
             this.MinimumSize = new System.Drawing.Size(1277, 634);
             this.Name = "MainWindow";
             this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResizeBegin += new System.EventHandler(this.MainWindow_ResizeBegin);
             this.ResizeEnd += new System.EventHandler(this.MainWindow_ResizeEnd);
@@ -302,6 +322,7 @@ namespace ModdingTools.Windows
             this.Controls.SetChildIndex(this.cardController1, 0);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.cuButton1, 0);
+            this.Controls.SetChildIndex(this.cuButton2, 0);
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -325,6 +346,7 @@ namespace ModdingTools.Windows
         private System.Windows.Forms.Panel panel1;
         private CUButton cuButton1;
         private System.Windows.Forms.ToolStripMenuItem wORKSHOPBLOCKERToolStripMenuItem;
+        private CUButton cuButton2;
     }
 }
 

@@ -32,13 +32,8 @@ namespace ModdingTools.Windows
             a.checkedListBox1.ValueMember = "ClassName";
             a.checkBox1.Checked = true;
             if (defaultItems != null)
-            {
                 foreach (var i in defaultItems)
-                {
                     a.checkedListBox1.Items.Add(i, true);
-                    //TODO: Disable the checkbox if the mod class needs to be AlwaysLoaded(like Death Wishes and cosmetics)
-                }
-            }
                 
             var result = a.ShowDialog();
             if (result == DialogResult.OK)
@@ -53,6 +48,17 @@ namespace ModdingTools.Windows
 
         private void checkedListBox1_ItemCheck(object sender, ItemCheckEventArgs e)
         {
+            Object Item = checkedListBox1.Items[e.Index];
+
+            if (Item is ModClass && ((ModClass)Item).ClassType != ModClass.ModClassType.Generic && e.NewValue == CheckState.Unchecked)
+            {
+                e.NewValue = e.CurrentValue;
+                //checkedListBox1.SetItemCheckState(e.Index, e.CurrentValue);
+                CUMessageBox.Show( ((ModClass)Item).ClassName + " should be AlwaysLoaded because it is a " + ((ModClass)Item).ClassType.ToString() + "!" );
+
+                return;
+            }
+
             var CheckedLengthChange = checkedListBox1.CheckedItems.Count + (e.NewValue == CheckState.Checked ? 1 : -1);
 
             if (CheckedLengthChange >= checkedListBox1.Items.Count)
@@ -65,12 +71,12 @@ namespace ModdingTools.Windows
 
         private void checkBox1_Click(object sender, EventArgs e)
         {
-            if (checkBox1.CheckState == CheckState.Indeterminate)
-                checkBox1.CheckState = CheckState.Unchecked;
-
             var SelectAll = checkBox1.CheckState == CheckState.Checked;
             for (int i = 0; i < checkedListBox1.Items.Count; i++)
                 checkedListBox1.SetItemChecked(i, SelectAll);
+
+            if (checkBox1.CheckState == CheckState.Indeterminate)
+                checkBox1.CheckState = CheckState.Unchecked;
         }
 
         private void cuButton2_Click(object sender, EventArgs e)

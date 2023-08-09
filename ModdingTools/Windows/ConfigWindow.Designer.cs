@@ -48,6 +48,7 @@ namespace ModdingTools.Windows
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.cuButton1 = new CUFramework.Controls.CUButton();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
+            this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -260,12 +261,23 @@ namespace ModdingTools.Windows
     "erenced along with making your own classes non-AlwaysLoaded)";
             this.checkBox11.UseVisualStyleBackColor = true;
             // 
+            // checkBox12
+            // 
+            this.checkBox12.Location = new System.Drawing.Point(13, 272);
+            this.checkBox12.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.Size = new System.Drawing.Size(400, 54);
+            this.checkBox12.TabIndex = 22;
+            this.checkBox12.Text = "Auto Workshop Locker\r\n(requires restart and admin privileges)";
+            this.checkBox12.UseVisualStyleBackColor = true;
+            // 
             // ConfigWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 480);
             this.ControlBoxVisible = false;
+            this.Controls.Add(this.checkBox12);
             this.Controls.Add(this.checkBox11);
             this.Controls.Add(this.cuButton1);
             this.Controls.Add(this.checkBox10);
@@ -304,6 +316,7 @@ namespace ModdingTools.Windows
             this.Controls.SetChildIndex(this.checkBox10, 0);
             this.Controls.SetChildIndex(this.cuButton1, 0);
             this.Controls.SetChildIndex(this.checkBox11, 0);
+            this.Controls.SetChildIndex(this.checkBox12, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -328,5 +341,6 @@ namespace ModdingTools.Windows
         private System.Windows.Forms.CheckBox checkBox10;
         private CUButton cuButton1;
         private System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.CheckBox checkBox12;
     }
 }

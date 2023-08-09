@@ -1,4 +1,6 @@
-﻿namespace ModdingTools.Windows
+﻿using System.Windows.Forms;
+
+namespace ModdingTools.Windows
 {
     partial class ArrayCheckboxWindow
     {

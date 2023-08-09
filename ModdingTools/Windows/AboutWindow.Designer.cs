@@ -250,6 +250,7 @@
             this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Text = "About...";
             this.TitlebarColor = System.Drawing.Color.Black;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AboutWindow_FormClosing);
             this.Controls.SetChildIndex(this.cuButton1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);

@@ -40,6 +40,7 @@ namespace ModdingTools.Windows
             checkBox9.Checked = OMMSettings.Instance.KillEditorBeforeCooking;
             checkBox10.Checked = OMMSettings.Instance.MafiaPunchGameToo;
             checkBox11.Checked = OMMSettings.Instance.AlwaysloadedWorkaround;
+            checkBox12.Checked = OMMSettings.Instance.AutoWorkshopLocker;
         }
 
         private void SaveSettings()
@@ -55,6 +56,7 @@ namespace ModdingTools.Windows
             OMMSettings.Instance.KillEditorBeforeCooking = checkBox9.Checked;
             OMMSettings.Instance.MafiaPunchGameToo = checkBox10.Checked;
             OMMSettings.Instance.AlwaysloadedWorkaround = checkBox11.Checked;
+            OMMSettings.Instance.AutoWorkshopLocker = checkBox12.Checked;
             OMMSettings.Instance.Save();
         }
 

@@ -17,11 +17,12 @@ namespace ModdingTools.Engine
         static SoundPlayer pl;
         static bool IsPlaying = false;
 
-        public static void PlayElevatorMusic()
+        //JLINT-CHANGE: Music file name is now an argument
+        public static void PlayElevatorMusic(string FilePath)
         {
             if (IsPlaying) return; // prevent the ear-rape
             if (!OMMSettings.Instance.Memes) return;
-            var ph = Path.Combine(Program.GetAppRoot(), @"lol.wav");
+            var ph = Path.Combine(Program.GetAppRoot(), @FilePath);
             if (!File.Exists(ph)) return;
             Debug.WriteLine("MemeStart()");
             IsPlaying = false;

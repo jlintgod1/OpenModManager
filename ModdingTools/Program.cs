@@ -95,8 +95,9 @@ namespace ModdingTools
             if (!Debugger.IsAttached)
             {
                 // Add the event handler for handling UI thread exceptions to the event.
+                // JLINT-CHANGE: Fixed thread exceptions showing "Unhandled exception doesn't derive from System.Exception" instead of the actual exception
                 Application.ThreadException += (sender, e)
-                    => FatalExceptionObject(e);
+                    => FatalExceptionObject(e.Exception);
 
                 // Set the unhandled exception mode to force all Windows Forms errors to go through our handler.
                 Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
@@ -229,6 +230,40 @@ namespace ModdingTools
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            //JLINT-ADD: Auto workshop blocker functionality
+            if (OMMSettings.Instance.AutoWorkshopLocker && !Utils.IsVSDesignMode())
+            {
+                if (Utils.RunningAsAdmin())
+                {
+                    var wsDir = GameFinder.GetWorkshopDir();
+                    if (!Directory.Exists(wsDir))
+                        Directory.CreateDirectory(wsDir);
+
+                    WorkshopLocker.ChangeLockState(wsDir, false);
+                }
+                else
+                {
+                    bool Successful = true;
+                    ProcessStartInfo proc = new ProcessStartInfo();
+                    proc.UseShellExecute = true;
+                    proc.WorkingDirectory = Environment.CurrentDirectory;
+                    proc.FileName = Assembly.GetEntryAssembly().CodeBase;
+                    proc.Verb = "runas";
+                    try
+                    {
+                        Process.Start(proc);
+                    }
+                    catch (Exception ex)
+                    {
+                        CUMessageBox.Show("Auto Workshop Locker requires admin privileges to work properly!");
+                        Successful = false;
+                    }
+
+                    if (Successful)
+                        Environment.Exit(0);
+                }
+            }
+
             if (workshopLockerMode)
             {
                 Application.Run(new WorkshopLocker());
@@ -265,7 +300,8 @@ namespace ModdingTools
                     }
                     else if (element.Current.Name.Trim() == "Editor for A Hat in Time (64-bit, DX9)")
                     {
-                        Meme.PlayElevatorMusic();
+                        //JLINT-CHANGE: Adjusted to use the new method argument
+                        Meme.PlayElevatorMusic("lol.wav");
                        
                     }
                 }

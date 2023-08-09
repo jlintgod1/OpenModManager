@@ -38,8 +38,9 @@ namespace ModdingTools.Windows
             }
         }
 
-
-        public void ChangeLockState(string path, bool unlocked)
+        // JLINT-CHANGE: The next three methods are now static so they can be called when the manager opens/closes without opening the blocker
+        // May potentially be moved to Utils
+        public static void ChangeLockState(string path, bool unlocked)
         {
             try
             {
@@ -62,10 +63,9 @@ namespace ModdingTools.Windows
             {
                 CUMessageBox.Show(e.Message);
             }
-            UpdateState();
         }
 
-        public void RemoveOldProtection(string path)
+        public static void RemoveOldProtection(string path)
         {
             // for compatibilty with old algo
             DirectoryInfo dInfo = new DirectoryInfo(path);
@@ -78,7 +78,7 @@ namespace ModdingTools.Windows
         }
 
 
-        public void ApplyProtection(string path, bool v)
+        public static void ApplyProtection(string path, bool v)
         {
             DirectoryInfo dInfo = new DirectoryInfo(path);
             DirectorySecurity dSecurity = dInfo.GetAccessControl();
@@ -103,6 +103,7 @@ namespace ModdingTools.Windows
                 Directory.CreateDirectory(wsDir);
 
             ChangeLockState(wsDir, false);
+            UpdateState();
         }
 
         private void cuButton1_Click(object sender, EventArgs e)
@@ -112,6 +113,7 @@ namespace ModdingTools.Windows
                 Directory.CreateDirectory(wsDir);
 
             ChangeLockState(wsDir, true);
+            UpdateState();
         }
     }
 }

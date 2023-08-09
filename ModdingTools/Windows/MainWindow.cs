@@ -30,7 +30,7 @@ namespace ModdingTools.Windows
         public GUIWorker GuiWorker { get; private set; }
 
         // Don't ask, just add :)
-        private string[] FunnyTexts = new[] { 
+        private string[] FunnyTexts = new[] {
             "GAMEDAT ANNIVERSARY EDITION",
             ":S_:",
             "MODDING",
@@ -54,7 +54,10 @@ namespace ModdingTools.Windows
             "HI! WOULD YOU LIKE TWO BWUY A POOL TWOY?",
             "REGANAM DOM NEPO",
             "I HATE NO HATS ONLY MUSTARD!!",
-            "HEEH"
+            "HEEH",
+            "PLAY PROJECT A",
+            "AVOID \"MYSTERIOUS _.\"!",
+            "HOME TO ??? MODS"
         };
 
         public enum CardControllerTabs
@@ -235,6 +238,16 @@ namespace ModdingTools.Windows
             UpdateChk.CheckForUpdatesAsync();
         }
 
+        // JLINT-ADD: Window close event for auto workshop locker
+        private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var wsDir = GameFinder.GetWorkshopDir();
+            if (!Directory.Exists(wsDir))
+                Directory.CreateDirectory(wsDir);
+
+            WorkshopLocker.ChangeLockState(wsDir, true);
+        }
+
         public void LoadModCategories()
         {
             
@@ -255,6 +268,7 @@ namespace ModdingTools.Windows
             
             modListControl1.ReloadList(() => {
                 SetCard(CardControllerTabs.Mods);
+                Text = Text.Replace("HOME TO ??? MODS", "HOME TO " + modListControl1.TileCache.Count.ToString() + " MODS");
             });
         }
 
