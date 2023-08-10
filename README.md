@@ -3,7 +3,7 @@ For A Hat in Time
 
 ![Screenshot](https://github.com/jlintgod1/OpenModManager/blob/b5f67b73575d3211a87dc4e6f378d54650f321c7/GitHubAssets/OMMScreenshot.png)
 
-## What the peck? A fork of a flying boat?
+What the peck? A fork of a flying boat?
 ---
 That's m_cube/mcu8's Open Mod Manager(OMM) but with additional features like:
  - Better AlwaysLoaded functionality!
@@ -12,7 +12,7 @@ That's m_cube/mcu8's Open Mod Manager(OMM) but with additional features like:
  - Jlintgod (the Spider) and his "humor"
  - Sketchy code!
 
-## Precompiled Binaries are now available on the [Releases](https://github.com/jlintgod1/OpenModManager/releases/latest) tab!
+Precompiled Binaries are now available on the [Releases](https://github.com/jlintgod1/OpenModManager/releases/latest) tab!
 ---
 Requires the Steam release of A Hat in Time and its modding tools, a 64-bit operating system, and .NET Framework v4.0, just like with the original OpenModManager
 
