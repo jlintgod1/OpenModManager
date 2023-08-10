@@ -44,7 +44,7 @@ namespace ModdingTools.Windows
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(14, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(321, 95);
@@ -103,7 +103,7 @@ namespace ModdingTools.Windows
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(7, 125);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(70, 17);
             this.checkBox1.TabIndex = 9;
@@ -119,7 +119,7 @@ namespace ModdingTools.Windows
             this.borderPanel1.Controls.Add(this.checkedListBox1);
             this.borderPanel1.ForeColor = System.Drawing.Color.White;
             this.borderPanel1.Location = new System.Drawing.Point(4, 142);
-            this.borderPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.borderPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.borderPanel1.Name = "borderPanel1";
             this.borderPanel1.Size = new System.Drawing.Size(341, 298);
             this.borderPanel1.TabIndex = 7;
@@ -135,7 +135,7 @@ namespace ModdingTools.Windows
             this.checkedListBox1.Items.AddRange(new object[] {
             "checkListBox"});
             this.checkedListBox1.Location = new System.Drawing.Point(2, 3);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(2);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(337, 285);
             this.checkedListBox1.TabIndex = 0;
@@ -154,7 +154,7 @@ namespace ModdingTools.Windows
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsResizable = false;
             this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(1152, 670);
             this.Name = "ArrayCheckboxWindow";
             this.Text = "ArrayCheckboxWindow";

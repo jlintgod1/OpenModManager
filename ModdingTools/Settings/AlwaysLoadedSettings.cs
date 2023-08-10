@@ -1,5 +1,4 @@
-﻿//JLINT-ADD: Will be properly implemented in a later update
-using ModdingTools.Engine;
+﻿using ModdingTools.Engine;
 using ModdingTools.Logging;
 using System;
 using System.Collections.Generic;
@@ -13,10 +12,11 @@ namespace ModdingTools.Settings
 {
     public class AlwaysLoadedSettings
     {
-        [XmlIgnore]
-        public string OwnerModName; //The mod folder name can change, so do not serialize
         public List<string> Classes = new List<string>();
         public List<int> ClassesInt = new List<int>();
+
+        [XmlIgnore]
+        public string OwnerModName; //The mod folder name can change, so do not serialize
         public void Save()
         {
             var cfgRoot = Path.Combine(GameFinder.GetModsDir(), OwnerModName);

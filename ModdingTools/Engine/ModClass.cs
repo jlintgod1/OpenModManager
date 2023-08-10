@@ -147,7 +147,13 @@ namespace ModdingTools.Engine
                 ClassType = ModClassType.Weapon;
             }
             // Death Wish
-            else if ("Hat_SnatcherContract_DeathWish".Equals(ExtendsClass, StringComparison.InvariantCultureIgnoreCase))
+            // JLINT-CHANGE: Added detection for Death Wish and Snatcher coin candles
+            else if (Utils.CollectionContains(ExtendsClass, new[]
+            {
+                "Hat_SnatcherContract_DeathWish",
+                "Hat_SnatcherContract_DeathWish_Passive",
+                "Hat_SnatcherContract_DeathWish_Tokens_MafiaTown"
+            }, false))
             {
                 ClassType = ModClassType.DWContract;
             }
