@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MapChooser));
             this.label6 = new System.Windows.Forms.Label();
             this.mButton9 = new CUFramework.Controls.CUButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -98,6 +99,7 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.mButton9);
             this.Controls.Add(this.comboBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsResizable = false;
             this.Location = new System.Drawing.Point(0, 0);
             this.Name = "MapChooser";

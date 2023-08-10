@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -60,7 +61,7 @@ namespace ModdingTools.Settings
                 Save();
                 Directory.Delete(oldConfigPath, true);
 
-                CUMessageBox.Show("Configuration migrated successfully!");
+                CUMessageBox.Show("Configuration migrated successfully!", "INFORMATION", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -75,7 +76,7 @@ namespace ModdingTools.Settings
                 var cfgRoot = Path.Combine(Environment.GetEnvironmentVariable("LocalAppData"), "OpenModManager");
                 var appCfgPath = Path.Combine(cfgRoot, "OMMConfiguration.xml");
 
-                
+
 
                 if (File.Exists(appCfgPath))
                 {

@@ -95,7 +95,7 @@ namespace ModdingTools
             if (!Debugger.IsAttached)
             {
                 // Add the event handler for handling UI thread exceptions to the event.
-                // JLINT-CHANGE: Fixed thread exceptions showing "Unhandled exception doesn't derive from System.Exception" instead of the actual exception
+                // JLINT-CHANGE: Fixed thread and other exceptions showing "Unhandled exception doesn't derive from System.Exception" instead of the actual exception
                 Application.ThreadException += (sender, e)
                     => FatalExceptionObject(e.Exception);
 
@@ -109,11 +109,11 @@ namespace ModdingTools
                 //  This AppDomain-wide event provides a mechanism to prevent exception escalation policy (which, by default, terminates the process) from triggering.
                 //  Each handler is passed a UnobservedTaskExceptionEventArgs instance, which may be used to examine the exception and to mark it as observed.
                 TaskScheduler.UnobservedTaskException += (sender, e)
-                    => FatalExceptionObject(e);
+                    => FatalExceptionObject(e.Exception);
 
                 // Add the event handler for handling UI thread exceptions to the event.
                 System.Windows.Threading.Dispatcher.CurrentDispatcher.UnhandledException += (sender, e)
-                    => FatalExceptionObject(e);
+                    => FatalExceptionObject(e.Exception);
             }
         }
 
@@ -140,7 +140,7 @@ namespace ModdingTools
                 threads = Process.GetCurrentProcess().Threads.Count;
 
                 var x = new StringBuilder();
-                x.AppendLine("Failed to launch OMM: ");
+                x.AppendLine("Fatal Error!");
                 x.AppendLine(e.Message);
                 x.AppendLine(e.StackTrace);
                 if (e.InnerException != null)
@@ -181,7 +181,7 @@ namespace ModdingTools
             //throw new Exception("test");
             if (GameFinder.FindGameDir() == null)
             {
-                CUMessageBox.Show("Failed to find the game directory! Please specify the path to the original ModManager.exe manually!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CUMessageBox.Show("Failed to find the game directory! Please specify the path to the original ModManager.exe manually!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 OpenFileDialog ov = new OpenFileDialog();
                 ov.CheckFileExists = true;
                 ov.FileName = "ModManager.exe";
@@ -193,11 +193,44 @@ namespace ModdingTools
                     File.WriteAllText("GameDirPath.dat", dir);
                     if (GameFinder.FindGameDir() == null)
                     {
-                        CUMessageBox.Show($"Failed to find the game files in '{dir}'", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        CUMessageBox.Show($"Failed to find the game files in '{dir}'", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
                 Environment.Exit(1);
+            }
+
+            //JLINT-ADD: Auto workshop blocker functionality
+            bool SuccessfulAdminLaunch = true;
+            if (OMMSettings.Instance.AutoWorkshopLocker && !workshopLockerMode)
+            {
+                if (Utils.RunningAsAdmin())
+                {
+                    var wsDir = GameFinder.GetWorkshopDir();
+                    if (!Directory.Exists(wsDir))
+                        Directory.CreateDirectory(wsDir);
+
+                    WorkshopLocker.ChangeLockState(wsDir, false);
+                }
+                else
+                {
+                    ProcessStartInfo proc = new ProcessStartInfo();
+                    proc.UseShellExecute = true;
+                    proc.WorkingDirectory = Environment.CurrentDirectory;
+                    proc.FileName = Assembly.GetEntryAssembly().CodeBase;
+                    proc.Verb = "runas";
+                    try
+                    {
+                        Process.Start(proc);
+                    }
+                    catch (Exception ex)
+                    {
+                        SuccessfulAdminLaunch = false;
+                    }
+
+                    if (SuccessfulAdminLaunch)
+                        Environment.Exit(0);
+                }
             }
 
             Utils.UpdateAppId(734880);
@@ -205,13 +238,13 @@ namespace ModdingTools
             bool steam = SteamAPI.Init();
             if (!steam)
             {
-                CUMessageBox.Show("SteamAPI initialization failed! (is Steam running/installed?)");
+                CUMessageBox.Show("SteamAPI initialization failed! (is Steam running/installed?)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
 
             if (!Environment.Is64BitOperatingSystem || !Environment.Is64BitProcess)
             {
-                CUMessageBox.Show("This app needs 64-bit operating environment and operating system!");
+                CUMessageBox.Show("This app needs 64-bit operating environment and operating system!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
 
@@ -230,46 +263,15 @@ namespace ModdingTools
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //JLINT-ADD: Auto workshop blocker functionality
-            if (OMMSettings.Instance.AutoWorkshopLocker && !Utils.IsVSDesignMode())
-            {
-                if (Utils.RunningAsAdmin())
-                {
-                    var wsDir = GameFinder.GetWorkshopDir();
-                    if (!Directory.Exists(wsDir))
-                        Directory.CreateDirectory(wsDir);
-
-                    WorkshopLocker.ChangeLockState(wsDir, false);
-                }
-                else
-                {
-                    bool Successful = true;
-                    ProcessStartInfo proc = new ProcessStartInfo();
-                    proc.UseShellExecute = true;
-                    proc.WorkingDirectory = Environment.CurrentDirectory;
-                    proc.FileName = Assembly.GetEntryAssembly().CodeBase;
-                    proc.Verb = "runas";
-                    try
-                    {
-                        Process.Start(proc);
-                    }
-                    catch (Exception ex)
-                    {
-                        CUMessageBox.Show("Auto Workshop Locker requires admin privileges to work properly!");
-                        Successful = false;
-                    }
-
-                    if (Successful)
-                        Environment.Exit(0);
-                }
-            }
-
             if (workshopLockerMode)
             {
                 Application.Run(new WorkshopLocker());
             }
             else
             {
+                if (!SuccessfulAdminLaunch)
+                    CUMessageBox.Show("Auto Workshop Locker requires admin privileges to work properly!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                 Application.Run(new MainWindow());
                 SetRPData();
             }

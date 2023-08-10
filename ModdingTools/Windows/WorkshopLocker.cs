@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Security.AccessControl;
 using System.Security.Principal;
+using System.Windows.Forms;
 
 namespace ModdingTools.Windows
 {
@@ -61,7 +62,7 @@ namespace ModdingTools.Windows
             }
             catch (Exception e)
             {
-                CUMessageBox.Show(e.Message);
+                CUMessageBox.Show(e.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

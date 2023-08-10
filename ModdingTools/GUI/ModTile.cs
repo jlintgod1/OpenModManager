@@ -318,7 +318,7 @@ namespace ModdingTools.GUI
                                 var cookResult = Mod.CookMod(MainWindow.Instance.Runner, false, false, fast);
                                 if (!cookResult)
                                 {
-                                    CUMessageBox.Show("Cooking failed! Look at the console output for more info!");
+                                    CUMessageBox.Show("Cooking failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 else
                                 {
@@ -328,7 +328,7 @@ namespace ModdingTools.GUI
                             }
                             else
                             {
-                                CUMessageBox.Show("Script compile failed! Look at the console output for more info!");
+                                CUMessageBox.Show("Script compile failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
@@ -337,7 +337,7 @@ namespace ModdingTools.GUI
                             var cookResult = Mod.CookMod(MainWindow.Instance.Runner, false, false, fast);
                             if (!cookResult)
                             {
-                                CUMessageBox.Show("Cooking the mod was failed! Look at the console output for more info!");
+                                CUMessageBox.Show("Cooking failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                             {
@@ -381,7 +381,7 @@ namespace ModdingTools.GUI
                     var cookResult = Mod.CookMod(MainWindow.Instance.Runner, false, false);
                     if (!cookResult)
                     {
-                        CUMessageBox.Show("Cooking the mod was failed! Look at the console output for more info!");
+                        CUMessageBox.Show("Cooking failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -391,7 +391,7 @@ namespace ModdingTools.GUI
                 }
                 else
                 {
-                    CUMessageBox.Show("Compiling scripts was failed! Look at the console output for more info!");
+                    CUMessageBox.Show("Script compile failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
                 var endTime = DateTime.Now;
@@ -457,7 +457,7 @@ namespace ModdingTools.GUI
             }
             else
             {
-                CUMessageBox.Show("Failed to find the VS:Code installation directory! Please specify the path to the code.exe manually!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CUMessageBox.Show("Failed to find the VS:Code installation directory! Please specify the path to the code.exe manually!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 OpenFileDialog ov = new OpenFileDialog();
                 ov.CheckFileExists = true;
                 ov.FileName = "code.exe";

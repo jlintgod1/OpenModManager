@@ -394,7 +394,7 @@ namespace ModdingTools.Modding
                 //JLINT-ADD: Ask the user about which classes they want AlwaysLoaded.
                 if (AlwaysLoadedReference == null || !GetDirectoryName().Contains(AlwaysLoadedReference.GetDirectoryName()))
                 {
-                    AlwaysLoadedClasses = ArrayCheckboxWindow.Ask("AlwaysLoaded Classes", "Which classes should be AlwaysLoaded?\n(NOTE: Any classes that are directly or INDIRECTLY referenced by an AlwaysLoaded class will become AlwaysLoaded too!)", GetModClasses()).Cast<ModClass>().ToArray();
+                    AlwaysLoadedClasses = ArrayCheckboxWindow.Ask(Name.ToUpper() + " - ALWAYSLOADED CLASSES", "Which classes should be AlwaysLoaded?\n(NOTE: Any classes that are directly or INDIRECTLY referenced by an AlwaysLoaded class will become AlwaysLoaded too!)", GetModClasses(), this.GetDirectoryName()).ToArray();
 
                     //JLINT-ADD: This creates a new mod that references our AlwaysLoaded classes, then compiles it
                     //We need this if we want some of our other classes to be non-AlwaysLoaded.

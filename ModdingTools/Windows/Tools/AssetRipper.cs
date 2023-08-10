@@ -181,7 +181,7 @@ namespace ModdingTools.Windows.Tools
                                     {
                                         this.Invoke(new MethodInvoker(() =>
                                         {
-                                            CUMessageBox.Show(this, "Export failed for asset:\n" + t.FileName);
+                                            CUMessageBox.Show(this, "Export failed for asset:\n" + t.FileName, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                             panel1.Enabled = true;
                                         }));
                                         return;

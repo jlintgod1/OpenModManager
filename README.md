@@ -3,17 +3,17 @@ For A Hat in Time
 
 (sorry no actual screenshot yet)
 
-What the peck? A fork of a flying boat?
+## What the peck? A fork of a flying boat?
 ---
 That's m_cube/mcu8's Open Mod Manager(OMM) but with additional features like:
  - Better AlwaysLoaded functionality!
- - Auto Workshop Locker(probably coming soon!)
- - Slightly better formatting
+ - Auto Workshop Blocker
+ - Slightly better formatting and bug fixes
  - Jlintgod (the Spider) and his "humor"
  - Sketchy code!
 
 ---
-Requires .NET Framework v4.8 (due to a mistake and Jlintgod sketchiness)
+Requires the Steam release of A Hat in Time and its modding tools, a 64-bit operating system, and .NET Framework v4.0, just like with the original OpenModManager
 
 Installation
 ---

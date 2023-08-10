@@ -284,7 +284,7 @@ namespace ModdingTools.Engine
             catch (Exception e)
             {
                 MainWindow.Instance.Invoke(new MethodInvoker(() => {
-                    CUMessageBox.Show(MainWindow.Instance, e.Message + "\n" + e.ToString());
+                    CUMessageBox.Show(MainWindow.Instance, e.Message + "\n" + e.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }));
                 IsUploaderRunning = false;
                 SetStatus("");
@@ -364,7 +364,7 @@ namespace ModdingTools.Engine
                     break;
                 default:
                     SetStatus("Item upload failed! Result code: " + param.m_eResult.ToString());
-                    CUMessageBox.Show("Item upload failed! Result code: " + param.m_eResult.ToString());
+                    CUMessageBox.Show("Item upload failed! Result code: " + param.m_eResult.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ugcUpdateHandle = UGCUpdateHandle_t.Invalid;
                     success = false;
                     break;

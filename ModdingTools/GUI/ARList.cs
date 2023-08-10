@@ -92,7 +92,7 @@ namespace ModdingTools.GUI
             {
                 if (Collect().Where(item => item.Key.ToLowerInvariant() == source.ToLowerInvariant()).Count() > 0)
                 {
-                    CUMessageBox.Show("ARList already contains item with key: " + source, "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CUMessageBox.Show("ARList already contains item with key: " + source);
                     return;
                 }
 

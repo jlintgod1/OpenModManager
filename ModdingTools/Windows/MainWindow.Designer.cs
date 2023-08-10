@@ -55,16 +55,16 @@ namespace ModdingTools.Windows
             // 
             // mButton3
             // 
+            this.mButton3.AccessibleName = "Mafia Punch (Kill Editor)";
             this.mButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
             this.mButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
             this.mButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton3.ForeColor = System.Drawing.Color.Black;
             this.mButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton3.Location = new System.Drawing.Point(261, 1);
-            this.mButton3.Margin = new System.Windows.Forms.Padding(4);
+            this.mButton3.Location = new System.Drawing.Point(196, 1);
             this.mButton3.Name = "mButton3";
             this.mButton3.NoFocus = false;
-            this.mButton3.Size = new System.Drawing.Size(324, 41);
+            this.mButton3.Size = new System.Drawing.Size(243, 33);
             this.mButton3.TabIndex = 6;
             this.mButton3.Text = "MAFIA PUNCH (KILL EDITOR)";
             this.mButton3.UseVisualStyleBackColor = false;
@@ -72,16 +72,16 @@ namespace ModdingTools.Windows
             // 
             // mButton4
             // 
+            this.mButton4.AccessibleName = "New Mod";
             this.mButton4.BackColor = System.Drawing.Color.DarkGreen;
             this.mButton4.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
             this.mButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton4.ForeColor = System.Drawing.Color.White;
             this.mButton4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton4.Location = new System.Drawing.Point(3, 2);
-            this.mButton4.Margin = new System.Windows.Forms.Padding(4);
+            this.mButton4.Location = new System.Drawing.Point(2, 2);
             this.mButton4.Name = "mButton4";
             this.mButton4.NoFocus = false;
-            this.mButton4.Size = new System.Drawing.Size(256, 39);
+            this.mButton4.Size = new System.Drawing.Size(192, 32);
             this.mButton4.TabIndex = 7;
             this.mButton4.Text = "NEW MOD";
             this.mButton4.UseVisualStyleBackColor = false;
@@ -89,14 +89,14 @@ namespace ModdingTools.Windows
             // 
             // mTextBox1
             // 
+            this.mTextBox1.AccessibleName = "Search";
             this.mTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.mTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.mTextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
             this.mTextBox1.ForeColor = System.Drawing.Color.White;
-            this.mTextBox1.Location = new System.Drawing.Point(850, 10);
-            this.mTextBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.mTextBox1.Location = new System.Drawing.Point(639, 8);
             this.mTextBox1.Name = "mTextBox1";
-            this.mTextBox1.Size = new System.Drawing.Size(412, 22);
+            this.mTextBox1.Size = new System.Drawing.Size(310, 20);
             this.mTextBox1.TabIndex = 8;
             this.mTextBox1.TextChanged += new System.EventHandler(this.mTextBox1_TextChanged);
             // 
@@ -106,26 +106,25 @@ namespace ModdingTools.Windows
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.ForeColor = System.Drawing.Color.DarkGray;
-            this.label5.Location = new System.Drawing.Point(772, 15);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(580, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(63, 16);
+            this.label5.Size = new System.Drawing.Size(51, 13);
             this.label5.TabIndex = 30;
             this.label5.Text = "SEARCH";
             // 
             // mButton1
             // 
+            this.mButton1.AccessibleName = "Launch Editor";
             this.mButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.mButton1.BackColor = System.Drawing.Color.DarkRed;
+            this.mButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
             this.mButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.mButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton1.ForeColor = System.Drawing.Color.White;
             this.mButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton1.Location = new System.Drawing.Point(891, 2);
-            this.mButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.mButton1.Location = new System.Drawing.Point(668, 2);
             this.mButton1.Name = "mButton1";
             this.mButton1.NoFocus = false;
-            this.mButton1.Size = new System.Drawing.Size(193, 37);
+            this.mButton1.Size = new System.Drawing.Size(145, 30);
             this.mButton1.TabIndex = 4;
             this.mButton1.Text = "LAUNCH EDITOR";
             this.mButton1.UseVisualStyleBackColor = false;
@@ -143,7 +142,7 @@ namespace ModdingTools.Windows
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.contextMenuStrip1.ShowImageMargin = false;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(263, 76);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 70);
             this.contextMenuStrip1.Closed += new System.Windows.Forms.ToolStripDropDownClosedEventHandler(this.contextMenuStrip1_Closed);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
@@ -151,7 +150,7 @@ namespace ModdingTools.Windows
             // 
             this.assetExporterToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.assetExporterToolStripMenuItem.Name = "assetExporterToolStripMenuItem";
-            this.assetExporterToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
+            this.assetExporterToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.assetExporterToolStripMenuItem.Text = "ASSET EXPORTER";
             this.assetExporterToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.assetExporterToolStripMenuItem.Click += new System.EventHandler(this.assetExporterToolStripMenuItem_Click);
@@ -160,7 +159,7 @@ namespace ModdingTools.Windows
             // 
             this.flipbookGeneratorToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.flipbookGeneratorToolStripMenuItem.Name = "flipbookGeneratorToolStripMenuItem";
-            this.flipbookGeneratorToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
+            this.flipbookGeneratorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.flipbookGeneratorToolStripMenuItem.Text = "FLIPBOOK GENERATOR";
             this.flipbookGeneratorToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.flipbookGeneratorToolStripMenuItem.Click += new System.EventHandler(this.flipbookGeneratorToolStripMenuItem_Click);
@@ -169,7 +168,7 @@ namespace ModdingTools.Windows
             // 
             this.wORKSHOPBLOCKERToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.wORKSHOPBLOCKERToolStripMenuItem.Name = "wORKSHOPBLOCKERToolStripMenuItem";
-            this.wORKSHOPBLOCKERToolStripMenuItem.Size = new System.Drawing.Size(262, 24);
+            this.wORKSHOPBLOCKERToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.wORKSHOPBLOCKERToolStripMenuItem.Text = "WORKSHOP BLOCKER (ADMIN)";
             this.wORKSHOPBLOCKERToolStripMenuItem.Click += new System.EventHandler(this.wORKSHOPBLOCKERToolStripMenuItem_Click);
             // 
@@ -182,11 +181,10 @@ namespace ModdingTools.Windows
             this.mButton6.ForeColor = System.Drawing.Color.White;
             this.mButton6.Image = global::ModdingTools.Properties.Resources.tools;
             this.mButton6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton6.Location = new System.Drawing.Point(631, 2);
-            this.mButton6.Margin = new System.Windows.Forms.Padding(4);
+            this.mButton6.Location = new System.Drawing.Point(473, 2);
             this.mButton6.Name = "mButton6";
             this.mButton6.NoFocus = false;
-            this.mButton6.Size = new System.Drawing.Size(109, 37);
+            this.mButton6.Size = new System.Drawing.Size(82, 30);
             this.mButton6.TabIndex = 35;
             this.mButton6.Text = "TOOLS";
             this.mButton6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -195,17 +193,17 @@ namespace ModdingTools.Windows
             // 
             // mButton5
             // 
+            this.mButton5.AccessibleName = "Console";
             this.mButton5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.mButton5.BackColor = System.Drawing.Color.Black;
             this.mButton5.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.mButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton5.ForeColor = System.Drawing.Color.White;
             this.mButton5.Image = global::ModdingTools.Properties.Resources.console1;
-            this.mButton5.Location = new System.Drawing.Point(741, 2);
-            this.mButton5.Margin = new System.Windows.Forms.Padding(4);
+            this.mButton5.Location = new System.Drawing.Point(556, 2);
             this.mButton5.Name = "mButton5";
             this.mButton5.NoFocus = false;
-            this.mButton5.Size = new System.Drawing.Size(47, 36);
+            this.mButton5.Size = new System.Drawing.Size(35, 29);
             this.mButton5.TabIndex = 34;
             this.mButton5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mButton5.UseVisualStyleBackColor = false;
@@ -213,17 +211,17 @@ namespace ModdingTools.Windows
             // 
             // mButton2
             // 
+            this.mButton2.AccessibleName = "Settings";
             this.mButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.mButton2.BackColor = System.Drawing.Color.Black;
             this.mButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.mButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton2.ForeColor = System.Drawing.Color.White;
             this.mButton2.Image = global::ModdingTools.Properties.Resources.settings_icon;
-            this.mButton2.Location = new System.Drawing.Point(789, 2);
-            this.mButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.mButton2.Location = new System.Drawing.Point(592, 2);
             this.mButton2.Name = "mButton2";
             this.mButton2.NoFocus = false;
-            this.mButton2.Size = new System.Drawing.Size(49, 34);
+            this.mButton2.Size = new System.Drawing.Size(37, 28);
             this.mButton2.TabIndex = 5;
             this.mButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mButton2.UseVisualStyleBackColor = false;
@@ -235,23 +233,23 @@ namespace ModdingTools.Windows
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cardController1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.cardController1.Location = new System.Drawing.Point(5, 87);
+            this.cardController1.Location = new System.Drawing.Point(4, 71);
             this.cardController1.Margin = new System.Windows.Forms.Padding(0);
             this.cardController1.Name = "cardController1";
-            this.cardController1.Size = new System.Drawing.Size(1267, 542);
+            this.cardController1.Size = new System.Drawing.Size(950, 440);
             this.cardController1.TabIndex = 36;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.panel1.Controls.Add(this.mButton4);
             this.panel1.Controls.Add(this.mButton3);
             this.panel1.Controls.Add(this.mTextBox1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(3, 34);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.panel1.Location = new System.Drawing.Point(2, 34);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1271, 43);
+            this.panel1.Size = new System.Drawing.Size(954, 35);
             this.panel1.TabIndex = 37;
             // 
             // cuButton1
@@ -262,11 +260,10 @@ namespace ModdingTools.Windows
             this.cuButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton1.ForeColor = System.Drawing.Color.White;
             this.cuButton1.Image = global::ModdingTools.Properties.Resources.about;
-            this.cuButton1.Location = new System.Drawing.Point(841, 4);
-            this.cuButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.cuButton1.Location = new System.Drawing.Point(631, 3);
             this.cuButton1.Name = "cuButton1";
             this.cuButton1.NoFocus = false;
-            this.cuButton1.Size = new System.Drawing.Size(49, 34);
+            this.cuButton1.Size = new System.Drawing.Size(37, 28);
             this.cuButton1.TabIndex = 38;
             this.cuButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cuButton1.UseVisualStyleBackColor = false;
@@ -274,17 +271,17 @@ namespace ModdingTools.Windows
             // 
             // cuButton2
             // 
+            this.cuButton2.AccessibleName = "About";
             this.cuButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cuButton2.BackColor = System.Drawing.Color.Black;
             this.cuButton2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.cuButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton2.ForeColor = System.Drawing.Color.White;
             this.cuButton2.Image = global::ModdingTools.Properties.Resources.about;
-            this.cuButton2.Location = new System.Drawing.Point(839, 2);
-            this.cuButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.cuButton2.Location = new System.Drawing.Point(629, 2);
             this.cuButton2.Name = "cuButton2";
             this.cuButton2.NoFocus = false;
-            this.cuButton2.Size = new System.Drawing.Size(49, 34);
+            this.cuButton2.Size = new System.Drawing.Size(37, 28);
             this.cuButton2.TabIndex = 5;
             this.cuButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cuButton2.UseVisualStyleBackColor = false;
@@ -292,9 +289,10 @@ namespace ModdingTools.Windows
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1277, 634);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.ClientSize = new System.Drawing.Size(958, 515);
             this.Controls.Add(this.cuButton2);
             this.Controls.Add(this.cuButton1);
             this.Controls.Add(this.panel1);
@@ -306,11 +304,9 @@ namespace ModdingTools.Windows
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(2560, 1268);
-            this.MinimumSize = new System.Drawing.Size(1277, 634);
+            this.MaximumSize = new System.Drawing.Size(1920, 1030);
+            this.MinimumSize = new System.Drawing.Size(958, 515);
             this.Name = "MainWindow";
-            this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_FormClosing);
             this.Load += new System.EventHandler(this.MainWindow_Load);
             this.ResizeBegin += new System.EventHandler(this.MainWindow_ResizeBegin);

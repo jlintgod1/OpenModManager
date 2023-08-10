@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace ModdingTools.Modding
 {
@@ -64,7 +65,7 @@ namespace ModdingTools.Modding
                     }
                     catch (Exception ex)
                     {
-                        CUFramework.Dialogs.CUMessageBox.Show($"Mod parser failed while reading mod {path}!\n" + ex.Message + "\n" + ex.ToString());
+                        CUFramework.Dialogs.CUMessageBox.Show($"Mod parser failed while reading mod {path}!\n" + ex.Message + "\n" + ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         Debug.WriteLine(":sealnyon: Oopsie woopsie!\n" + ex.Message + "\n" + ex.ToString());
                     }
                 }
