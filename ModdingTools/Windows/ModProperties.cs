@@ -380,28 +380,28 @@ namespace ModdingTools.Windows
             }
 
             // logo
-            panel5.SizeMode = PictureBoxSizeMode.StretchImage;
+            panel5.SizeMode = PictureBoxSizeMode.Zoom;
             {
                 var loc = Mod.GetLogoLocation();
                 panel5.Image = !File.Exists(loc) ? Properties.Resources.noimage_wide : Utils.LoadImageIntoMemory(loc);
             }
 
             // splash
-            panel8.SizeMode = PictureBoxSizeMode.StretchImage;
+            panel8.SizeMode = PictureBoxSizeMode.Zoom;
             {
                 var loc = Mod.GetSplashArtLocation();
                 panel8.Image = !File.Exists(loc) ? Properties.Resources.noimage_wide : Utils.LoadImageIntoMemory(loc);
             }
 
             // background
-            panel10.SizeMode = PictureBoxSizeMode.StretchImage;
+            panel10.SizeMode = PictureBoxSizeMode.Zoom;
             {
                 var loc = Mod.GetBackgroundLocation();
                 panel10.Image = !File.Exists(loc) ? Properties.Resources.noimage_wide : Utils.LoadImageIntoMemory(loc);
             }
 
             // titlecard
-            panel12.SizeMode = PictureBoxSizeMode.StretchImage;
+            panel12.SizeMode = PictureBoxSizeMode.Zoom;
             {
                 var loc = Mod.GetTitleCardLocation();
                 panel12.Image = !File.Exists(loc) ? Properties.Resources.noimage_wide : Utils.LoadImageIntoMemory(loc);
@@ -627,7 +627,7 @@ namespace ModdingTools.Windows
             }
             catch (Exception e)
             {
-                CUMessageBox.Show(this, e.Message + "\n\n" + e.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CUMessageBox.Show(this, e.Message + "\n\n" + e.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -954,7 +954,7 @@ namespace ModdingTools.Windows
                             var cookResult = Mod.CookMod(this.processRunner1.Runner, false, false);
                             if (!cookResult)
                             {
-                                CUMessageBox.Show(this, "Cooking the mod was failed! Look at the console output for more info!");
+                                CUMessageBox.Show(this, "Cooking failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             else
                             {
@@ -964,7 +964,7 @@ namespace ModdingTools.Windows
                         }
                         else
                         {
-                            CUMessageBox.Show(this, "Compiling scripts was failed! Look at the console output for more info!");
+                            CUMessageBox.Show(this, "Script compile failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                         var endTime = DateTime.Now;
@@ -999,7 +999,7 @@ namespace ModdingTools.Windows
                                     var cookResult = Mod.CookMod(this.processRunner1.Runner, false, false, fast);
                                     if (!cookResult)
                                     {
-                                        CUMessageBox.Show(this, "Cooking the mod was failed! Look at the console output for more info!");
+                                        CUMessageBox.Show(this, "Cooking failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
                                     else
                                     {
@@ -1009,7 +1009,7 @@ namespace ModdingTools.Windows
                                 }
                                 else
                                 {
-                                    CUMessageBox.Show(this, "Compiling scripts was failed! Look at the console output for more info!");
+                                    CUMessageBox.Show(this, "Script compile failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                             }
                             else
@@ -1018,7 +1018,7 @@ namespace ModdingTools.Windows
                                 var cookResult = Mod.CookMod(this.processRunner1.Runner, false, false, fast);
                                 if (!cookResult)
                                 {
-                                    CUMessageBox.Show(this, "Cooking the mod was failed! Look at the console output for more info!");
+                                    CUMessageBox.Show(this, "Cooking failed! Look at the console output for more info!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
                                 else
                                 {
@@ -1169,7 +1169,7 @@ namespace ModdingTools.Windows
                 }
                 else
                 {
-                    CUMessageBox.Show("Invalid file");
+                    CUMessageBox.Show("Invalid file!");
                 }
             }
         }

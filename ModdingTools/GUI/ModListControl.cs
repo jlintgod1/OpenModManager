@@ -277,13 +277,13 @@ namespace ModdingTools.GUI
                         var cookResult = mod.CookMod(MainWindow.Instance.Runner, false, false);
                         if (!cookResult)
                         {
-                            CUMessageBox.Show($"Cooking failed!\nLook at the console output for more info!\n\nMod: {mod.Name} ({mod.GetDirectoryName()})");
+                            CUMessageBox.Show($"Cooking failed!\nLook at the console output for more info!\n\nMod: {mod.Name} ({mod.GetDirectoryName()})", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                         }
                     }
                     else
                     {
-                        CUMessageBox.Show($"Script compiler failed!\nLook at the console output for more info!\n\nMod: {mod.Name} ({mod.GetDirectoryName()})");
+                        CUMessageBox.Show($"Script compiler failed!\nLook at the console output for more info!\n\nMod: {mod.Name} ({mod.GetDirectoryName()})", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
                     }
 

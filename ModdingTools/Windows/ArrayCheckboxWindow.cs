@@ -1,4 +1,4 @@
-﻿//JLINT-ADD: Class for selecting items with checkboxes. Hard coded to work with ModClass.
+﻿//JLINT-ADD: Class for selecting items with checkboxes. Hard coded to work with ModClass despite having an object[] input.
 using CUFramework.Dialogs;
 using CUFramework.Dialogs.Validators;
 using CUFramework.Windows;
@@ -11,19 +11,20 @@ using System.Text;
 using System.Windows.Forms;
 using ModdingTools.Engine;
 using System.Linq;
+using ModdingTools.Settings;
 
 namespace ModdingTools.Windows
 {
-    public partial class ArrayCheckboxWindow : CUFramework.Windows.CUWindow
+    public partial class ArrayCheckboxWindow : CUWindow
     {
-        public bool AllowDuplicates { get; set; }
+        private AlwaysLoadedSettings SettingsInstance;
 
         public ArrayCheckboxWindow()
         {
             InitializeComponent();
         }
 
-        public static List<object> Ask(string title, string desc, object[] defaultItems)
+        public static List<ModClass> Ask(string title, string desc, ModClass[] defaultItems, string ModFolderName)
         {
             var a = new ArrayCheckboxWindow();
             a.label1.Text = desc;
@@ -31,9 +32,24 @@ namespace ModdingTools.Windows
             a.checkedListBox1.Items.Clear();
             a.checkedListBox1.ValueMember = "ClassName";
             a.checkBox1.Checked = true;
+
+            a.SettingsInstance = AlwaysLoadedSettings.Load(ModFolderName);
+
             if (defaultItems != null)
+            {
                 foreach (var i in defaultItems)
-                    a.checkedListBox1.Items.Add(i, true);
+                {
+                    int ALValue;
+                    if (a.SettingsInstance.Classes.Contains(i.ClassName))
+                    {
+                        a.checkedListBox1.Items.Add(i, a.SettingsInstance.ClassesInt[a.SettingsInstance.Classes.IndexOf(i.ClassName)] == 1);
+                    }
+                    else
+                    {
+                        a.checkedListBox1.Items.Add(i, true);
+                    }
+                }
+            }
                 
             var result = a.ShowDialog();
             if (result == DialogResult.OK)
@@ -41,7 +57,20 @@ namespace ModdingTools.Windows
                 var res = new List<object>();
                 foreach (var i in a.checkedListBox1.CheckedItems)
                     res.Add(i);
-                return res;
+
+                foreach (var i in a.checkedListBox1.Items)
+                {
+                    a.SettingsInstance.Classes.Add(((ModClass)i).ClassName);
+                    a.SettingsInstance.ClassesInt.Add(a.checkedListBox1.CheckedItems.Contains(i) ? 1 : 0);
+                }
+
+                var saveResult = CUMessageBox.Show("Save your preferences for the next cook?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (saveResult == DialogResult.Yes)
+                {
+                    a.SettingsInstance.Save();
+                }
+
+                return res.Cast<ModClass>().ToList();
             }
             return defaultItems.ToList();
         }

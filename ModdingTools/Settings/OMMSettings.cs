@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using static ModdingTools.Settings.OMMSettings;
@@ -122,7 +123,7 @@ namespace ModdingTools.Settings
                 var cfgRoot = Path.Combine(Environment.GetEnvironmentVariable("LocalAppData"), "OpenModManager");
                 var appCfgPath = Path.Combine(cfgRoot, "OMMConfiguration.xml");
 
-                
+
 
                 if (File.Exists(appCfgPath))
                 {

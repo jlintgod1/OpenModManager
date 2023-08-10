@@ -46,8 +46,9 @@ namespace ModdingTools.Updater
             if (!Debugger.IsAttached)
             {
                 // Add the event handler for handling UI thread exceptions to the event.
+                // JLINT-CHANGE: Fixed thread and other exceptions showing "Unhandled exception doesn't derive from System.Exception" instead of the actual exception
                 Application.ThreadException += (sender, e)
-                    => FatalExceptionObject(e);
+                    => FatalExceptionObject(e.Exception);
 
                 // Set the unhandled exception mode to force all Windows Forms errors to go through our handler.
                 Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
@@ -59,7 +60,7 @@ namespace ModdingTools.Updater
                 //  This AppDomain-wide event provides a mechanism to prevent exception escalation policy (which, by default, terminates the process) from triggering.
                 //  Each handler is passed a UnobservedTaskExceptionEventArgs instance, which may be used to examine the exception and to mark it as observed.
                 TaskScheduler.UnobservedTaskException += (sender, e)
-                    => FatalExceptionObject(e);
+                    => FatalExceptionObject(e.Exception);
             }
         }
 
@@ -86,7 +87,7 @@ namespace ModdingTools.Updater
                 threads = Process.GetCurrentProcess().Threads.Count;
 
                 var x = new StringBuilder();
-                x.AppendLine("Failed to launch OMM Updater: ");
+                x.AppendLine("Fatal Updater Error!");
                 x.AppendLine(e.Message);
                 x.AppendLine(e.StackTrace);
                 if (e.InnerException != null)
