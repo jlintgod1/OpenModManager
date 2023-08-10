@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>ModdingTools.Cli</RootNamespace>
     <AssemblyName>ModdingTools.Cli</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
