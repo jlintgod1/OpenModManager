@@ -39,7 +39,6 @@ namespace ModdingTools.Windows
             {
                 foreach (var i in defaultItems)
                 {
-                    int ALValue;
                     if (a.SettingsInstance.Classes.Contains(i.ClassName))
                     {
                         a.checkedListBox1.Items.Add(i, a.SettingsInstance.ClassesInt[a.SettingsInstance.Classes.IndexOf(i.ClassName)] == 1);
@@ -82,8 +81,10 @@ namespace ModdingTools.Windows
             if (Item is ModClass && ((ModClass)Item).ClassType != ModClass.ModClassType.Generic && e.NewValue == CheckState.Unchecked)
             {
                 e.NewValue = e.CurrentValue;
+                string TypeString;
+                ModClass.ClassToNameMapping.TryGetValue(((ModClass)Item).ClassType, out TypeString);
                 //checkedListBox1.SetItemCheckState(e.Index, e.CurrentValue);
-                CUMessageBox.Show( ((ModClass)Item).ClassName + " should be AlwaysLoaded because it is a " + ((ModClass)Item).ClassType.ToString() + "!" );
+                CUMessageBox.Show( ((ModClass)Item).ClassName + " should be AlwaysLoaded because it is a " + TypeString + "!" );
 
                 return;
             }

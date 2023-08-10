@@ -192,6 +192,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Settings\AlwaysLoadedSettings.cs" />
     <Compile Include="Settings\OMMSettings.cs" />
     <Compile Include="Windows\ArgEditor.cs">
       <SubType>Form</SubType>

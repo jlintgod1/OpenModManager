@@ -521,7 +521,9 @@ namespace ModdingTools.Modding
                     }
                     else
                     {
-                        AlwaysLoadedReference.CookMod(MainWindow.Instance.Runner, false, false, false);
+                        var runner = ModProperties.GetPropertiesWindowForMod(this).processRunner1.Runner;
+                        runner.Log("Cooking AlwaysLoaded reference mod...", CUFramework.Shared.LogLevel.Verbose);
+                        AlwaysLoadedReference.CookMod(runner, false, false, false);
                     }
                 }
                 //JLINT-END
@@ -649,7 +651,7 @@ namespace ModdingTools.Modding
                         {
                             if (lastArVal == null)
                             {
-                                throw new Exception("Invalid AssetReplacement section [code: 2]! Did you edited it by hand?");
+                                throw new Exception("Invalid AssetReplacement section [code: 2]! Did you edit it by hand?");
                             }
                             AssetReplacements.Add(lastArVal, val);
                         }
@@ -659,7 +661,7 @@ namespace ModdingTools.Modding
                         }
                         else if (mode == 2)
                         {
-                            throw new Exception("Invalid AssetReplacement section [code: 1]! Did you edited it by hand?");
+                            throw new Exception("Invalid AssetReplacement section [code: 1]! Did you edit it by hand?");
                         }
                         lastMode = mode;
                     }
@@ -726,7 +728,7 @@ namespace ModdingTools.Modding
                         {
                             if (tmp == null)
                             {
-                                throw new Exception("Invalid Config section [code: 2]! Did you edited it by hand?");
+                                throw new Exception("Invalid Config section [code: 2]! Did you edit it by hand?");
                             }
                             if (key.StartsWith("option[") && key.EndsWith("]"))
                             {

@@ -1667,7 +1667,7 @@ namespace ModdingTools.Windows
         private CUButton mButton5;
         private CUButton mButton7;
         private CUTextBox chapterInfoInput;
-        private GUI.ProcessRunner processRunner1;
+        public GUI.ProcessRunner processRunner1; // JLINT-CHANGE: processRunner1 can now be read outside of a ModProperties window
         private CUBorderlessTabControl tabControl2;
         private System.Windows.Forms.TabPage tab5;
         private System.Windows.Forms.TabPage tab6;

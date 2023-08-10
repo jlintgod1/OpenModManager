@@ -61,6 +61,8 @@ namespace ModdingTools.Updater
 
         public void RunUpdaterTasks()
         {
+            throw new Exception("OMM Updater is currently non-functional!\nPlease download the latest version manually at: https://github.com/jlintgod1/OpenModManager/releases/latest");
+
             CurrentStatus = "Killing OMM instances...";
             OMMHelper.KillOMM();
 
