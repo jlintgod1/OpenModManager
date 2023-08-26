@@ -17,7 +17,7 @@ namespace ModdingTools.Engine
         static SoundPlayer pl;
         static bool IsPlaying = false;
 
-        //JLINT-CHANGE: Music file name is now an argument
+        // JLINT-CHANGE: Music file name is now an argument
         public static void PlayElevatorMusic(string FilePath)
         {
             if (IsPlaying) return; // prevent the ear-rape

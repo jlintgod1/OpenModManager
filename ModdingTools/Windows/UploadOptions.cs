@@ -277,7 +277,7 @@ namespace ModdingTools.Windows
 
         private void label8_Click(object sender, EventArgs e)
         {
-            var modName = CUInputWindow.Ask(this, "New mod", "Please enter a file name (or wildcard) to exclude while uploading\nExamples: `CompiledScripts\\*.u` `icon.pdn` `OtherStuff\\*.*`", new WildcardValidator());
+            var modName = CUInputWindow.Ask(this, "EXCLUDED FILES", "Please enter a file name (or wildcard) to exclude while uploading\nExamples: `CompiledScripts\\*.u` `icon.pdn` `OtherStuff\\*.*`", new WildcardValidator());
             if (string.IsNullOrEmpty(modName)) return;
             listBox1.Items.Add(modName.Replace("/", "\\").Trim());
         }

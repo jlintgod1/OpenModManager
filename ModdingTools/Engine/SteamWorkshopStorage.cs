@@ -58,7 +58,7 @@ namespace ModdingTools.Engine
                     cachedPrevLineName = sanitized.TrimStart('[').TrimEnd(']');
                     nextLineShouldHaveValue = true;
                 }
-                else if (nextLineShouldHaveValue && sanitized.Split('=')[0].Trim().StartsWith("WorkshopId"))
+                else if (nextLineShouldHaveValue && sanitized.Contains("=") && sanitized.Split('=')[0].Trim().StartsWith("WorkshopId"))
                 {
                     SteamWorkshopData.Add(cachedPrevLineName, long.Parse(sanitized.Split('=')[1].Trim()));
                     nextLineShouldHaveValue = false;

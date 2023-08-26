@@ -18,7 +18,7 @@ namespace ModdingTools.Windows
         {
             InitializeComponent();
             label3.Text = $"App build number: {BuildData.CurrentVersion}";
-            Meme.PlayElevatorMusic("about.wav"); //JLINT-ADD: :)
+            Meme.PlayElevatorMusic("about.wav"); // JLINT-ADD: :)
         }
         private void AboutWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
