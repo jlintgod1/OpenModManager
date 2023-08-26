@@ -202,7 +202,7 @@ namespace ModdingTools
                 Environment.Exit(1);
             }
 
-            //JLINT-ADD: Auto workshop blocker functionality
+            // JLINT-ADD: Auto workshop blocker functionality
             bool SuccessfulAdminLaunch = true;
             if (OMMSettings.Instance.AutoWorkshopLocker && !workshopLockerMode)
             {
@@ -225,7 +225,7 @@ namespace ModdingTools
                     {
                         Process.Start(proc);
                     }
-                    catch (Exception ex)
+                    catch
                     {
                         SuccessfulAdminLaunch = false;
                     }
@@ -246,7 +246,7 @@ namespace ModdingTools
 
             if (!Environment.Is64BitOperatingSystem || !Environment.Is64BitProcess)
             {
-                CUMessageBox.Show("This app needs 64-bit operating environment and operating system!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CUMessageBox.Show("This app needs a 64-bit operating environment and operating system!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Environment.Exit(0);
             }
 
@@ -305,7 +305,7 @@ namespace ModdingTools
                     }
                     else if (element.Current.Name.Trim() == "Editor for A Hat in Time (64-bit, DX9)")
                     {
-                        //JLINT-CHANGE: Adjusted to use the new method argument
+                        // JLINT-CHANGE: Adjusted to use the new method argument
                         Meme.PlayElevatorMusic("lol.wav");
                        
                     }

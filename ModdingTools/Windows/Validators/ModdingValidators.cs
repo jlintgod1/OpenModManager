@@ -24,7 +24,7 @@ namespace ModdingTools.Windows.Validators
 
             if (inputText.ToLower().Trim() == "newmod" || inputText.ToLower().Trim() == "mymod")
             {
-                return "Seriously? Give it some more unique name...";
+                return "Seriously? Give it a more unique name...";
             }
 
             string modName = inputText;

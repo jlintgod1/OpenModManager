@@ -68,7 +68,7 @@ namespace ModdingTools.Modding
 
         public Dictionary<string, string> AssetReplacements;
 
-        //JLINT-ADD: Used for the always loaded workaround
+        // JLINT-ADD: Used for the always loaded workaround
         public ModClass[] AlwaysLoadedClasses { get; set; }
         public ModObject AlwaysLoadedReference { get; set; }
 
@@ -382,7 +382,7 @@ namespace ModdingTools.Modding
         {
             if (OMMSettings.Instance.AlwaysloadedWorkaround && OMMSettings.Instance.FastCook)
             {
-                //JLINT-ADD: Throwing an exception causes a crash, so show an error message instead(no one will see this though)
+                // JLINT-ADD: Throwing an exception causes a crash, so show an error message instead(no one will see this though)
                 CUMessageBox.Show("Idk how do you enabled FastCooking and AlwaysLoadedWorkaround at the same time, but please, choose only one lol", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -391,14 +391,14 @@ namespace ModdingTools.Modding
             {
                 runner.Log("[Experimental] Alwaysloaded workaround is enabled! Please report any issues!", CUFramework.Shared.LogLevel.Warn);
 
-                //JLINT-ADD: Ask the user about which classes they want AlwaysLoaded.
+                // JLINT-ADD: Ask the user about which classes they want AlwaysLoaded.
                 if (AlwaysLoadedReference == null || !GetDirectoryName().Contains(AlwaysLoadedReference.GetDirectoryName()))
                 {
                     AlwaysLoadedClasses = ArrayCheckboxWindow.Ask(Name.ToUpper() + " - ALWAYSLOADED CLASSES", "Which classes should be AlwaysLoaded?\n(NOTE: Any classes that are directly or INDIRECTLY referenced by an AlwaysLoaded class will become AlwaysLoaded too!)", GetModClasses(), this.GetDirectoryName()).ToArray();
 
-                    //JLINT-ADD: This creates a new mod that references our AlwaysLoaded classes, then compiles it
-                    //We need this if we want some of our other classes to be non-AlwaysLoaded.
-                    //More information in this guide from UnDrew: https://steamcommunity.com/sharedfiles/filedetails/?id=2888211200
+                    // JLINT-ADD: This creates a new mod that references our AlwaysLoaded classes, then compiles it
+                    // We need this if we want some of our other classes to be non-AlwaysLoaded.
+                    // More information in this guide from UnDrew: https://steamcommunity.com/sharedfiles/filedetails/?id=2888211200
                     if (AlwaysLoadedClasses.Length > 0 && AlwaysLoadedClasses.Length < GetModClasses().Length)
                     {
                         runner.Log("Creating and compiling AlwaysLoaded reference mod...", CUFramework.Shared.LogLevel.Verbose);
@@ -426,7 +426,7 @@ namespace ModdingTools.Modding
                 {
                     AlwaysLoadedClasses = GetModClasses();
                 }
-                //JLINT-END
+                // JLINT-END
 
                 if (!Directory.Exists(this.GetMapsDir()))
                     Directory.CreateDirectory(this.GetMapsDir());
@@ -434,13 +434,13 @@ namespace ModdingTools.Modding
 
                 if (File.Exists(csc))
                 {
-                    //JLINT-ADD: Support for non-AlwaysLoaded mod classes
+                    // JLINT-ADD: Support for non-AlwaysLoaded mod classes
                     var target = "";
                     if (AlwaysLoadedClasses.Length >= GetModClasses().Length)
                         target = Path.Combine(this.GetMapsDir(), this.GetDirectoryName() + ".umap");
                     else
                         target = Path.Combine(this.GetCompiledScriptsDir(), this.GetDirectoryName() + ".upk");
-                    //JLINT-END
+                    // JLINT-END
 
                     if (File.Exists(target))
                         File.Delete(target);
@@ -465,7 +465,7 @@ namespace ModdingTools.Modding
             {
                 Debug.WriteLine("OnCookingFinish called");
 
-                //JLINT-ADD: Uhh... There's alot to unpack here, but basically, organization of class files and stuff, more cooking, destroying.
+                // JLINT-ADD: Uhh... There's alot to unpack here, but basically, organization of class files and stuff, more cooking, destroying.
                 var scr = "";
                 var target = "";
                 if (AlwaysLoadedReference == null)
@@ -514,7 +514,7 @@ namespace ModdingTools.Modding
                             File.Move(scr, target);
                         }
 
-                        //We no longer need our AlwaysLoaded reference mod, destroy it!
+                        // We no longer need our AlwaysLoaded reference mod, destroy it!
                         AlwaysLoadedReference.AlwaysLoadedReference = null;
                         AlwaysLoadedReference = null;
                         this.Delete();
@@ -526,7 +526,7 @@ namespace ModdingTools.Modding
                         AlwaysLoadedReference.CookMod(runner, false, false, false);
                     }
                 }
-                //JLINT-END
+                // JLINT-END
             }
         }
 

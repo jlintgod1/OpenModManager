@@ -1,4 +1,4 @@
-﻿//JLINT-ADD: Class for selecting items with checkboxes. Hard coded to work with ModClass despite having an object[] input.
+﻿// JLINT-ADD: Class for selecting items with checkboxes. Hard coded to work with ModClass.
 using CUFramework.Dialogs;
 using CUFramework.Dialogs.Validators;
 using CUFramework.Windows;

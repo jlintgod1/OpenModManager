@@ -24,7 +24,7 @@ namespace ModdingTools.Engine
 
         public void CheckForUpdatesAsync()
         {
-            if (!OMMSettings.Instance.UpdateCheck)
+            if (!OMMSettings.Instance.UpdateCheck || true) // JLINT-CHANGE: True until the updater is functional again
             {
                 Debug.WriteLine("Updates disabled");
                 return;

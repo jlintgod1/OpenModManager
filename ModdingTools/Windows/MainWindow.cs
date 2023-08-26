@@ -46,7 +46,7 @@ namespace ModdingTools.Windows
             "ALWAYSLOADED",
             "FATAL ERROR 0x0",
 
-            //JLINT-ADD: Additional text!! For fun!!!
+            // JLINT-ADD: Additional text!! For fun!!!
             "MODDING POWER COMES WITH MODDING IRRESPONSIBILITY",
             "NO CRUNCH EDITION",
             "STOLEN BY JLINTGOD EDITION",
@@ -157,7 +157,7 @@ namespace ModdingTools.Windows
 
         private void mButton4_Click(object sender, EventArgs e)
         {
-            var modName = CUInputWindow.Ask(this, "New mod", "Please enter a mod folder name", new ModNameValidator());
+            var modName = CUInputWindow.Ask(this, "NEW MOD", "Please enter a mod folder name", new ModNameValidator());
 
             if (modName == null)
                 return;
@@ -248,6 +248,8 @@ namespace ModdingTools.Windows
         // JLINT-ADD: Window close event for auto workshop locker
         private void MainWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if (!OMMSettings.Instance.AutoWorkshopLocker || !Utils.RunningAsAdmin()) return;
+
             var wsDir = GameFinder.GetWorkshopDir();
             if (!Directory.Exists(wsDir))
                 Directory.CreateDirectory(wsDir);
