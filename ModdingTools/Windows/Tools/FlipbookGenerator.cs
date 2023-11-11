@@ -1,4 +1,5 @@
 ﻿using CUFramework.Dialogs;
+using CUFramework.Shared;
 using CUFramework.Windows;
 using LibAPNG;
 using ModdingTools.Engine;
@@ -48,6 +49,7 @@ namespace ModdingTools.Windows.Tools
 
             pictureBox1.Image = Properties.Resources.editorcrashedhueh4;
             checkBox1.Checked = OMMSettings.Instance.Flipbook_TrueTransparency;
+            checkBox2.Checked = OMMSettings.Instance.Flipbook_FrameEmptySpace;
         }
 
         public List<Image> GetFramesFromAnimatedGIF(Image img)
@@ -174,19 +176,13 @@ namespace ModdingTools.Windows.Tools
                 }
 
                 // just forgive my shitty maths... maybe there's an easier way to do that :hueh:
+                // JLINT-CHANGE: Yes! Without using while loops!
                 double frameW = frames[0].Width;
 
                 var frameCount = frames.Count();
 
                 double size = frameCount;
-                int level = 1;
-                while (true)
-                {
-                    double search = Math.Pow(level, 2);
-                    if (size < search) break;
-                    level++;
-                }
-
+                int level = (int)Math.Ceiling(Math.Sqrt(size));
                 size = level * frameW;
 
                 Debug.WriteLine("Level: " + level);
@@ -200,7 +196,7 @@ namespace ModdingTools.Windows.Tools
                 {
                     for (int xy = 0; xy != remain; xy++)
                     {
-                        frames.Add(new Bitmap(frames.Last()));
+                        frames.Add(checkBox2.Checked ? new Bitmap(frames.Last()) : null);
                     }
                 }
 
@@ -212,6 +208,7 @@ namespace ModdingTools.Windows.Tools
                 int nIndex = 0;
                 foreach (Image img in frames)
                 {
+                    if (img == null) break;
                     canvas.DrawImage(img, new Point((int)frameW * nIndex, (int)frameW * line));
                     img.Dispose();
 
@@ -226,19 +223,10 @@ namespace ModdingTools.Windows.Tools
                     }
                 }
 
-                int x = 1;
-                while (true)
-                {
-                    double search = Math.Pow(2, x);
-                    if ((int)size <= search) break;
-                    x++;
-                }
-
-                x = (int)Math.Pow(2, x);
+                // JLINT-CHANGE: No more while loops!
+                int x = (int)Math.Pow(2, Math.Floor(Math.Log(size, 2)));
                 if (x > MaxTextureSize)
-                {
                     x = MaxTextureSize; // max texture size in Hat UDK
-                }
 
                 canvas.Dispose();
 
@@ -286,6 +274,12 @@ namespace ModdingTools.Windows.Tools
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             OMMSettings.Instance.Flipbook_LastIntrpValue = comboBox1.SelectedItem.ToString();
+            OMMSettings.Instance.Save();
+        }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            OMMSettings.Instance.Flipbook_FrameEmptySpace = checkBox2.Checked;
             OMMSettings.Instance.Save();
         }
     }

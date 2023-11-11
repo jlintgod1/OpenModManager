@@ -20,6 +20,7 @@ namespace ModdingTools.Settings
         public bool UpdateCheck { get; set; } = true;
         public bool Exporter_ForcePNG { get; set; } = true;
         public bool Flipbook_TrueTransparency { get; set; } = false;
+        public bool Flipbook_FrameEmptySpace { get; set; } = false; // JLINT-ADD: Introduced empty space in flipbooks
         public string Flipbook_LastIntrpValue { get; set; } = "";
         public int Flipbook_LastColorValue { get; set; } = 0;
         public int Flipbook_LastSize { get; set; } = 8192;

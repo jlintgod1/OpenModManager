@@ -251,10 +251,14 @@ namespace ModdingTools.Engine
 
         public static void UpdateFileDates(string path)
         {
-            var files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
-            foreach (var file in files)
+            // JLINT-ADD: Bug fix for a crash after cooking a mod with no valid CookedPC content/folder(i.e. translation packs)
+            if (Directory.Exists(path))
             {
-                File.SetLastWriteTime(file, DateTime.Now);
+                var files = Directory.GetFiles(path, "*", SearchOption.AllDirectories);
+                foreach (var file in files)
+                {
+                    File.SetLastWriteTime(file, DateTime.Now);
+                }
             }
         }
 

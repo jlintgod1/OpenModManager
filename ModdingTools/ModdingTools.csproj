@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>ModdingTools</RootNamespace>
     <AssemblyName>ModdingTools</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile>
@@ -50,7 +50,8 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
     <OutputPath>bin\x64\Release\</OutputPath>
@@ -80,14 +81,14 @@
     <ManifestKeyFile>ModdingTools_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CommandLine, Version=2.8.0.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
-      <HintPath>..\packages\CommandLineParser.2.8.0\lib\net40\CommandLine.dll</HintPath>
+    <Reference Include="CommandLine, Version=2.9.1.0, Culture=neutral, PublicKeyToken=5a870481e358d379, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommandLineParser.2.9.1\lib\net461\CommandLine.dll</HintPath>
     </Reference>
     <Reference Include="CUFramework, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CUFramework.0.0.1\lib\net40\CUFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Eliot.UELib, Version=1.2.8.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Eliot.UELib.dll.1.2.8\lib\net40\Eliot.UELib.dll</HintPath>
+    <Reference Include="Eliot.UELib, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Eliot.UELib.dll.1.3.0\lib\net472\Eliot.UELib.dll</HintPath>
     </Reference>
     <Reference Include="INIFileParser, Version=2.5.2.0, Culture=neutral, PublicKeyToken=79af7b307b65cf3c, processorArchitecture=MSIL">
       <HintPath>..\packages\ini-parser.2.5.2\lib\net20\INIFileParser.dll</HintPath>
@@ -119,6 +120,12 @@
     <Compile Include="Engine\SteamWorkshopStorage.cs" />
     <Compile Include="Engine\TGA\TargaImage.cs" />
     <Compile Include="GUI\GUIProcessRunner.cs" />
+    <Compile Include="GUI\HatOvh_ScriptListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\HatOvh_ScriptListItem.Designer.cs">
+      <DependentUpon>HatOvh_ScriptListItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Headless\CommandLineOptions.cs" />
     <Compile Include="Engine\APNG\APNG.cs" />
     <Compile Include="Engine\APNG\Chunks\acTLChunk.cs" />
@@ -236,6 +243,12 @@
     <Compile Include="Windows\Tools\FlipbookGenerator.Designer.cs">
       <DependentUpon>FlipbookGenerator.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Tools\HatOvhBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\Tools\HatOvhBrowser.Designer.cs">
+      <DependentUpon>HatOvhBrowser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UploadOptions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -324,6 +337,9 @@
     <EmbeddedResource Include="GUI\GUIWorker.resx">
       <DependentUpon>GUIWorker.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\HatOvh_ScriptListItem.resx">
+      <DependentUpon>HatOvh_ScriptListItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\ArrayCheckboxWindow.resx">
       <DependentUpon>ArrayCheckboxWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -347,6 +363,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Tools\FlipbookGenerator.resx">
       <DependentUpon>FlipbookGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Tools\HatOvhBrowser.resx">
+      <DependentUpon>HatOvhBrowser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\UploadOptions.resx">
       <DependentUpon>UploadOptions.cs</DependentUpon>
@@ -380,6 +399,9 @@
     <EmbeddedResource Include="Windows\WorkshopLocker.resx">
       <DependentUpon>WorkshopLocker.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -394,6 +416,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="hueh.ico" />
+    <Content Include="Resources\icon_005.png" />
     <Content Include="Resources\weapon.png" />
     <None Include="Resources\jlintgod_mugshot.png" />
     <None Include="Resources\noimage_wide.png" />
@@ -450,6 +473,16 @@
     <None Include="Resources\loading.gif" />
     <None Include="Resources\close.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

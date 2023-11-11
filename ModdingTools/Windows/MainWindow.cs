@@ -25,7 +25,7 @@ namespace ModdingTools.Windows
         public static MainWindow Instance { get; private set; }
         private UpdateChecker UpdateChk;
 
-        private ModListControl modListControl1;
+        public ModListControl modListControl1 { get; private set; }
         private ProcessRunner processRunner1;
         public GUIWorker GuiWorker { get; private set; }
 
@@ -372,6 +372,13 @@ namespace ModdingTools.Windows
                 {
                 }
             }
+        }
+
+        private void hATOVHBROWSERToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var w = new HatOvhBrowser();
+            w.StartPosition = FormStartPosition.CenterParent;
+            w.ShowDialog(this);
         }
     }
 }

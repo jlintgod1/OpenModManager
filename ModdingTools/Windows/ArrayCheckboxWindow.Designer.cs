@@ -45,9 +45,10 @@ namespace ModdingTools.Windows
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 28);
+            this.label1.Location = new System.Drawing.Point(19, 34);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(321, 95);
+            this.label1.Size = new System.Drawing.Size(428, 117);
             this.label1.TabIndex = 6;
             this.label1.Text = "Title T";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -55,14 +56,16 @@ namespace ModdingTools.Windows
             // cuButton2
             // 
             this.cuButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.cuButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cuButton2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cuButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
             this.cuButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton2.ForeColor = System.Drawing.Color.White;
-            this.cuButton2.Location = new System.Drawing.Point(3, 3);
+            this.cuButton2.Location = new System.Drawing.Point(4, 4);
+            this.cuButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cuButton2.Name = "cuButton2";
             this.cuButton2.NoFocus = false;
-            this.cuButton2.Size = new System.Drawing.Size(167, 32);
+            this.cuButton2.Size = new System.Drawing.Size(222, 39);
             this.cuButton2.TabIndex = 3;
             this.cuButton2.Text = "CANCEL";
             this.cuButton2.UseVisualStyleBackColor = false;
@@ -75,10 +78,11 @@ namespace ModdingTools.Windows
             this.cuButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.cuButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton1.ForeColor = System.Drawing.Color.Black;
-            this.cuButton1.Location = new System.Drawing.Point(176, 3);
+            this.cuButton1.Location = new System.Drawing.Point(234, 4);
+            this.cuButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cuButton1.Name = "cuButton1";
             this.cuButton1.NoFocus = false;
-            this.cuButton1.Size = new System.Drawing.Size(167, 32);
+            this.cuButton1.Size = new System.Drawing.Size(223, 39);
             this.cuButton1.TabIndex = 2;
             this.cuButton1.Text = "OK";
             this.cuButton1.UseVisualStyleBackColor = false;
@@ -92,20 +96,21 @@ namespace ModdingTools.Windows
             this.tableLayoutPanel1.Controls.Add(this.cuButton2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cuButton1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 446);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 549);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(346, 38);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(461, 47);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 125);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.checkBox1.Location = new System.Drawing.Point(9, 154);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(70, 17);
+            this.checkBox1.Size = new System.Drawing.Size(85, 20);
             this.checkBox1.TabIndex = 9;
             this.checkBox1.Text = "Select All";
             this.checkBox1.ThreeState = true;
@@ -118,10 +123,10 @@ namespace ModdingTools.Windows
             this.borderPanel1.BorderThickness = 2;
             this.borderPanel1.Controls.Add(this.checkedListBox1);
             this.borderPanel1.ForeColor = System.Drawing.Color.White;
-            this.borderPanel1.Location = new System.Drawing.Point(4, 142);
-            this.borderPanel1.Margin = new System.Windows.Forms.Padding(2);
+            this.borderPanel1.Location = new System.Drawing.Point(5, 175);
+            this.borderPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.borderPanel1.Name = "borderPanel1";
-            this.borderPanel1.Size = new System.Drawing.Size(341, 298);
+            this.borderPanel1.Size = new System.Drawing.Size(455, 367);
             this.borderPanel1.TabIndex = 7;
             // 
             // checkedListBox1
@@ -134,18 +139,20 @@ namespace ModdingTools.Windows
             this.checkedListBox1.FormattingEnabled = true;
             this.checkedListBox1.Items.AddRange(new object[] {
             "checkListBox"});
-            this.checkedListBox1.Location = new System.Drawing.Point(2, 3);
-            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.checkedListBox1.Location = new System.Drawing.Point(3, 4);
+            this.checkedListBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(337, 285);
+            this.checkedListBox1.Size = new System.Drawing.Size(449, 340);
             this.checkedListBox1.TabIndex = 0;
             this.checkedListBox1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.checkedListBox1_ItemCheck);
             // 
             // ArrayCheckboxWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AcceptButton = this.cuButton1;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(350, 486);
+            this.CancelButton = this.cuButton2;
+            this.ClientSize = new System.Drawing.Size(467, 598);
             this.ControlBoxVisible = false;
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -154,9 +161,10 @@ namespace ModdingTools.Windows
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsResizable = false;
             this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(2);
-            this.MaximumSize = new System.Drawing.Size(1152, 670);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1536, 825);
             this.Name = "ArrayCheckboxWindow";
+            this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Text = "ArrayCheckboxWindow";
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.borderPanel1, 0);
