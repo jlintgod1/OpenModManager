@@ -16,7 +16,7 @@ namespace ModdingTools.Settings
         public List<int> ClassesInt = new List<int>();
 
         [XmlIgnore]
-        public string OwnerModName; //The mod folder name can change, so do not serialize
+        public string OwnerModName; // The mod folder name is important for storing this in the mod folder, nothing else
         public void Save()
         {
             var cfgRoot = Path.Combine(GameFinder.GetModsDir(), OwnerModName);

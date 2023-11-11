@@ -24,28 +24,29 @@ namespace ModdingTools.Windows
             InitializeComponent();
         }
 
-        public static List<ModClass> Ask(string title, string desc, ModClass[] defaultItems, string ModFolderName)
+        public static List<Object> Ask(string title, string desc, Object[] defaultItems, string ValueMember, string ModFolderName = "", bool SelectAll = true)
         {
             var a = new ArrayCheckboxWindow();
             a.label1.Text = desc;
             a.Text = title;
             a.checkedListBox1.Items.Clear();
-            a.checkedListBox1.ValueMember = "ClassName";
-            a.checkBox1.Checked = true;
+            a.checkedListBox1.ValueMember = ValueMember;
+            a.checkBox1.Checked = SelectAll;
 
-            a.SettingsInstance = AlwaysLoadedSettings.Load(ModFolderName);
+            if (ModFolderName != "")
+                a.SettingsInstance = AlwaysLoadedSettings.Load(ModFolderName);
 
             if (defaultItems != null)
             {
                 foreach (var i in defaultItems)
                 {
-                    if (a.SettingsInstance.Classes.Contains(i.ClassName))
+                    if (a.SettingsInstance != null && i is ModClass && a.SettingsInstance.Classes.Contains(((ModClass)i).ClassName))
                     {
-                        a.checkedListBox1.Items.Add(i, a.SettingsInstance.ClassesInt[a.SettingsInstance.Classes.IndexOf(i.ClassName)] == 1);
+                        a.checkedListBox1.Items.Add(i, a.SettingsInstance.ClassesInt[a.SettingsInstance.Classes.IndexOf(((ModClass)i).ClassName)] == 1);
                     }
                     else
                     {
-                        a.checkedListBox1.Items.Add(i, true);
+                        a.checkedListBox1.Items.Add(i, SelectAll);
                     }
                 }
             }
@@ -57,19 +58,22 @@ namespace ModdingTools.Windows
                 foreach (var i in a.checkedListBox1.CheckedItems)
                     res.Add(i);
 
-                foreach (var i in a.checkedListBox1.Items)
+                if (a.SettingsInstance != null)
                 {
-                    a.SettingsInstance.Classes.Add(((ModClass)i).ClassName);
-                    a.SettingsInstance.ClassesInt.Add(a.checkedListBox1.CheckedItems.Contains(i) ? 1 : 0);
+                    foreach (var i in a.checkedListBox1.Items)
+                    {
+                        a.SettingsInstance.Classes.Add(((ModClass)i).ClassName);
+                        a.SettingsInstance.ClassesInt.Add(a.checkedListBox1.CheckedItems.Contains(i) ? 1 : 0);
+                    }
+
+                    var saveResult = CUMessageBox.Show("Save your preferences for the next cook?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (saveResult == DialogResult.Yes)
+                    {
+                        a.SettingsInstance.Save();
+                    }
                 }
 
-                var saveResult = CUMessageBox.Show("Save your preferences for the next cook?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (saveResult == DialogResult.Yes)
-                {
-                    a.SettingsInstance.Save();
-                }
-
-                return res.Cast<ModClass>().ToList();
+                return res;
             }
             return defaultItems.ToList();
         }

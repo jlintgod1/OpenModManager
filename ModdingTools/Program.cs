@@ -71,7 +71,7 @@ namespace ModdingTools
 
         public static bool FixUpdater()
         {
-            Utils.KillUpdater(); 
+            Utils.KillUpdater();
 
             var updaterFileA = Path.Combine(GetAppRoot(), "ModdingTools.Updater.exe");
             var updaterFilePdbA = Path.Combine(GetAppRoot(), "ModdingTools.Updater.pdb");
@@ -273,7 +273,7 @@ namespace ModdingTools
             {
                 EditorWatchdog = new EditorProcessStateWatchdog();
                 if (!SuccessfulAdminLaunch)
-                    CUMessageBox.Show("Auto Workshop Locker requires admin privileges to work properly!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CUMessageBox.Show("Auto Workshop Blocker requires admin privileges to work properly!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 Application.Run(new MainWindow());
                 SetRPData();
@@ -284,7 +284,7 @@ namespace ModdingTools
         private static void SetRPData()
         {
             SteamFriends.SetRichPresence("gamelocation", "OpenModManager");
-            SteamFriends.SetRichPresence("status", "I'm using OpenModManager!\nhttps://github.com/mcu8/OpenModManager");
+            SteamFriends.SetRichPresence("status", "I'm using OpenMod tilt controls! hueh"); // JLINT-CHANGE: xD
             SteamFriends.SetRichPresence("steam_display", "#Status");
         }
 

@@ -77,9 +77,9 @@ namespace ModdingTools.Windows.Tools
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(691, 32);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Please, enter the asset name (one per line)\r\n(right click on the asset in the Con" +
-    "tent Browser, choose the \"Copy the full name to Clipboard\" option and paste it h" +
-    "ere)";
+            this.label1.Text = "Please. enter each asset name (one per line)\r\n(right click on the asset in the Co" +
+    "ntent Browser, choose the \"Copy the full name to Clipboard\" option and paste it " +
+    "here)";
             // 
             // checkBox1
             // 
