@@ -123,7 +123,7 @@ namespace ModdingTools.Engine
             );
         }
 
-        public ExecutableArgumentsPair LaunchEditor(string modName = null)
+        public ExecutableArgumentsPair LaunchEditor(string modName = null, string[] additionalArguments = null)
         {
             var args = modName == null ?
                 OMMSettings.Instance.GetArgumentsFor(OMMSettings.ArgsDefaultsKeys.ED_LaunchEditor) :
