@@ -139,6 +139,7 @@ namespace ModdingTools.Engine
                                 newPath[y] = parts[y];
 
                             var ph = Path.Combine(tmpDir, string.Join("\\", newPath));
+                            if (!Directory.Exists(ph)) continue;
                             var d = Directory.GetDirectories(ph, mask, SearchOption.TopDirectoryOnly);
                             var f = Directory.GetFiles(ph, mask, SearchOption.TopDirectoryOnly);
 
