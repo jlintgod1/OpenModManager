@@ -20,6 +20,7 @@ using CUFramework.Dialogs;
 using CUFramework.Dialogs.Validators;
 using ModdingTools.Windows.Tools;
 using ModdingTools.Windows.Validators;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ModdingTools.Windows
 {
@@ -49,6 +50,7 @@ namespace ModdingTools.Windows
                 checkBox12.Checked = store.IsLanguagePack;
 
                 listBox1.Items.AddRange(store.IgnoredFiles.ToArray());
+                listBox2.Items.AddRange(store.PreviewImages.ToArray());
 
                 checkBox13_CheckedChanged(null, null);
 
@@ -180,6 +182,12 @@ namespace ModdingTools.Windows
                 store.IgnoredFiles.Add((string)x);
             }
 
+            store.PreviewImages = new List<string>();
+            foreach (var x in listBox2.Items)
+            {
+                store.PreviewImages.Add((string)x);
+            }
+
             store.SaveForMod(mod);
 
             var iconPath = Path.Combine(mod.RootPath, mod.Icon);
@@ -197,7 +205,7 @@ namespace ModdingTools.Windows
                 }
             }
 
-            Program.Uploader.UploadModAsync(mod, textBox1.Text, store.Tags, checkBox1.Checked, checkBox2.Checked, comboBox3.SelectedIndex, store.UseSeparateDescriptionForSteam ? store.GetDescription() : mod.GetDescription(), iconPath, store.IgnoredFiles);
+            Program.Uploader.UploadModAsync(mod, textBox1.Text, store.Tags, checkBox1.Checked, checkBox2.Checked, comboBox3.SelectedIndex, store.UseSeparateDescriptionForSteam ? store.GetDescription() : mod.GetDescription(), iconPath, store.IgnoredFiles, store.PreviewImages);
             this.Close();
         }
 
@@ -281,6 +289,33 @@ namespace ModdingTools.Windows
             if (string.IsNullOrEmpty(modName)) return;
             listBox1.Items.Add(modName.Replace("/", "\\").Trim());
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            while (listBox2.SelectedItems.Count > 0)
+            {
+                listBox2.Items.Remove(listBox2.SelectedItems[0]);
+            }
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.DefaultExt = "bmp";
+            dlg.Multiselect = true;
+            dlg.Filter = "Image file (*.bmp;*.jpg;*.jpeg;*.png;*.tiff)|*.bmp;*.jpg;*.jpeg;*.png;*.tiff";
+            if (dlg.ShowDialog() == DialogResult.OK)
+            {
+                foreach (var file in dlg.FileNames)
+                {
+                    FileInfo f = new FileInfo(file);
+                    if (f.Exists)
+                    {
+                        listBox2.Items.Add(file);
+                    }
+                }
+            }
+        }
     }
 
     public class ModStore
@@ -296,6 +331,7 @@ namespace ModdingTools.Windows
         public string AnimatedIconFileName = "";
         public bool IsLanguagePack = false;
         public List<string> IgnoredFiles = new List<string>();
+        public List<string> PreviewImages = new List<string>();
 
         public void SetDescription(string desc)
         {

@@ -136,7 +136,7 @@ namespace ModdingTools.Engine
             );
         }
 
-        public ExecutableArgumentsPair LaunchEditor(string modName = null)
+        public ExecutableArgumentsPair LaunchEditor(string modName = null, string[] additionalArguments = null)
         {
             return new ExecutableArgumentsPair(
                 "Launching editor...",

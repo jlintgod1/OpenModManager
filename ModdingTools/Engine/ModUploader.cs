@@ -5,6 +5,8 @@ using Steamworks;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -26,14 +28,14 @@ namespace ModdingTools.Engine
 
         public bool IsUploaderRunning { get; protected set; } = false;
 
-        public void UploadModAsync(ModObject mod, string changelog, string[] tags, bool keepCooked, bool keepScripts, int visibility, string description, string iconPath, List<string> ignoredFiles)
+        public void UploadModAsync(ModObject mod, string changelog, string[] tags, bool keepCooked, bool keepScripts, int visibility, string description, string iconPath, List<string> ignoredFiles, List<string> previewImages)
         {
             Task.Factory.StartNew(() =>
             {
                 MainWindow.Instance.Invoke(new MethodInvoker(() => {
                     ModProperties.TemporaryHideAllPropertiesWindows();
                 }));
-                UploadMod(mod, changelog, tags, keepCooked, keepScripts, visibility, description, iconPath, ignoredFiles);
+                UploadMod(mod, changelog, tags, keepCooked, keepScripts, visibility, description, iconPath, ignoredFiles, previewImages);
                 MainWindow.Instance.Invoke(new MethodInvoker(() => {
                     ModProperties.RestoreTemporaryHiddenPropertiesWindows();
                 }));
@@ -49,7 +51,7 @@ namespace ModdingTools.Engine
             ugcUpdateHandle = UGCUpdateHandle_t.Invalid;
         }
 
-        public void UploadMod(ModObject mod, string changelog, string[] tags, bool keepUnCooked, bool keepScripts, int visibility, string description, string iconPath, List<string> ignoredFiles)
+        public void UploadMod(ModObject mod, string changelog, string[] tags, bool keepUnCooked, bool keepScripts, int visibility, string description, string iconPath, List<string> ignoredFiles, List<string> previewImages)
         {
             if (IsUploaderRunning)
             {
@@ -211,6 +213,74 @@ namespace ModdingTools.Engine
                 SteamUGC.SetItemPreview(ugcUpdateHandle, iconPath);
                 SteamUGC.SetItemContent(ugcUpdateHandle, tmpDir);
 
+                // JLINT-ADD: Support for adding screenshots during the upload process
+                var screenshotDir = Path.Combine(Program.GetAppRoot(), "uploader_tmp_screenshots");
+                if (previewImages.Count > 0)
+                {
+                    // Make our temporary screenshot foloder
+                    if (Directory.Exists(screenshotDir))
+                        Directory.Delete(screenshotDir, true);
+                    Directory.CreateDirectory(screenshotDir);
+                    List<string> screenshotFiles = new List<string>();
+
+                    // Get the JPEG codec
+                    ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+                    ImageCodecInfo jpegCodecInfo = null;
+                    foreach (ImageCodecInfo codec in codecs)
+                    {
+                        if (codec.FormatID == ImageFormat.Jpeg.Guid)
+                        {
+                            jpegCodecInfo = codec;
+                            break;
+                        }
+                    }
+
+                    // Go through each image and continuously decrase the quality until each image is below the size limit(2 MB)
+                    for (int i = 0; i < previewImages.Count; i++)
+                    {
+                        FileInfo f = new FileInfo(previewImages[i]);
+                        if (!f.Exists) continue;
+                        Bitmap loadedImage = new Bitmap(previewImages[i]);
+                        int qualityLevel = 0;
+
+                        SetStatus("Processing preview images (" + (i + 1) + " out of " + previewImages.Count + ")");
+
+                        while (qualityLevel < 22)
+                        {
+                            string filePath = Path.Combine(screenshotDir, "Screenshot" + i + (qualityLevel > 0 ? ".jpeg" : ".png"));
+                            if (qualityLevel > 0)
+                            {
+                                EncoderParameters encoderParameters = new EncoderParameters(1);
+                                EncoderParameter newParameter = new EncoderParameter(Encoder.Quality, 105L - (5 * qualityLevel));
+                                encoderParameters.Param[0] = newParameter;
+
+                                loadedImage.Save(filePath, jpegCodecInfo, encoderParameters);
+                            }
+                            else
+                            {
+                                loadedImage.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
+                            }
+
+                            FileInfo imageFileInfo = new FileInfo(filePath);
+                            if (imageFileInfo.Length >= 1048576)
+                            {
+                                qualityLevel++;
+                            }
+                            else
+                            {
+                                SteamUGC.AddItemPreviewFile(ugcUpdateHandle, filePath, EItemPreviewType.k_EItemPreviewType_Image);
+                                loadedImage.Dispose();
+                                break;
+                            }
+                        }
+
+                        if (qualityLevel >= 22)
+                            SetStatus("ERROR: Preview image " + Path.GetFileName(previewImages[i]) + " is bigger than 2 MB, even after decreasing its quality! It will not be added into the Steam Workshop page.");
+                    }
+                }
+
+                SetStatus("Initiating upload...");
+
                 SteamAPICall_t t = SteamUGC.SubmitItemUpdate(ugcUpdateHandle, changelog);
                 m_itemSubmitted = CallResult<SubmitItemUpdateResult_t>.Create(OnItemSubmitted);
                 m_itemSubmitted.Set(t);
@@ -256,6 +326,8 @@ namespace ModdingTools.Engine
                 SetStatus("Cleanup");
                 if (Directory.Exists(tmpDir))
                     Directory.Delete(tmpDir, true);
+                if (Directory.Exists(screenshotDir))
+                    Directory.Delete(screenshotDir, true);
 
                 Toggle(false);
 
