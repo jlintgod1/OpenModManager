@@ -26,7 +26,7 @@ namespace ModdingTools.Headless
         {
             if (!Environment.Is64BitOperatingSystem || !Environment.Is64BitProcess)
             {
-                Logger.Log(LogLevel.Error, "This app needs 64-bit operating environment and operating system!");
+                Logger.Log(LogLevel.Error, "This app needs a 64-bit operating environment and operating system!");
                 Environment.Exit(0);
             }
 

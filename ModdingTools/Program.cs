@@ -31,7 +31,9 @@ namespace ModdingTools
         public static ProcessFactory ProcFactory;
         public static ModUploader Uploader { get; set; }
         public static Benchmark Benchmark { get; set; } = null;
- 
+        public static EditorProcessStateWatchdog EditorWatchdog { get; set; }
+
+
         public static string GetAppRoot()
         {
             return Path.GetDirectoryName(Application.ExecutablePath);
@@ -269,9 +271,11 @@ namespace ModdingTools
             }
             else
             {
+                // Needs to be shown after SetCompatibleTextRenderingDefault so it doesn't crash
                 if (!SuccessfulAdminLaunch)
                     CUMessageBox.Show("Auto Workshop Blocker requires admin privileges to work properly!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                EditorWatchdog = new EditorProcessStateWatchdog();
                 Application.Run(new MainWindow());
                 SetRPData();
             }

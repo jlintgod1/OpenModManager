@@ -18,7 +18,7 @@ namespace ModdingTools.Engine
 
         public enum ModClassType
         {
-            Sticker, Weapon, Remix, Badge, Hat, Skin, DWContract, Generic, Playable, GameMod, Map
+            Sticker, Weapon, Remix, Badge, Hat, Skin, DWContract, Generic, Playable, GameMod, Map, HatFlair
         }
 
         public static ModClassType[] VisibleTypes = new[]
@@ -28,6 +28,7 @@ namespace ModdingTools.Engine
             ModClassType.Remix,
             ModClassType.Badge,
             ModClassType.Hat,
+            ModClassType.HatFlair,
             ModClassType.Skin,
             ModClassType.Playable,
             ModClassType.Map,
@@ -42,7 +43,9 @@ namespace ModdingTools.Engine
             ModClassType.Badge,
             ModClassType.Hat,
             ModClassType.Skin,
-            ModClassType.Playable
+            ModClassType.Playable,
+            ModClassType.DWContract,
+            ModClassType.HatFlair
         };
 
         public static readonly Dictionary<ModClassType, Bitmap> ClassToIconMapping = new Dictionary<ModClassType, Bitmap>
@@ -57,17 +60,20 @@ namespace ModdingTools.Engine
             { ModClassType.Generic,     Properties.Resources.generic    },
             { ModClassType.Skin,        Properties.Resources.dye        },
             { ModClassType.GameMod,     Properties.Resources.generic    },
-            { ModClassType.Map,         Properties.Resources.msg_app    }
+            { ModClassType.Map,         Properties.Resources.msg_app    },
+            { ModClassType.HatFlair,    Properties.Resources.hat_flair  } // JLINT-ADD: Fixed detection of hat flairs
         };
 
         public static readonly Dictionary<ModClassType, string> ClassToIniPropertyMapping = new Dictionary<ModClassType, string>
         {
-            { ModClassType.Hat,         "HasHatFlair"           },
+            { ModClassType.Hat,         "HasHat"                },
             { ModClassType.Sticker,     "HasSticker"            },
             { ModClassType.Badge,       "HasBadge"              },
             { ModClassType.Weapon,      "HasWeapon"             },
             { ModClassType.Skin,        "HasSkin"               },
-            { ModClassType.Playable,    "HasPlayableCharacter"  }
+            { ModClassType.Playable,    "HasPlayableCharacter"  },
+            { ModClassType.DWContract,  "HasDeathWish"          },
+            { ModClassType.HatFlair,    "HasHatFlair"           }
         };
 
         public static readonly Dictionary<ModClassType, string> ClassToNameMapping = new Dictionary<ModClassType, string>
@@ -75,13 +81,14 @@ namespace ModdingTools.Engine
             { ModClassType.Badge,       "Badge"                  },
             { ModClassType.Playable,    "Playable Character"     },
             { ModClassType.DWContract,  "Death Wish"             },
-            { ModClassType.Hat,         "Hat"                    },
+            { ModClassType.Hat,         "Hat (Ability)"          },
             { ModClassType.Remix,       "Remix"                  },
             { ModClassType.Sticker,     "Sticker"                },
             { ModClassType.Weapon,      "Weapon"                 },
-            { ModClassType.Generic,     "other classes"          },
+            { ModClassType.Generic,     "Other Classes"          },
             { ModClassType.Skin,        "Dye"                    },
-            { ModClassType.GameMod,     "GameMod class"          }
+            { ModClassType.GameMod,     "GameMod Class"          },
+            { ModClassType.HatFlair,    "Hat Flair"              }  // JLINT-ADD: Fixed detection of hat flairs
         };
 
         public bool IsIniAccessible => ClassToIniPropertyMapping.ContainsKey(ClassType);
@@ -116,6 +123,11 @@ namespace ModdingTools.Engine
             }, false))
             {
                 ClassType = ModClassType.Hat;
+            }
+            // Hat Flair // JLINT-ADD: Fixed detection of hat flairs
+            else if ("Hat_CosmeticItemQualityInfo".Equals(ExtendsClass, StringComparison.InvariantCultureIgnoreCase))
+            {
+                ClassType = ModClassType.HatFlair;
             }
             // Badge
             else if (Utils.CollectionContains(ExtendsClass, new[]

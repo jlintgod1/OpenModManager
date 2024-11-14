@@ -57,7 +57,22 @@ namespace ModdingTools.Windows
             "HEEH",
             "PLAY PROJECT A",
             "AVOID \"MYSTERIOUS _.\"!",
-            "HOME TO ??? MODS"
+            "HOME TO ??? MODS",
+            // JLINT-ADD: Even MORE text!!! For more fun!!!!!
+            "BING BONG BING BONG",
+            "NOW WITH A 5 GB UPDATE!",
+            "MADE WITH UNREALSCRIPT SOUP",
+            "whisper whisper",
+            "PLAY DEC 3",
+            "PLAYTESTING REQUIRED",
+            "ACKNOWLEDGEMENT EDITION",
+            "PLAY HERE COMES NIKO!",
+            "LET IT COOK",
+            "WHERE HAT KID",
+            "PLAY DECORATION DASH",
+            "PLAY TEMPERATURE CLASH :)",
+            "A NEW CHALLENGE ROAD IS AVAILABLE",
+            "PEAK"
         };
 
         public enum CardControllerTabs
@@ -76,7 +91,7 @@ namespace ModdingTools.Windows
             Instance = this;
             InitializeComponent();
 
-            this.Text = "OPEN MOD MANAGER - FOR A HAT IN TIME  [" + FunnyTexts[new Random().Next(FunnyTexts.Length)] + "]";
+            this.Text = "OPEN MOD MANAGER (JLINTGOD EDITION) - FOR A HAT IN TIME  [" + FunnyTexts[new Random().Next(FunnyTexts.Length)] + "]";
 
             GuiWorker = new GUIWorker(); // must be first!
             cardController1.AddCard(CardControllerTabs.Worker.ToString().ToLower(), GuiWorker);
@@ -91,6 +106,16 @@ namespace ModdingTools.Windows
 
             this.TitlebarColorChanged += MainWindow_TitlebarColorChanged;
             this.Shown += MainWindow_Shown;
+
+            panel2.BackColor = Color.Green;
+            Program.EditorWatchdog.EditorStateChanged += EditorWatchdog_EditorStateChanged;
+        }
+
+        private void EditorWatchdog_EditorStateChanged(object sender, EventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() => {
+                panel2.BackColor = Program.EditorWatchdog.IsEditorRunning[0] ? Color.Orange : Color.Green;
+            }));
         }
 
         private void MainWindow_Shown(object sender, EventArgs e)

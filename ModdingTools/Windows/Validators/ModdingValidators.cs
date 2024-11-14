@@ -34,7 +34,7 @@ namespace ModdingTools.Windows.Validators
 
             if (File.Exists(modInfoPath))
             {
-                return "There's already a mod with name \"" + modName + "\". Please delete it or set it up.";
+                return $"There's already a mod with name \"{modName}\". Please delete it or set it up.";
             }
 
             return null;

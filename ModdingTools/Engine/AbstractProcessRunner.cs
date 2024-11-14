@@ -72,7 +72,7 @@ namespace ModdingTools.Engine
             {
                 if (args.Length > 0 && args[0] == "editor")
                 {
-                    PreRunWithoutWait();      
+                    PreRunWithoutWait();
                 }
             }
 
@@ -131,6 +131,19 @@ namespace ModdingTools.Engine
             AppRun?.Invoke();
 
             SetText(taskName);
+
+            for (int i = 0; i < Program.EditorWatchdog.IsEditorRunning.Length; i++)
+            {
+                if (Program.EditorWatchdog.IsEditorRunning[i])
+                {
+                    string processName = i == 0 ? "editor" : "game";
+                    Log($"Waiting for the {processName} to close...", LogLevel.Info);
+                    while (Program.EditorWatchdog.IsEditorRunning[i])
+                    {
+                        Thread.Sleep(2000);
+                    }
+                }
+            }
 
             Process process = new Process();
             process.StartInfo.FileName = exe;

@@ -105,7 +105,17 @@ namespace ModdingTools.Windows
             this.arList1.OnUpdate += ConfigList1_OnUpdate;
             this.TitlebarColorChanged += ModProperties_FocusChanged;
 
+            panel14.BackColor = Color.Green;
+            Program.EditorWatchdog.EditorStateChanged += EditorWatchdog_EditorStateChanged;
+
             Reload();
+        }
+
+        private void EditorWatchdog_EditorStateChanged(object sender, EventArgs e)
+        {
+            this.Invoke(new MethodInvoker(() => {
+                panel14.BackColor = Program.EditorWatchdog.IsEditorRunning[0] ? Color.Orange : Color.Green;
+            }));
         }
 
         private void ModProperties_FocusChanged(object sender, EventArgs e)
@@ -163,7 +173,7 @@ namespace ModdingTools.Windows
             this.ModDescriptionEdit.Text = Mod.GetDescription();
             this.modFolderName.Text = Mod.GetDirectoryName();
             this.modName.Text = Mod.Name;
-            this.cbOnlineParty.Checked = Mod.IsOnlineParty;;
+            this.cbOnlineParty.Checked = Mod.IsOnlineParty;
             this.chapterInfoInput.Text = Mod.ChapterInfoName;
 
             this.cbCoOp.Checked = Mod.Coop.ToLower() == "cooponly";
@@ -189,7 +199,7 @@ namespace ModdingTools.Windows
 
             if (Mod.HasAnyMaps())
             {
-                this.tagsList.Items.Add("Contains map", "Map");
+                this.tagsList.Items.Add("Contains Map", "Map");
             }
 
             if (Mod.AssetReplacements.Count > 0)
@@ -1181,7 +1191,7 @@ namespace ModdingTools.Windows
 
         private void label20_Click(object sender, EventArgs e)
         {
-            var iw = ArrayInputWindow.Ask("Special thanks", "Bottom text.", string.IsNullOrEmpty(label20.Text) ? new string[0] : label20.Text.Split(';'), new SplitListValidator(';'));
+            var iw = ArrayInputWindow.Ask("Special Thanks", "Bottom text.", string.IsNullOrEmpty(label20.Text) ? new string[0] : label20.Text.Split(';'), new SplitListValidator(';'));
             if (iw != null)
             {
                 var result = string.Join(";", iw);

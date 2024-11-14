@@ -32,7 +32,7 @@ namespace ModdingTools.Modding
     {
         public string Name              { get; set; }
         // changed from String to Array for compatibility with CDLC
-        public string[] Author      { get; set; } 
+        public string[] Author          { get; set; } 
         public string Description       { get; set; }
         public string Version           { get; set; }
         public bool   IsCheat           { get; set; }
@@ -45,11 +45,13 @@ namespace ModdingTools.Modding
 
         public bool IsOnlineParty       { get; set; }
         public bool HasSkin             { get; set; }
-        public bool HasHatFlair         { get; set; }
-        public bool AutoGiveItems       { get; set; }
-        public bool HasPlayableCharacter { get; set; }
-        public bool IsLanguagePack      { get; set; }
+        public bool HasHat              { get; set; } // JLINT-CHANGE: Fixed support for hats(ambiguity between hats and hat flairs?)
         public bool HasWeapon           { get; set; }
+        public bool HasPlayableCharacter { get; set; }
+        public bool HasDeathWish        { get; set; } // JLINT-ADD: Support for Death Wish tag
+        public bool AutoGiveItems       { get; set; }
+        
+        public bool IsLanguagePack      { get; set; }
         public string MapType           { get; set; }
         public string GameMod           { get; set; }
         public string Coop              { get; set; }
@@ -110,8 +112,8 @@ namespace ModdingTools.Modding
                 tmp.Add("Online Party");
             if (HasSkin)
                 tmp.Add("Dye");
-            if (HasHatFlair)
-                tmp.Add("Hat Flair");
+            if (HasHat)
+                tmp.Add("Hat");
             if (AutoGiveItems)
                 tmp.Add("Available Instantly");
             if (HasPlayableCharacter)
@@ -593,12 +595,13 @@ namespace ModdingTools.Modding
             this.MapType              = TryGet(t, "MapType"); // TimeRift, SingleTimePiece, MultiTimePiece
             this.IsOnlineParty        = TryGet(t, "OnlineParty", "0").Equals("1");
             this.HasSkin              = TryGet(t, "HasSkin", "0").Equals("1");
-            this.HasHatFlair          = TryGet(t, "HasHatFlair", "0").Equals("1");
-            this.AutoGiveItems        = TryGet(t, "AutoGiveItems", "0").Equals("1");
+            this.HasHat               = TryGet(t, "HasHat", "0").Equals("1"); // JLINT-ADD: Extra tags, important for getting sorted into the right mod list category
+            this.HasWeapon            = TryGet(t, "HasWeapon", "0").Equals("1");
             this.HasPlayableCharacter = TryGet(t, "HasPlayableCharacter", "0").Equals("1");
+            this.HasDeathWish         = TryGet(t, "HasDeathWish", "0").Equals("1"); // JLINT-ADD: Extra tag
+            this.AutoGiveItems        = TryGet(t, "AutoGiveItems", "0").Equals("1");
             this.IsLanguagePack       = TryGet(t, "IsLanguagePack", "0").Equals("1");
             this.Coop                 = TryGet(t, "Coop", "");
-
 
             this.SpecialThanks = TryGet(i, "specialthanks", "").Split(';');
 
@@ -1122,53 +1125,58 @@ namespace ModdingTools.Modding
             AppendIni(i, "IntroductionMap", this.IntroductionMap);
 
             bool autoEquip = false;
-            bool hasModClass = false;
-            bool hasSkin = false;
+            // JLINT-ADD: See the Recursive GameMod search comment below.
+            int gameModState = 0; // 0=No GameMod, 1=Has a GameMod, 2=Found final GameMod
+            string gameModClass = "";
+            
             foreach (var c in GetModClasses(true))
             {
                 if (!c.IsIniAccessible)
                 {
                     if (c.IsGameModClass)
                     {
-                        AppendIni(i, "modclass", c.ClassName);
-                        hasModClass = true;
+                        gameModClass = c.ClassName;
+                        gameModState = 1;
                     }
                     if (c.IsAutoAwardItem)
                     {
                         autoEquip = true;
-                    }
-                    if (c.ClassType == ModClassType.Skin)
-                    {
-                        hasSkin = true;
                     }
                     continue;
                 }
                 ApplyTag(info, c.IniKey, "1");
             }
 
-            if (!hasModClass && AssetReplacements.Count() > 0)
+            // JLINT-ADD: Recursive GameMod search, allowing for a GameMod to extend from another one.
+            // Might seem useless, but this allows for compartmentalization of functions(e.g. one
+            // GameMod for cosmetics, another for level functions)
+            // I don't think modders actually do this lol.
+            if (gameModState > 0)
             {
-                AppendIni(i, "modclass", MakeARClass());
-            }
+                while (gameModState < 2)
+                {
+                    foreach (var c in GetModClasses())
+                    {
+                        if (gameModClass.Equals(c.ExtendsClass, StringComparison.InvariantCultureIgnoreCase))
+                        {
+                            // New GameMod that extends from the current one, so update it
+                            gameModClass = c.ClassName; 
+                            break;
+                        }
 
-            if (hasSkin)
-            {
-                ApplyTag(info, "HasSkin", "1");
+                        gameModState = 2; // No other classes that extend from the current GameMod
+                    }
+                }
             }
+            else if (AssetReplacements.Count() > 0)
+            {
+                gameModClass = MakeARClass();
+            }
+            AppendIni(i, "modclass", gameModClass);
 
             if (autoEquip)
             {
                 ApplyTag(info, "AutoGiveItems", "1");
-            }
-
-            if (HasPlayableCharacter)
-            {
-                ApplyTag(info, "HasPlayableCharacter", "1");
-            }
-
-            if (HasHatFlair)
-            {
-                ApplyTag(info, "HasHatFlair", "1");
             }
 
             // asset replacement storage
