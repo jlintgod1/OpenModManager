@@ -247,6 +247,16 @@ namespace ModdingTools.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap hat_flair {
+            get {
+                object obj = ResourceManager.GetObject("hat_flair", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap heeh_1b {
             get {
                 object obj = ResourceManager.GetObject("heeh_1b", resourceCulture);

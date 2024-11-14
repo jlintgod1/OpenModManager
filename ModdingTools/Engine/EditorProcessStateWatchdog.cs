@@ -10,11 +10,13 @@ namespace ModdingTools.Engine
 {
     internal class EditorProcessStateWatchdog
     {
-        public bool IsEditorRunning { get; private set; }
+        public bool[] IsEditorRunning { get; private set; }
 
         public event EventHandler EditorStateChanged;
 
-        public EditorProcessStateWatchdog() {
+        public EditorProcessStateWatchdog()
+        {
+            IsEditorRunning = new bool[2];
             var th = new Thread(ThreadWorker);
             th.IsBackground = true;
             th.Start();
@@ -26,17 +28,20 @@ namespace ModdingTools.Engine
             {
                 try
                 {
-                    var x = Process.GetProcessesByName("HatinTimeEditor");
-                    var isRunning = x != null && x.Length > 0;
-                    if (isRunning != IsEditorRunning)
+                    for (int i = 0; i < IsEditorRunning.Length; i++)
                     {
-                        IsEditorRunning = isRunning;
-                        // trigger state change
-                        EditorStateChanged?.Invoke(this, EventArgs.Empty);
+                        var x = Process.GetProcessesByName(i == 0 ? "HatinTimeEditor" : "HatinTimeGame");
+                        var isRunning = x != null && x.Length > 0;
+                        if (isRunning != IsEditorRunning[i])
+                        {
+                            IsEditorRunning[i] = isRunning;
+                            // trigger state change
+                            EditorStateChanged?.Invoke(this, EventArgs.Empty);
+                        }
                     }
                 }
                 catch (Exception e) { } // nah
-                Thread.Sleep(5000);
+                Thread.Sleep(3000);
             }
         }
     }

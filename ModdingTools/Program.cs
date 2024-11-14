@@ -271,10 +271,11 @@ namespace ModdingTools
             }
             else
             {
-                EditorWatchdog = new EditorProcessStateWatchdog();
+                // Needs to be shown after SetCompatibleTextRenderingDefault so it doesn't crash
                 if (!SuccessfulAdminLaunch)
                     CUMessageBox.Show("Auto Workshop Blocker requires admin privileges to work properly!", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
+                EditorWatchdog = new EditorProcessStateWatchdog();
                 Application.Run(new MainWindow());
                 SetRPData();
             }

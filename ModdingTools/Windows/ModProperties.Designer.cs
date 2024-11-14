@@ -1732,6 +1732,7 @@ namespace ModdingTools.Windows
         private CUButton cuButton2;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private CUGroupBox cuGroupBox6;
         private System.Windows.Forms.Label label26;

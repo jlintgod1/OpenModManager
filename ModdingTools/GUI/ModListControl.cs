@@ -39,7 +39,7 @@ namespace ModdingTools.GUI
 
         public void TriggerUpdate()
         {
-            Debug.WriteLine("UPDATE!!!");
+            // Debug.WriteLine("UPDATE!!!"); JLINT-REMOVE: Causes output spam
             modContainer.Hide();
             foreach (var ctrl in TileCache)
             {
@@ -150,6 +150,7 @@ namespace ModdingTools.GUI
                     SetStatus("Loaded " + i1 + " elements!");
                     MainWindow.Instance.SetCard(MainWindow.CardControllerTabs.Mods);
                     MainWindow.Instance.ToggleSearchBar(true);
+                    GC.Collect(); // JLINT-ADD: Added a manual garbage collection call
                     a?.Invoke();
                     modContainer.Visible = true;
                     _timer.Start();
