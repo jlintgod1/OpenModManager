@@ -12,6 +12,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Web.UI.Design;
 using System.Windows.Forms;
 
 namespace ModdingTools.Windows
@@ -87,6 +88,13 @@ namespace ModdingTools.Windows
             Utils.KillUpdater();
             Process.Start(Path.Combine(Program.GetAppRoot(), "ModdingTools.Updater.exe"));
             Program.CloseApp(0);
+        }
+
+        private void cuButton2_Click(object sender, EventArgs e)
+        {
+            var conf = new ArgEditor();
+            conf.StartPosition = FormStartPosition.CenterParent;
+            conf.ShowDialog();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using static ModdingTools.Settings.OMMSettings;
 
 namespace ModdingTools.Settings
 {
@@ -35,34 +36,72 @@ namespace ModdingTools.Settings
         public bool AlwaysloadedWorkaround { get; set; } = false;
         public bool AutoWorkshopLocker { get; set; } = false; // JLINT-ADD: Introduced auto workshop locker setting
 
-        // ToDo: remove after few months lol
-        public void Migrate()
+        public enum ArgsDefaultsKeys
         {
-            var oldConfigPath = Path.Combine(Environment.GetEnvironmentVariable("LocalAppData"), "m_cu8_m_cube");
-            if (Directory.Exists(oldConfigPath))
+            COMP_CompileScript,
+            COMP_CookMod,
+            COMP_CookModWithFastCookOptionEnabled,
+            GAME_StartMap,
+            GAME_StartMapWithoutWorkshopMods,
+            ED_LaunchEditor,
+            ED_LaunchEditorWithSelectedMap
+        }
+
+        public static readonly Dictionary<ArgsDefaultsKeys, string> ArgsDefaults = new Dictionary<ArgsDefaultsKeys, string>() {
+            { ArgsDefaultsKeys.COMP_CompileScript, "make -FULL -SHORTPATHS -NOPAUSEONSUCCESS -MODSONLY=${ModFolderName}" },
+            { ArgsDefaultsKeys.COMP_CookModWithFastCookOptionEnabled, "CookPackages ${ModFolderName} -PROCESSES=${CpuCount} -SKIPMAPS -USERMODE -PLATFORM=PC -NOPAUSEONSUCCESS -FASTCOOK -MULTILANGUAGECOOK=${MlCOptions} -MODSONLY=${ModFolderName}" },
+            { ArgsDefaultsKeys.COMP_CookMod, "CookPackages -PLATFORM=PC -NOPAUSEONSUCCESS -FULL -FASTCOOK -MULTILANGUAGECOOK=${MlCOptions} -MODSONLY=${ModFolderName}" },
+            { ArgsDefaultsKeys.GAME_StartMap,  "${MapName}" },
+            { ArgsDefaultsKeys.GAME_StartMapWithoutWorkshopMods, "${MapName} -SEEKFREELOADING" },
+            { ArgsDefaultsKeys.ED_LaunchEditor, "editor -NoGADWarning" },
+            { ArgsDefaultsKeys.ED_LaunchEditorWithSelectedMap, "editor -TARGETMOD=${ModFolderName} -NoGADWarning" }
+        };
+
+        public class ArgumentsItem
+        {
+            public ArgsDefaultsKeys Key { get; set; }
+            public string Value { get; set; }
+            public ArgumentsItem(ArgsDefaultsKeys key, string value)
             {
-                AutoScanDownloadedMods = Properties.Settings.Default.AutoScanDownloadedMods;
-                Memes = Properties.Settings.Default.Memes;
-                MultilangCook = Properties.Settings.Default.MultilangCook;
-                UpdateCheck = Properties.Settings.Default.UpdateCheck;
-                Exporter_ForcePNG = Properties.Settings.Default.Exporter_ForcePNG;
-                Flipbook_TrueTransparency = Properties.Settings.Default.Flipbook_TrueTransparency;
-                Flipbook_LastIntrpValue = Properties.Settings.Default.Flipbook_LastIntrpValue;
-                Flipbook_LastColorValue = Properties.Settings.Default.Flipbook_LastColorValue;
-                Flipbook_LastSize = Properties.Settings.Default.Flipbook_LastSize;
-                RmShaderOnCook = Properties.Settings.Default.RmShaderOnCook;
-                VSCIntegration = Properties.Settings.Default.VSCIntegration;
-                FastCook = Properties.Settings.Default.FastCook;
-                LastAction = Properties.Settings.Default.LastAction;
-                VSCCustomPath = Properties.Settings.Default.VSCCustomPath;
-                KillGameBeforeCooking = Properties.Settings.Default.KillGameBeforeCooking;
-                KillEditorBeforeCooking = Properties.Settings.Default.KillEditorBeforeCooking;
-                MafiaPunchGameToo = Properties.Settings.Default.MafiaPunchGameToo;
+                Key = key;
+                Value = value;
+            }
+            public ArgumentsItem() { }
+        }
+        public List<ArgumentsItem> CmdLineArguments { get; set; } = new List<ArgumentsItem>();
 
-                Save();
-                Directory.Delete(oldConfigPath, true);
-
-                CUMessageBox.Show("Configuration migrated successfully!", "INFORMATION", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        public void ResetArguments(ArgsDefaultsKeys key)
+        {
+            var result = CmdLineArguments.Where(x => x.Key == key);
+            if (result.Any()) CmdLineArguments.Remove(result.First());
+        }
+        public string GetArgumentsFor(ArgsDefaultsKeys key)
+        {
+            var result = CmdLineArguments.Where(x => x.Key == key);
+            return result.Any() ? result.First().Value : ArgsDefaults[key];
+        }
+        public void ChangeArgument(ArgsDefaultsKeys key, string value)
+        {
+            var result = CmdLineArguments.Where(x => x.Key == key);
+            if (result.Any())
+            {
+                result.First().Value = value;
+            }
+            else
+            {
+                CmdLineArguments.Add(new ArgumentsItem(key, value));
+            }
+        }
+        public string GetLocalizedArgKeyName(ArgsDefaultsKeys key)
+        {
+            // ToDo
+            return key.ToString();
+        }
+        public void ResetAllArguments()
+        {
+            foreach (var x in CmdLineArguments)
+            {
+                x.Value = ArgsDefaults[x.Key];
             }
         }
 
@@ -120,12 +159,15 @@ namespace ModdingTools.Settings
                 Directory.CreateDirectory(cfgRoot);
 
             XmlSerializer serializer = new XmlSerializer(typeof(OMMSettings));
-            Stream fs = new FileStream(appCfgPath, FileMode.Create);
-            using (XmlWriter writer = new XmlTextWriter(fs, Encoding.Unicode))
+            XmlWriterSettings settings = new XmlWriterSettings { Indent = true, Encoding = Encoding.Unicode };
+            using (Stream fs = new FileStream(appCfgPath, FileMode.Create))
             {
-                serializer.Serialize(writer, this);
-                writer.Close();
-            }   
+                using (XmlWriter writer = XmlWriter.Create(fs, settings))
+                {
+                    serializer.Serialize(writer, this);
+                    writer.Close();
+                }
+            }
         }
     }
 }

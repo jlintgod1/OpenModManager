@@ -68,7 +68,6 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "OpenModManager (Jlintgod Edition)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -123,7 +122,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "-";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cuButton4
             // 
@@ -131,7 +129,6 @@
             this.cuButton4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cuButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.cuButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cuButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuButton4.ForeColor = System.Drawing.Color.White;
             this.cuButton4.Location = new System.Drawing.Point(315, 0);
             this.cuButton4.Margin = new System.Windows.Forms.Padding(0);
@@ -139,7 +136,7 @@
             this.cuButton4.NoFocus = false;
             this.cuButton4.Size = new System.Drawing.Size(105, 40);
             this.cuButton4.TabIndex = 8;
-            this.cuButton4.Text = "Twitter";
+            this.cuButton4.Text = "Bluesky";
             this.cuButton4.UseVisualStyleBackColor = false;
             this.cuButton4.Click += new System.EventHandler(this.cuButton4_Click);
             // 
@@ -150,9 +147,8 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(521, 23);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Forked from m_cube/m_cu8";
+            this.label4.Text = "by m_cube/m_cu8, forked by jlintgod";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -241,7 +237,6 @@
             this.Name = "AboutWindow";
             this.Text = "About...";
             this.TitlebarColor = System.Drawing.Color.Black;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AboutWindow_FormClosing);
             this.Controls.SetChildIndex(this.cuButton1, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
