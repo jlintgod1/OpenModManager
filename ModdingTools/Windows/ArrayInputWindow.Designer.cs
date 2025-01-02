@@ -87,7 +87,7 @@ namespace ModdingTools.Windows
             this.tableLayoutPanel1.Controls.Add(this.cuButton2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.cuButton1, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 446);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 441);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -221,7 +221,7 @@ namespace ModdingTools.Windows
             // ArrayInputWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(467, 598);
+            this.ClientSize = new System.Drawing.Size(350, 481);
             this.ControlBoxVisible = false;
             this.Controls.Add(this.borderPanel2);
             this.Controls.Add(this.cuButton6);

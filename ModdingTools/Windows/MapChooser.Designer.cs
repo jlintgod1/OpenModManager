@@ -41,7 +41,7 @@
             this.label6.Location = new System.Drawing.Point(20, 69);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 16);
+            this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 24;
             this.label6.Text = "MAP:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -54,7 +54,7 @@
             this.mButton9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mButton9.ForeColor = System.Drawing.Color.White;
             this.mButton9.Image = global::ModdingTools.Properties.Resources.play;
-            this.mButton9.Location = new System.Drawing.Point(373, 59);
+            this.mButton9.Location = new System.Drawing.Point(365, 55);
             this.mButton9.Margin = new System.Windows.Forms.Padding(1, 0, 1, 1);
             this.mButton9.Name = "mButton9";
             this.mButton9.NoFocus = false;
@@ -69,14 +69,14 @@
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(72, 64);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(288, 24);
+            this.comboBox1.Size = new System.Drawing.Size(288, 21);
             this.comboBox1.TabIndex = 22;
             // 
             // cuButton1
             // 
-            this.cuButton1.BackColor = System.Drawing.Color.Red;
+            this.cuButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
             this.cuButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.cuButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -103,7 +103,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsResizable = false;
             this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(2560, 1268);
             this.Name = "MapChooser";
             this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);

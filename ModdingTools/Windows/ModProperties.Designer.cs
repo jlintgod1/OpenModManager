@@ -106,9 +106,13 @@ namespace ModdingTools.Windows
             this.mButton5 = new CUFramework.Controls.CUButton();
             this.label27 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.processRunner1 = new ModdingTools.GUI.ProcessRunner();
             this.tab7 = new System.Windows.Forms.TabPage();
+            this.arList1 = new ModdingTools.GUI.ARList();
             this.tab8 = new System.Windows.Forms.TabPage();
+            this.contentBrowser1 = new ModdingTools.GUI.ContentBrowser();
             this.tab2 = new System.Windows.Forms.TabPage();
+            this.configList1 = new ModdingTools.GUI.ConfigList();
             this.tab1 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.mButton8 = new CUFramework.Controls.CUButton();
@@ -132,10 +136,6 @@ namespace ModdingTools.Windows
             this.mButton4 = new CUFramework.Controls.CUButton();
             this.mButton2 = new CUFramework.Controls.CUButton();
             this.panel14 = new System.Windows.Forms.Panel();
-            this.processRunner1 = new ModdingTools.GUI.ProcessRunner();
-            this.arList1 = new ModdingTools.GUI.ARList();
-            this.contentBrowser1 = new ModdingTools.GUI.ContentBrowser();
-            this.configList1 = new ModdingTools.GUI.ConfigList();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconView)).BeginInit();
             this.tabControl2.SuspendLayout();
@@ -245,9 +245,9 @@ namespace ModdingTools.Windows
             this.checkBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(196)))), ((int)(((byte)(0)))));
             this.checkBox1.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
             this.checkBox1.ForeColor = System.Drawing.Color.Black;
-            this.checkBox1.Location = new System.Drawing.Point(252, 3);
+            this.checkBox1.Location = new System.Drawing.Point(343, 3);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(431, 24);
+            this.checkBox1.Size = new System.Drawing.Size(340, 19);
             this.checkBox1.TabIndex = 19;
             this.checkBox1.Text = "USE A SEPARATE DESCRIPTION FOR THE STEAM WORKSHOP";
             this.checkBox1.UseVisualStyleBackColor = false;
@@ -290,7 +290,7 @@ namespace ModdingTools.Windows
             this.chapterInfoInput.ForeColor = System.Drawing.Color.White;
             this.chapterInfoInput.Location = new System.Drawing.Point(95, 7);
             this.chapterInfoInput.Name = "chapterInfoInput";
-            this.chapterInfoInput.Size = new System.Drawing.Size(518, 27);
+            this.chapterInfoInput.Size = new System.Drawing.Size(518, 23);
             this.chapterInfoInput.TabIndex = 16;
             this.chapterInfoInput.TextChanged += new System.EventHandler(this.chapterInfoInput_TextChanged);
             // 
@@ -317,7 +317,7 @@ namespace ModdingTools.Windows
             this.label4.Location = new System.Drawing.Point(7, 10);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 20);
+            this.label4.Size = new System.Drawing.Size(86, 15);
             this.label4.TabIndex = 9;
             this.label4.Text = "CHAPTER INFO";
             // 
@@ -398,7 +398,7 @@ namespace ModdingTools.Windows
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(2, 211);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 20);
+            this.label1.Size = new System.Drawing.Size(70, 15);
             this.label1.TabIndex = 14;
             this.label1.Text = "LEVEL TYPE:";
             // 
@@ -424,9 +424,9 @@ namespace ModdingTools.Windows
             // 
             this.cbCoOp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbCoOp.AutoSize = true;
-            this.cbCoOp.Location = new System.Drawing.Point(15, 180);
+            this.cbCoOp.Location = new System.Drawing.Point(34, 180);
             this.cbCoOp.Name = "cbCoOp";
-            this.cbCoOp.Size = new System.Drawing.Size(106, 24);
+            this.cbCoOp.Size = new System.Drawing.Size(87, 19);
             this.cbCoOp.TabIndex = 11;
             this.cbCoOp.Text = "Co-Op only";
             this.cbCoOp.UseVisualStyleBackColor = true;
@@ -440,7 +440,7 @@ namespace ModdingTools.Windows
             this.levelType.FormattingEnabled = true;
             this.levelType.Location = new System.Drawing.Point(75, 208);
             this.levelType.Name = "levelType";
-            this.levelType.Size = new System.Drawing.Size(180, 28);
+            this.levelType.Size = new System.Drawing.Size(180, 23);
             this.levelType.TabIndex = 13;
             this.levelType.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -448,9 +448,9 @@ namespace ModdingTools.Windows
             // 
             this.cbOnlineParty.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbOnlineParty.AutoSize = true;
-            this.cbOnlineParty.Location = new System.Drawing.Point(122, 180);
+            this.cbOnlineParty.Location = new System.Drawing.Point(140, 180);
             this.cbOnlineParty.Name = "cbOnlineParty";
-            this.cbOnlineParty.Size = new System.Drawing.Size(109, 24);
+            this.cbOnlineParty.Size = new System.Drawing.Size(91, 19);
             this.cbOnlineParty.TabIndex = 10;
             this.cbOnlineParty.Text = "Online Party";
             this.cbOnlineParty.UseVisualStyleBackColor = true;
@@ -515,7 +515,7 @@ namespace ModdingTools.Windows
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(7, 49);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(47, 20);
+            this.label12.Size = new System.Drawing.Size(38, 15);
             this.label12.TabIndex = 21;
             this.label12.Text = "ICON:";
             // 
@@ -524,7 +524,7 @@ namespace ModdingTools.Windows
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(136, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 20);
+            this.label2.Size = new System.Drawing.Size(105, 15);
             this.label2.TabIndex = 23;
             this.label2.Text = "GIF ICON (STEAM):";
             // 
@@ -561,9 +561,9 @@ namespace ModdingTools.Windows
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(158, 202);
+            this.comboBox4.Location = new System.Drawing.Point(151, 202);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(258, 28);
+            this.comboBox4.Size = new System.Drawing.Size(258, 23);
             this.comboBox4.TabIndex = 37;
             // 
             // label14
@@ -912,7 +912,7 @@ namespace ModdingTools.Windows
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(152, 3);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(258, 28);
+            this.comboBox2.Size = new System.Drawing.Size(258, 23);
             this.comboBox2.TabIndex = 28;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -1026,14 +1026,14 @@ namespace ModdingTools.Windows
             this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.IntegralHeight = false;
-            this.comboBox3.ItemHeight = 20;
+            this.comboBox3.ItemHeight = 15;
             this.comboBox3.Items.AddRange(new object[] {
             "DO NOTHING",
             "LAUNCH GAME (NO WORKSHOP MODS, SELECTED MAP)",
             "LAUNCH GAME (WORKSHOP MODS, SELECTED MAP)"});
             this.comboBox3.Location = new System.Drawing.Point(244, 89);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(447, 28);
+            this.comboBox3.Size = new System.Drawing.Size(447, 23);
             this.comboBox3.TabIndex = 22;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
@@ -1122,7 +1122,7 @@ namespace ModdingTools.Windows
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(186, 92);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(65, 20);
+            this.label27.Size = new System.Drawing.Size(52, 15);
             this.label27.TabIndex = 23;
             this.label27.Text = "ACTION:";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1132,10 +1132,20 @@ namespace ModdingTools.Windows
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(8, 448);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(92, 20);
+            this.label17.Size = new System.Drawing.Size(73, 15);
             this.label17.TabIndex = 20;
             this.label17.Text = "MOD CLASS:";
             this.label17.Click += new System.EventHandler(this.label17_Click);
+            // 
+            // processRunner1
+            // 
+            this.processRunner1.BackColor = System.Drawing.Color.Black;
+            this.processRunner1.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.processRunner1.Location = new System.Drawing.Point(5, 122);
+            this.processRunner1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.processRunner1.Name = "processRunner1";
+            this.processRunner1.Size = new System.Drawing.Size(698, 317);
+            this.processRunner1.TabIndex = 15;
             // 
             // tab7
             // 
@@ -1148,6 +1158,19 @@ namespace ModdingTools.Windows
             this.tab7.TabIndex = 3;
             this.tab7.Text = "ASSET REPLACE";
             // 
+            // arList1
+            // 
+            this.arList1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.arList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.arList1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.arList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.arList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.arList1.Location = new System.Drawing.Point(0, 0);
+            this.arList1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.arList1.Name = "arList1";
+            this.arList1.Size = new System.Drawing.Size(708, 473);
+            this.arList1.TabIndex = 0;
+            // 
             // tab8
             // 
             this.tab8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -1159,6 +1182,17 @@ namespace ModdingTools.Windows
             this.tab8.TabIndex = 4;
             this.tab8.Text = "CONTENT";
             // 
+            // contentBrowser1
+            // 
+            this.contentBrowser1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
+            this.contentBrowser1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contentBrowser1.Font = new System.Drawing.Font("Segoe UI Semilight", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.contentBrowser1.ForeColor = System.Drawing.Color.White;
+            this.contentBrowser1.Location = new System.Drawing.Point(3, 3);
+            this.contentBrowser1.Name = "contentBrowser1";
+            this.contentBrowser1.Size = new System.Drawing.Size(700, 467);
+            this.contentBrowser1.TabIndex = 0;
+            // 
             // tab2
             // 
             this.tab2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
@@ -1169,6 +1203,17 @@ namespace ModdingTools.Windows
             this.tab2.Size = new System.Drawing.Size(708, 473);
             this.tab2.TabIndex = 5;
             this.tab2.Text = "MOD CONFIG";
+            // 
+            // configList1
+            // 
+            this.configList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.configList1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.configList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.configList1.Location = new System.Drawing.Point(0, 0);
+            this.configList1.Margin = new System.Windows.Forms.Padding(0);
+            this.configList1.Name = "configList1";
+            this.configList1.Size = new System.Drawing.Size(708, 473);
+            this.configList1.TabIndex = 0;
             // 
             // tab1
             // 
@@ -1350,7 +1395,7 @@ namespace ModdingTools.Windows
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(3, 16);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(245, 28);
+            this.comboBox1.Size = new System.Drawing.Size(245, 23);
             this.comboBox1.TabIndex = 18;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
@@ -1389,7 +1434,7 @@ namespace ModdingTools.Windows
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(3, -2);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 20);
+            this.label6.Size = new System.Drawing.Size(35, 15);
             this.label6.TabIndex = 21;
             this.label6.Text = "MAP:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1420,7 +1465,7 @@ namespace ModdingTools.Windows
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(4, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(15, 20);
+            this.label7.Size = new System.Drawing.Size(12, 15);
             this.label7.TabIndex = 22;
             this.label7.Text = "*";
             // 
@@ -1524,51 +1569,6 @@ namespace ModdingTools.Windows
             this.panel14.Name = "panel14";
             this.panel14.Size = new System.Drawing.Size(142, 3);
             this.panel14.TabIndex = 40;
-            // 
-            // processRunner1
-            // 
-            this.processRunner1.BackColor = System.Drawing.Color.Black;
-            this.processRunner1.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
-            this.processRunner1.Location = new System.Drawing.Point(5, 122);
-            this.processRunner1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.processRunner1.Name = "processRunner1";
-            this.processRunner1.Size = new System.Drawing.Size(698, 317);
-            this.processRunner1.TabIndex = 15;
-            // 
-            // arList1
-            // 
-            this.arList1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.arList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.arList1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.arList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.arList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.arList1.Location = new System.Drawing.Point(0, 0);
-            this.arList1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.arList1.Name = "arList1";
-            this.arList1.Size = new System.Drawing.Size(708, 473);
-            this.arList1.TabIndex = 0;
-            // 
-            // contentBrowser1
-            // 
-            this.contentBrowser1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(24)))), ((int)(((byte)(24)))));
-            this.contentBrowser1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.contentBrowser1.Font = new System.Drawing.Font("Segoe UI Semilight", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.contentBrowser1.ForeColor = System.Drawing.Color.White;
-            this.contentBrowser1.Location = new System.Drawing.Point(3, 3);
-            this.contentBrowser1.Name = "contentBrowser1";
-            this.contentBrowser1.Size = new System.Drawing.Size(700, 467);
-            this.contentBrowser1.TabIndex = 0;
-            // 
-            // configList1
-            // 
-            this.configList1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.configList1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.configList1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.configList1.Location = new System.Drawing.Point(0, 0);
-            this.configList1.Margin = new System.Windows.Forms.Padding(0);
-            this.configList1.Name = "configList1";
-            this.configList1.Size = new System.Drawing.Size(708, 473);
-            this.configList1.TabIndex = 0;
             // 
             // ModProperties
             // 
@@ -1754,6 +1754,5 @@ namespace ModdingTools.Windows
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Panel panel14;
     }
 }

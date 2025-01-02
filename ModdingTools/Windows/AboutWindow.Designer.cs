@@ -90,7 +90,7 @@
             this.cuButton2.Margin = new System.Windows.Forms.Padding(0);
             this.cuButton2.Name = "cuButton2";
             this.cuButton2.NoFocus = false;
-            this.cuButton2.Size = new System.Drawing.Size(105, 40);
+            this.cuButton2.Size = new System.Drawing.Size(106, 40);
             this.cuButton2.TabIndex = 5;
             this.cuButton2.Text = "Website";
             this.cuButton2.UseVisualStyleBackColor = false;
@@ -103,11 +103,11 @@
             this.cuButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.cuButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton3.ForeColor = System.Drawing.Color.White;
-            this.cuButton3.Location = new System.Drawing.Point(210, 0);
+            this.cuButton3.Location = new System.Drawing.Point(212, 0);
             this.cuButton3.Margin = new System.Windows.Forms.Padding(0);
             this.cuButton3.Name = "cuButton3";
             this.cuButton3.NoFocus = false;
-            this.cuButton3.Size = new System.Drawing.Size(105, 40);
+            this.cuButton3.Size = new System.Drawing.Size(106, 40);
             this.cuButton3.TabIndex = 6;
             this.cuButton3.Text = "Source code";
             this.cuButton3.UseVisualStyleBackColor = false;
@@ -130,11 +130,11 @@
             this.cuButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.cuButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton4.ForeColor = System.Drawing.Color.White;
-            this.cuButton4.Location = new System.Drawing.Point(315, 0);
+            this.cuButton4.Location = new System.Drawing.Point(318, 0);
             this.cuButton4.Margin = new System.Windows.Forms.Padding(0);
             this.cuButton4.Name = "cuButton4";
             this.cuButton4.NoFocus = false;
-            this.cuButton4.Size = new System.Drawing.Size(105, 40);
+            this.cuButton4.Size = new System.Drawing.Size(106, 40);
             this.cuButton4.TabIndex = 8;
             this.cuButton4.Text = "Bluesky";
             this.cuButton4.UseVisualStyleBackColor = false;
@@ -164,11 +164,11 @@
             this.tableLayoutPanel1.Controls.Add(this.cuButton4, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.cuButton5, 4, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 343);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 335);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(528, 40);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(532, 40);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // cuButton6
@@ -178,11 +178,11 @@
             this.cuButton6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.cuButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton6.ForeColor = System.Drawing.Color.White;
-            this.cuButton6.Location = new System.Drawing.Point(105, 0);
+            this.cuButton6.Location = new System.Drawing.Point(106, 0);
             this.cuButton6.Margin = new System.Windows.Forms.Padding(0);
             this.cuButton6.Name = "cuButton6";
             this.cuButton6.NoFocus = false;
-            this.cuButton6.Size = new System.Drawing.Size(105, 40);
+            this.cuButton6.Size = new System.Drawing.Size(106, 40);
             this.cuButton6.TabIndex = 12;
             this.cuButton6.Text = "Changelog";
             this.cuButton6.UseVisualStyleBackColor = false;
@@ -195,7 +195,7 @@
             this.cuButton5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.cuButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton5.ForeColor = System.Drawing.Color.White;
-            this.cuButton5.Location = new System.Drawing.Point(420, 0);
+            this.cuButton5.Location = new System.Drawing.Point(424, 0);
             this.cuButton5.Margin = new System.Windows.Forms.Padding(0);
             this.cuButton5.Name = "cuButton5";
             this.cuButton5.NoFocus = false;
@@ -217,7 +217,7 @@
             // AboutWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(709, 474);
+            this.ClientSize = new System.Drawing.Size(536, 377);
             this.ControlBoxVisible = false;
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label4);

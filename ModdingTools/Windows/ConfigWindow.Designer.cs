@@ -48,7 +48,6 @@ namespace ModdingTools.Windows
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.cuButton1 = new CUFramework.Controls.CUButton();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.cuButton2 = new CUFramework.Controls.CUButton();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
             this.cuButton2 = new CUFramework.Controls.CUButton();
             this.tableLayoutPanel1.SuspendLayout();
@@ -63,10 +62,10 @@ namespace ModdingTools.Windows
             this.mButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton3.ForeColor = System.Drawing.Color.Black;
             this.mButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton3.Location = new System.Drawing.Point(344, 3);
+            this.mButton3.Location = new System.Drawing.Point(456, 12);
             this.mButton3.Name = "mButton3";
             this.mButton3.NoFocus = false;
-            this.mButton3.Size = new System.Drawing.Size(335, 32);
+            this.mButton3.Size = new System.Drawing.Size(448, 32);
             this.mButton3.TabIndex = 8;
             this.mButton3.Text = "CANCEL";
             this.mButton3.UseVisualStyleBackColor = false;
@@ -81,10 +80,10 @@ namespace ModdingTools.Windows
             this.mButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton2.ForeColor = System.Drawing.Color.White;
             this.mButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton2.Location = new System.Drawing.Point(3, 3);
+            this.mButton2.Location = new System.Drawing.Point(3, 12);
             this.mButton2.Name = "mButton2";
             this.mButton2.NoFocus = false;
-            this.mButton2.Size = new System.Drawing.Size(335, 32);
+            this.mButton2.Size = new System.Drawing.Size(447, 32);
             this.mButton2.TabIndex = 7;
             this.mButton2.Text = "SAVE";
             this.mButton2.UseVisualStyleBackColor = false;
@@ -98,13 +97,13 @@ namespace ModdingTools.Windows
             this.tableLayoutPanel1.Controls.Add(this.mButton2, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.mButton3, 1, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 430);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 430);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(905, 47);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(907, 47);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // checkBox2
@@ -129,7 +128,7 @@ namespace ModdingTools.Windows
             // checkBox4
             // 
             this.checkBox4.Location = new System.Drawing.Point(471, 157);
-            this.checkBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox4.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(325, 34);
             this.checkBox4.TabIndex = 10;
@@ -139,7 +138,7 @@ namespace ModdingTools.Windows
             // checkBox5
             // 
             this.checkBox5.Enabled = false;
-            this.checkBox5.Location = new System.Drawing.Point(10, 271);
+            this.checkBox5.Location = new System.Drawing.Point(10, 298);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(319, 26);
             this.checkBox5.TabIndex = 11;
@@ -149,7 +148,7 @@ namespace ModdingTools.Windows
             // checkBox3
             // 
             this.checkBox3.Location = new System.Drawing.Point(471, 99);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(325, 41);
             this.checkBox3.TabIndex = 12;
@@ -159,7 +158,7 @@ namespace ModdingTools.Windows
             // checkBox6
             // 
             this.checkBox6.Location = new System.Drawing.Point(471, 45);
-            this.checkBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox6.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(325, 39);
             this.checkBox6.TabIndex = 13;
@@ -195,15 +194,15 @@ namespace ModdingTools.Windows
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            this.panel1.Location = new System.Drawing.Point(342, 37);
+            this.panel1.Location = new System.Drawing.Point(458, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1, 307);
+            this.panel1.Size = new System.Drawing.Size(1, 380);
             this.panel1.TabIndex = 16;
             // 
             // checkBox8
             // 
             this.checkBox8.Location = new System.Drawing.Point(471, 206);
-            this.checkBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox8.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(325, 34);
             this.checkBox8.TabIndex = 17;
@@ -213,7 +212,7 @@ namespace ModdingTools.Windows
             // checkBox9
             // 
             this.checkBox9.Location = new System.Drawing.Point(471, 249);
-            this.checkBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox9.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(325, 34);
             this.checkBox9.TabIndex = 18;
@@ -222,8 +221,8 @@ namespace ModdingTools.Windows
             // 
             // checkBox10
             // 
-            this.checkBox10.Location = new System.Drawing.Point(471, 298);
-            this.checkBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox10.Location = new System.Drawing.Point(471, 290);
+            this.checkBox10.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(325, 34);
             this.checkBox10.TabIndex = 19;
@@ -237,8 +236,8 @@ namespace ModdingTools.Windows
             this.cuButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cuButton1.ForeColor = System.Drawing.Color.White;
             this.cuButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cuButton1.Location = new System.Drawing.Point(269, 336);
-            this.cuButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cuButton1.Location = new System.Drawing.Point(272, 292);
+            this.cuButton1.Margin = new System.Windows.Forms.Padding(4);
             this.cuButton1.Name = "cuButton1";
             this.cuButton1.NoFocus = false;
             this.cuButton1.Size = new System.Drawing.Size(179, 37);
@@ -250,14 +249,23 @@ namespace ModdingTools.Windows
             // 
             // checkBox11
             // 
-            this.checkBox11.Location = new System.Drawing.Point(471, 348);
-            this.checkBox11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox11.Location = new System.Drawing.Point(471, 331);
+            this.checkBox11.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(433, 42);
+            this.checkBox11.Size = new System.Drawing.Size(433, 51);
             this.checkBox11.TabIndex = 21;
             this.checkBox11.Text = "[experimental] AlwaysLoaded workaround\r\n(allow non-AlwaysLoaded classes to be ref" +
     "erenced along with making your own classes non-AlwaysLoaded)";
             this.checkBox11.UseVisualStyleBackColor = true;
+            // 
+            // checkBox12
+            // 
+            this.checkBox12.Location = new System.Drawing.Point(10, 221);
+            this.checkBox12.Name = "checkBox12";
+            this.checkBox12.Size = new System.Drawing.Size(300, 44);
+            this.checkBox12.TabIndex = 22;
+            this.checkBox12.Text = "Auto Workshop Blocker\r\n(requires restart and admin privileges)";
+            this.checkBox12.UseVisualStyleBackColor = true;
             // 
             // cuButton2
             // 
@@ -277,31 +285,6 @@ namespace ModdingTools.Windows
             this.cuButton2.Text = "OPEN ARGUMENT EDITOR";
             this.cuButton2.UseVisualStyleBackColor = false;
             this.cuButton2.Click += new System.EventHandler(this.cuButton2_Click);
-            // checkBox12
-            // 
-            this.checkBox12.Location = new System.Drawing.Point(10, 221);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(300, 44);
-            this.checkBox12.TabIndex = 22;
-            this.checkBox12.Text = "Auto Workshop Blocker\r\n(requires restart and admin privileges)";
-            this.checkBox12.UseVisualStyleBackColor = true;
-            // 
-            // cuButton2
-            // 
-            this.cuButton2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.cuButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            this.cuButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            this.cuButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cuButton2.ForeColor = System.Drawing.Color.White;
-            this.cuButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cuButton2.Location = new System.Drawing.Point(353, 355);
-            this.cuButton2.Margin = new System.Windows.Forms.Padding(4);
-            this.cuButton2.Name = "cuButton2";
-            this.cuButton2.NoFocus = false;
-            this.cuButton2.Size = new System.Drawing.Size(323, 32);
-            this.cuButton2.TabIndex = 23;
-            this.cuButton2.Text = "OPEN ARGUMENT EDITOR";
-            this.cuButton2.UseVisualStyleBackColor = false;
             // 
             // ConfigWindow
             // 
@@ -327,7 +310,7 @@ namespace ModdingTools.Windows
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(2560, 1329);
             this.MinimumSize = new System.Drawing.Size(332, 479);
             this.Name = "ConfigWindow";
@@ -347,7 +330,6 @@ namespace ModdingTools.Windows
             this.Controls.SetChildIndex(this.checkBox10, 0);
             this.Controls.SetChildIndex(this.cuButton1, 0);
             this.Controls.SetChildIndex(this.checkBox11, 0);
-            this.Controls.SetChildIndex(this.cuButton2, 0);
             this.Controls.SetChildIndex(this.checkBox12, 0);
             this.Controls.SetChildIndex(this.cuButton2, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -374,7 +356,6 @@ namespace ModdingTools.Windows
         private System.Windows.Forms.CheckBox checkBox10;
         private CUButton cuButton1;
         private System.Windows.Forms.CheckBox checkBox11;
-        private CUButton cuButton2;
         private System.Windows.Forms.CheckBox checkBox12;
         private CUButton cuButton2;
     }

@@ -52,7 +52,7 @@ namespace ModdingTools.Windows.Tools
             this.mButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton1.ForeColor = System.Drawing.Color.White;
             this.mButton1.Location = new System.Drawing.Point(12, 191);
-            this.mButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton1.Margin = new System.Windows.Forms.Padding(4);
             this.mButton1.Name = "mButton1";
             this.mButton1.NoFocus = false;
             this.mButton1.Size = new System.Drawing.Size(349, 48);
@@ -76,7 +76,7 @@ namespace ModdingTools.Windows.Tools
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Location = new System.Drawing.Point(147, 50);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(43, 36);
             this.panel1.TabIndex = 6;
@@ -88,7 +88,7 @@ namespace ModdingTools.Windows.Tools
             this.label2.Location = new System.Drawing.Point(8, 53);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(124, 32);
+            this.label2.Size = new System.Drawing.Size(98, 26);
             this.label2.TabIndex = 7;
             this.label2.Text = "Transparency color\r\n(click to change)";
             // 
@@ -98,7 +98,7 @@ namespace ModdingTools.Windows.Tools
             this.pictureBox1.ErrorImage = global::ModdingTools.Properties.Resources.editorcrashedhueh4;
             this.pictureBox1.InitialImage = global::ModdingTools.Properties.Resources.editorcrashedhueh4;
             this.pictureBox1.Location = new System.Drawing.Point(369, 50);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(533, 492);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -109,9 +109,9 @@ namespace ModdingTools.Windows.Tools
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Location = new System.Drawing.Point(199, 50);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(135, 36);
+            this.checkBox1.Size = new System.Drawing.Size(109, 30);
             this.checkBox1.TabIndex = 8;
             this.checkBox1.Text = "Use transparency\r\ninstead of color";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -122,9 +122,9 @@ namespace ModdingTools.Windows.Tools
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(12, 158);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(177, 24);
+            this.comboBox1.Size = new System.Drawing.Size(177, 21);
             this.comboBox1.TabIndex = 9;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -134,7 +134,7 @@ namespace ModdingTools.Windows.Tools
             this.label3.Location = new System.Drawing.Point(8, 138);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 16);
+            this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Interpolation mode";
             // 
@@ -146,10 +146,10 @@ namespace ModdingTools.Windows.Tools
             "2048",
             "4096",
             "8192"});
-            this.comboBox2.Location = new System.Drawing.Point(199, 175);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox2.Location = new System.Drawing.Point(199, 158);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(161, 24);
+            this.comboBox2.Size = new System.Drawing.Size(161, 21);
             this.comboBox2.TabIndex = 11;
             // 
             // label4
@@ -158,17 +158,17 @@ namespace ModdingTools.Windows.Tools
             this.label4.Location = new System.Drawing.Point(195, 138);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 16);
+            this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 12;
             this.label4.Text = "Max texture size";
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(199, 94);
+            this.checkBox2.Location = new System.Drawing.Point(199, 91);
             this.checkBox2.Margin = new System.Windows.Forms.Padding(4);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(158, 52);
+            this.checkBox2.Size = new System.Drawing.Size(129, 43);
             this.checkBox2.TabIndex = 13;
             this.checkBox2.Text = "Fill empty space with \r\nthe last frame instead \r\nof transparency";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -193,7 +193,7 @@ namespace ModdingTools.Windows.Tools
             this.IsMaximizeButtonEnabled = false;
             this.IsResizable = false;
             this.Location = new System.Drawing.Point(0, 0);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(2560, 1329);
             this.MinimumSize = new System.Drawing.Size(267, 246);
             this.Name = "FlipbookGenerator";

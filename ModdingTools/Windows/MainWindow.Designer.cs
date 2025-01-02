@@ -313,9 +313,8 @@ namespace ModdingTools.Windows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 515);
-            this.Controls.Add(this.panel2);
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.ClientSize = new System.Drawing.Size(958, 515);
             this.Controls.Add(this.cuButton2);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.cuButton1);
