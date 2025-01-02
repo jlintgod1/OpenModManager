@@ -50,6 +50,7 @@ namespace ModdingTools.Windows
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.cuButton2 = new CUFramework.Controls.CUButton();
             this.checkBox12 = new System.Windows.Forms.CheckBox();
+            this.cuButton2 = new CUFramework.Controls.CUButton();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,11 +63,10 @@ namespace ModdingTools.Windows
             this.mButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton3.ForeColor = System.Drawing.Color.Black;
             this.mButton3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton3.Location = new System.Drawing.Point(458, 4);
-            this.mButton3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton3.Location = new System.Drawing.Point(344, 3);
             this.mButton3.Name = "mButton3";
             this.mButton3.NoFocus = false;
-            this.mButton3.Size = new System.Drawing.Size(447, 39);
+            this.mButton3.Size = new System.Drawing.Size(335, 32);
             this.mButton3.TabIndex = 8;
             this.mButton3.Text = "CANCEL";
             this.mButton3.UseVisualStyleBackColor = false;
@@ -81,11 +81,10 @@ namespace ModdingTools.Windows
             this.mButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton2.ForeColor = System.Drawing.Color.White;
             this.mButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.mButton2.Location = new System.Drawing.Point(4, 4);
-            this.mButton2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mButton2.Location = new System.Drawing.Point(3, 3);
             this.mButton2.Name = "mButton2";
             this.mButton2.NoFocus = false;
-            this.mButton2.Size = new System.Drawing.Size(446, 39);
+            this.mButton2.Size = new System.Drawing.Size(335, 32);
             this.mButton2.TabIndex = 7;
             this.mButton2.Text = "SAVE";
             this.mButton2.UseVisualStyleBackColor = false;
@@ -110,10 +109,9 @@ namespace ModdingTools.Windows
             // 
             // checkBox2
             // 
-            this.checkBox2.Location = new System.Drawing.Point(13, 117);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox2.Location = new System.Drawing.Point(10, 95);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(400, 54);
+            this.checkBox2.Size = new System.Drawing.Size(300, 44);
             this.checkBox2.TabIndex = 4;
             this.checkBox2.Text = "Enable meme - needs some elevator music placed in the program directory - it must" +
     " be named \"lol.wav\"";
@@ -121,10 +119,9 @@ namespace ModdingTools.Windows
             // 
             // checkBox1
             // 
-            this.checkBox1.Location = new System.Drawing.Point(13, 63);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox1.Location = new System.Drawing.Point(10, 51);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(400, 48);
+            this.checkBox1.Size = new System.Drawing.Size(300, 39);
             this.checkBox1.TabIndex = 1;
             this.checkBox1.Text = "Don\'t load workshop mods on list\r\n(faster) // requires restart";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -134,7 +131,7 @@ namespace ModdingTools.Windows
             this.checkBox4.Location = new System.Drawing.Point(471, 157);
             this.checkBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(433, 42);
+            this.checkBox4.Size = new System.Drawing.Size(325, 34);
             this.checkBox4.TabIndex = 10;
             this.checkBox4.Text = "[experimental, not fully implemented yet]\r\nEnable multilanguage cooking support";
             this.checkBox4.UseVisualStyleBackColor = true;
@@ -142,10 +139,9 @@ namespace ModdingTools.Windows
             // checkBox5
             // 
             this.checkBox5.Enabled = false;
-            this.checkBox5.Location = new System.Drawing.Point(19, 388);
-            this.checkBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox5.Location = new System.Drawing.Point(10, 271);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(425, 32);
+            this.checkBox5.Size = new System.Drawing.Size(319, 26);
             this.checkBox5.TabIndex = 11;
             this.checkBox5.Text = "Enable update checker (currently non-functional)";
             this.checkBox5.UseVisualStyleBackColor = true;
@@ -155,7 +151,7 @@ namespace ModdingTools.Windows
             this.checkBox3.Location = new System.Drawing.Point(471, 99);
             this.checkBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(433, 50);
+            this.checkBox3.Size = new System.Drawing.Size(325, 41);
             this.checkBox3.TabIndex = 12;
             this.checkBox3.Text = "Cleanup shadercache folder before cooking\r\n(may increase cooking time)";
             this.checkBox3.UseVisualStyleBackColor = true;
@@ -165,7 +161,7 @@ namespace ModdingTools.Windows
             this.checkBox6.Location = new System.Drawing.Point(471, 45);
             this.checkBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(433, 48);
+            this.checkBox6.Size = new System.Drawing.Size(325, 39);
             this.checkBox6.TabIndex = 13;
             this.checkBox6.Text = "[experimental] Fast script cooking\r\n(do not re-cook maps when only scripts have b" +
     "een changed)";
@@ -173,10 +169,9 @@ namespace ModdingTools.Windows
             // 
             // checkBox7
             // 
-            this.checkBox7.Location = new System.Drawing.Point(13, 175);
-            this.checkBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox7.Location = new System.Drawing.Point(10, 142);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(431, 89);
+            this.checkBox7.Size = new System.Drawing.Size(323, 72);
             this.checkBox7.TabIndex = 14;
             this.checkBox7.Text = "Enable Visual Studio Code integration\r\n- automatically creates VSC project for yo" +
     "ur mods\r\n- adds build tasks for OMM (CTRL+SHIFT+P)->Run Task\r\n- also adds \"Open " +
@@ -192,7 +187,7 @@ namespace ModdingTools.Windows
             this.label1.Location = new System.Drawing.Point(40, 267);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 17);
+            this.label1.Size = new System.Drawing.Size(133, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Works best with this plugin";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -200,10 +195,9 @@ namespace ModdingTools.Windows
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
-            this.panel1.Location = new System.Drawing.Point(456, 46);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(342, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1, 378);
+            this.panel1.Size = new System.Drawing.Size(1, 307);
             this.panel1.TabIndex = 16;
             // 
             // checkBox8
@@ -211,7 +205,7 @@ namespace ModdingTools.Windows
             this.checkBox8.Location = new System.Drawing.Point(471, 206);
             this.checkBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(433, 42);
+            this.checkBox8.Size = new System.Drawing.Size(325, 34);
             this.checkBox8.TabIndex = 17;
             this.checkBox8.Text = "Kill game process before cooking with action";
             this.checkBox8.UseVisualStyleBackColor = true;
@@ -221,7 +215,7 @@ namespace ModdingTools.Windows
             this.checkBox9.Location = new System.Drawing.Point(471, 249);
             this.checkBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(433, 42);
+            this.checkBox9.Size = new System.Drawing.Size(325, 34);
             this.checkBox9.TabIndex = 18;
             this.checkBox9.Text = "Kill editor process before cooking with action";
             this.checkBox9.UseVisualStyleBackColor = true;
@@ -231,7 +225,7 @@ namespace ModdingTools.Windows
             this.checkBox10.Location = new System.Drawing.Point(471, 298);
             this.checkBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(433, 42);
+            this.checkBox10.Size = new System.Drawing.Size(325, 34);
             this.checkBox10.TabIndex = 19;
             this.checkBox10.Text = "Make the Mafia Punch (tm) button also kill game instances";
             this.checkBox10.UseVisualStyleBackColor = true;
@@ -285,13 +279,29 @@ namespace ModdingTools.Windows
             this.cuButton2.Click += new System.EventHandler(this.cuButton2_Click);
             // checkBox12
             // 
-            this.checkBox12.Location = new System.Drawing.Point(13, 272);
-            this.checkBox12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBox12.Location = new System.Drawing.Point(10, 221);
             this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(400, 54);
+            this.checkBox12.Size = new System.Drawing.Size(300, 44);
             this.checkBox12.TabIndex = 22;
             this.checkBox12.Text = "Auto Workshop Blocker\r\n(requires restart and admin privileges)";
             this.checkBox12.UseVisualStyleBackColor = true;
+            // 
+            // cuButton2
+            // 
+            this.cuButton2.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.cuButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.cuButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
+            this.cuButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cuButton2.ForeColor = System.Drawing.Color.White;
+            this.cuButton2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cuButton2.Location = new System.Drawing.Point(353, 355);
+            this.cuButton2.Margin = new System.Windows.Forms.Padding(4);
+            this.cuButton2.Name = "cuButton2";
+            this.cuButton2.NoFocus = false;
+            this.cuButton2.Size = new System.Drawing.Size(323, 32);
+            this.cuButton2.TabIndex = 23;
+            this.cuButton2.Text = "OPEN ARGUMENT EDITOR";
+            this.cuButton2.UseVisualStyleBackColor = false;
             // 
             // ConfigWindow
             // 
@@ -321,7 +331,6 @@ namespace ModdingTools.Windows
             this.MaximumSize = new System.Drawing.Size(2560, 1329);
             this.MinimumSize = new System.Drawing.Size(332, 479);
             this.Name = "ConfigWindow";
-            this.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Text = "OMM Configuration";
             this.Controls.SetChildIndex(this.tableLayoutPanel1, 0);
             this.Controls.SetChildIndex(this.checkBox2, 0);
@@ -340,6 +349,7 @@ namespace ModdingTools.Windows
             this.Controls.SetChildIndex(this.checkBox11, 0);
             this.Controls.SetChildIndex(this.cuButton2, 0);
             this.Controls.SetChildIndex(this.checkBox12, 0);
+            this.Controls.SetChildIndex(this.cuButton2, 0);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -366,5 +376,6 @@ namespace ModdingTools.Windows
         private System.Windows.Forms.CheckBox checkBox11;
         private CUButton cuButton2;
         private System.Windows.Forms.CheckBox checkBox12;
+        private CUButton cuButton2;
     }
 }

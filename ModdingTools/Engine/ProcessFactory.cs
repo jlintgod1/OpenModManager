@@ -109,7 +109,7 @@ namespace ModdingTools.Engine
                     GameExecutablePath,
                     args,
                     Path.GetDirectoryName(GameExecutablePath)
-                );
+            );
         }
 
         public ExecutableArgumentsPair StartMapWithAllMods(string mapName = null)

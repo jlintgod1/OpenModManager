@@ -396,12 +396,12 @@ namespace ModdingTools.Windows
             XmlWriterSettings settings = new XmlWriterSettings { Indent = true, Encoding = Encoding.Unicode };
             using (Stream fs = new FileStream(path, FileMode.Create))
             {
-                using(XmlWriter writer = XmlWriter.Create(fs, settings))
+                using (XmlWriter writer = XmlWriter.Create(fs, settings))
                 {
                     // Serialize using the XmlTextWriter.
                     serializer.Serialize(writer, this);
                     writer.Close();
-                }        
+                }
             }
         }
     }

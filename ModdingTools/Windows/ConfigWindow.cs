@@ -12,6 +12,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Web.UI.Design;
 using System.Windows.Forms;
 
 namespace ModdingTools.Windows

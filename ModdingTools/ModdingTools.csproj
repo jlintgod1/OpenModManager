@@ -208,6 +208,7 @@
     </Compile>
     <Compile Include="Windows\ArgEditor.Designer.cs">
       <DependentUpon>ArgEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ArrayCheckboxWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +356,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\ArgEditor.resx">
       <DependentUpon>ArgEditor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\HatOvh_ScriptListItem.resx">
       <DependentUpon>HatOvh_ScriptListItem.cs</DependentUpon>
     </EmbeddedResource>

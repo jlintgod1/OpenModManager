@@ -62,7 +62,6 @@ namespace ModdingTools.Settings
         {
             public ArgsDefaultsKeys Key { get; set; }
             public string Value { get; set; }
-
             public ArgumentsItem(ArgsDefaultsKeys key, string value)
             {
                 Key = key;
@@ -79,13 +78,11 @@ namespace ModdingTools.Settings
             var result = CmdLineArguments.Where(x => x.Key == key);
             if (result.Any()) CmdLineArguments.Remove(result.First());
         }
-
         public string GetArgumentsFor(ArgsDefaultsKeys key)
         {
             var result = CmdLineArguments.Where(x => x.Key == key);
             return result.Any() ? result.First().Value : ArgsDefaults[key];
         }
-
         public void ChangeArgument(ArgsDefaultsKeys key, string value)
         {
             var result = CmdLineArguments.Where(x => x.Key == key);
@@ -98,13 +95,11 @@ namespace ModdingTools.Settings
                 CmdLineArguments.Add(new ArgumentsItem(key, value));
             }
         }
-
         public string GetLocalizedArgKeyName(ArgsDefaultsKeys key)
         {
             // ToDo
             return key.ToString();
         }
-
         public void ResetAllArguments()
         {
             foreach (var x in CmdLineArguments)

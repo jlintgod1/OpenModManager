@@ -97,7 +97,7 @@ namespace ModdingTools
             if (!Debugger.IsAttached)
             {
                 // Add the event handler for handling UI thread exceptions to the event.
-                // JLINT-CHANGE: Fixed thread and other exceptions showing "Unhandled exception doesn't derive from System.Exception" instead of the actual exception
+                // (MERGED) JLINT-CHANGE: Fixed thread and other exceptions showing "Unhandled exception doesn't derive from System.Exception" instead of the actual exception
                 Application.ThreadException += (sender, e)
                     => FatalExceptionObject(e.Exception);
 
