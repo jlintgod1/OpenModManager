@@ -681,6 +681,7 @@ namespace ModdingTools.Modding
             lastMode = -1;
             bool configStart = false;
             ModConfigItem tmp = null;
+            var configItemIndex = 0;
             // parse Config
             foreach (var ln in ini.Split('\n'))
             {
@@ -737,7 +738,8 @@ namespace ModdingTools.Modding
                             }
                             if (key.StartsWith("option[") && key.EndsWith("]"))
                             {
-                                tmp.Options.Add(int.Parse(key.Split('[')[1].Split(']')[0]), val);
+                                tmp.Options.Add(configItemIndex, new ModConfigItem_Indexed(int.Parse(key.Split('[')[1].Split(']')[0]), val));
+                                configItemIndex++;
                             }
                             else
                             {
@@ -1230,6 +1232,22 @@ namespace ModdingTools.Modding
             return $"\"{data.Replace("\\\"", "\"")}\"";
         }
 
+        public class ModConfigItem_Indexed
+        {
+            public int Id;
+            public string Name;
+
+            public ModConfigItem_Indexed(int id, string name)
+            {
+                this.Id = id;
+                this.Name = name;
+            }
+
+            public override string ToString()
+            {
+                return $"Option[{Id}] = {Name}";
+            }
+        }
 
         public class ModConfigItem
         {
@@ -1237,7 +1255,7 @@ namespace ModdingTools.Modding
             public string Name;
             public string Description;
             /* public int DefaultIndex; */
-            public SortedDictionary<int, string> Options;
+            public SortedDictionary<int, ModConfigItem_Indexed> Options;
 
             public ModConfigItem()
             {
@@ -1245,7 +1263,7 @@ namespace ModdingTools.Modding
                 Name = "";
                 Description = "";
                 /* DefaultIndex = 0; */
-                Options = new SortedDictionary<int, string>();
+                Options = new SortedDictionary<int, ModConfigItem_Indexed>();
             }
 
             public override string ToString()
@@ -1257,7 +1275,7 @@ namespace ModdingTools.Modding
                 /* build.AppendLine($"Default={DefaultIndex}"); */
                 foreach (var opt in Options)
                 {
-                    build.AppendLine($"Option[{opt.Key}]={IniQuote(opt.Value)}");
+                    build.AppendLine($"Option[{opt.Value.Id}]={IniQuote(opt.Value.Name)}");
                 }
                 return build.ToString();
             }

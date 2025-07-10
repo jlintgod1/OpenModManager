@@ -65,13 +65,12 @@ namespace ModdingTools.Engine
                 Path.GetDirectoryName(EditorExecutablePath)
             );
         }
-
+        
         public ExecutableArgumentsPair GetCookMod(ModObject mod, bool fast = false, Action onFinish = null)
         {
             var args = !fast ?
                 OMMSettings.Instance.GetArgumentsFor(OMMSettings.ArgsDefaultsKeys.COMP_CookMod) :
                 OMMSettings.Instance.GetArgumentsFor(OMMSettings.ArgsDefaultsKeys.COMP_CookModWithFastCookOptionEnabled);
-
             args = args
                 .Replace("${ModFolderName}", mod.GetDirectoryName())
                 .Replace("${CpuCount}", "" + Environment.ProcessorCount)
@@ -109,7 +108,7 @@ namespace ModdingTools.Engine
                     GameExecutablePath,
                     args,
                     Path.GetDirectoryName(GameExecutablePath)
-            );
+                );
         }
 
         public ExecutableArgumentsPair StartMapWithAllMods(string mapName = null)

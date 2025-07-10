@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Xml;
 using System.Xml.Serialization;
 using static ModdingTools.Settings.OMMSettings;
@@ -68,6 +69,7 @@ namespace ModdingTools.Settings
             }
             public ArgumentsItem() { }
         }
+
         public List<ArgumentsItem> CmdLineArguments { get; set; } = new List<ArgumentsItem>();
 
         public void ResetArguments(ArgsDefaultsKeys key)

@@ -121,8 +121,7 @@ namespace ModdingTools.Windows.Tools
             // 
             // AssetRipper
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(899, 570);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cuProgressBar1);

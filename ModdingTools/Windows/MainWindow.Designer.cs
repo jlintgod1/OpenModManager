@@ -126,7 +126,7 @@ namespace ModdingTools.Windows
             this.mButton1.Location = new System.Drawing.Point(668, 2);
             this.mButton1.Name = "mButton1";
             this.mButton1.NoFocus = false;
-            this.mButton1.Size = new System.Drawing.Size(145, 23);
+            this.mButton1.Size = new System.Drawing.Size(145, 28);
             this.mButton1.TabIndex = 4;
             this.mButton1.Text = "LAUNCH EDITOR";
             this.mButton1.UseVisualStyleBackColor = false;

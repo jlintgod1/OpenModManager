@@ -136,6 +136,7 @@ namespace ModdingTools.Windows
             this.mButton4 = new CUFramework.Controls.CUButton();
             this.mButton2 = new CUFramework.Controls.CUButton();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.imageList2 = new System.Windows.Forms.ImageList(this.components);
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconView)).BeginInit();
             this.tabControl2.SuspendLayout();
@@ -561,9 +562,9 @@ namespace ModdingTools.Windows
             this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(151, 202);
+            this.comboBox4.Location = new System.Drawing.Point(158, 202);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(258, 28);
+            this.comboBox4.Size = new System.Drawing.Size(224, 23);
             this.comboBox4.TabIndex = 37;
             // 
             // label14
@@ -1570,6 +1571,12 @@ namespace ModdingTools.Windows
             this.panel14.Size = new System.Drawing.Size(142, 3);
             this.panel14.TabIndex = 40;
             // 
+            // imageList2
+            // 
+            this.imageList2.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imageList2.ImageSize = new System.Drawing.Size(32, 32);
+            this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // ModProperties
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1754,5 +1761,6 @@ namespace ModdingTools.Windows
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ImageList imageList2;
     }
 }

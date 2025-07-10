@@ -32,7 +32,7 @@ namespace ModdingTools.Windows
                 label1.Text = "UNLOCKED";
                 label1.ForeColor = Color.Green;
             }
-            catch (UnauthorizedAccessException ex)
+            catch (UnauthorizedAccessException)
             {
                 label1.Text = "LOCKED";
                 label1.ForeColor = Color.Red;

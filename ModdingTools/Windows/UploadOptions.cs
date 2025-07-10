@@ -405,5 +405,4 @@ namespace ModdingTools.Windows
             }
         }
     }
-
 }

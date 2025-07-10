@@ -51,7 +51,7 @@ namespace ModdingTools.Windows.Tools
             this.mButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(128)))));
             this.mButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mButton1.ForeColor = System.Drawing.Color.White;
-            this.mButton1.Location = new System.Drawing.Point(11, 207);
+            this.mButton1.Location = new System.Drawing.Point(12, 191);
             this.mButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mButton1.Name = "mButton1";
             this.mButton1.NoFocus = false;
@@ -64,10 +64,10 @@ namespace ModdingTools.Windows.Tools
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(12, 259);
+            this.label1.Location = new System.Drawing.Point(12, 242);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(349, 283);
+            this.label1.Size = new System.Drawing.Size(349, 300);
             this.label1.TabIndex = 5;
             // 
             // panel1
@@ -121,7 +121,7 @@ namespace ModdingTools.Windows.Tools
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(11, 175);
+            this.comboBox1.Location = new System.Drawing.Point(12, 158);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(177, 24);
@@ -131,7 +131,7 @@ namespace ModdingTools.Windows.Tools
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 155);
+            this.label3.Location = new System.Drawing.Point(8, 138);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 16);
@@ -145,8 +145,10 @@ namespace ModdingTools.Windows.Tools
             this.comboBox2.Items.AddRange(new object[] {
             "2048",
             "4096",
-            "8192"});
-            this.comboBox2.Location = new System.Drawing.Point(199, 175);
+            "8192",
+            "16384",
+            "32768"});
+            this.comboBox2.Location = new System.Drawing.Point(199, 158);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(161, 24);
@@ -155,7 +157,7 @@ namespace ModdingTools.Windows.Tools
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(196, 155);
+            this.label4.Location = new System.Drawing.Point(195, 138);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(101, 16);
@@ -176,8 +178,7 @@ namespace ModdingTools.Windows.Tools
             // 
             // FlipbookGenerator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(917, 555);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.label4);
