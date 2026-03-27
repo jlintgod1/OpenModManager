@@ -564,7 +564,7 @@ namespace ModdingTools.Windows
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(158, 202);
             this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(224, 23);
+            this.comboBox4.Size = new System.Drawing.Size(224, 28);
             this.comboBox4.TabIndex = 37;
             // 
             // label14
@@ -1593,12 +1593,15 @@ namespace ModdingTools.Windows
             this.Controls.Add(this.mButton2);
             this.Controls.Add(this.btnEditor);
             this.Font = new System.Drawing.Font("Segoe UI Semilight", 9F);
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMaximizeButtonEnabled = false;
+            this.IsMdiContainer = true;
             this.IsResizable = false;
             this.Location = new System.Drawing.Point(0, 0);
             this.MinimumSize = new System.Drawing.Size(824, 532);
             this.Name = "ModProperties";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "-";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ModProperties_FormClosing);
             this.Load += new System.EventHandler(this.ModProperties_Load);

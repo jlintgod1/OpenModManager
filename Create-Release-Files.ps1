@@ -13,14 +13,14 @@ Remove-Item -Path $outputDir\*.* -Force -Recurse
 New-Item -Path $tmpDir -ItemType Directory -ErrorAction Ignore
 Remove-Item -Path $tmpDir\* -Force -Recurse
 
-$ommFiles = Join-Path -Path $dir -Child "ModdingTools.Cli\bin\x64\Release"
-$ommUpdaterFiles = Join-Path -Path $dir -Child "ModdingTools.Updater\bin\x64\Release"
+$ommFiles = Join-Path -Path $dir -Child "ModdingTools.Cli\bin\Release"
+$ommUpdaterFiles = Join-Path -Path $dir -Child "ModdingTools.Updater\bin\Release"
 
 Remove-Item -Force $ommFiles\*
 Remove-Item -Force $ommUpdaterFiles\*
 
 $csproj = Join-Path -Path $dir -Child "OpenModManager.sln"
-& $devenv "$csproj" /build Release
+& $devenv "$csproj" /build "Release|Any CPU"
 
 Write-Host $ommFiles
 Copy-Item -Path $ommFiles\* -Recurse -Destination $tmpDir
